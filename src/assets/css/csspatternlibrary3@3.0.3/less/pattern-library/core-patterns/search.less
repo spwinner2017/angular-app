@@ -1,0 +1,80 @@
+.cpl-scope {
+    // --------------------------------------------- SEARCH BAR -------------- //
+
+    .search-group {
+
+        .filter-selector {
+            margin-right: 4px;
+            background: inherit;
+        }
+
+        .btn-icon {
+            background: linear-gradient(-75deg, #328F8A 10%, #08AC4B 90%);
+            color: @body-bg !important;
+            width: 24px; /* 24px */
+            height: 24px; /* 24px */
+
+            > svg {
+                fill: currentColor;
+                width: 24px; /* 24px */
+                height: 24px; /* 24px */
+                padding: 4px;
+            }
+        }
+        .btn.btn-icon > svg { /* Account for .btn border */
+            width: 22px; /* 64px */
+            height: 22px; /* 64px */
+            padding: 3px;
+        }
+
+        ul {
+            .resetGaps();
+            //min-width: 272px;
+            //background-clip: padding-box;
+
+            li {
+                .fixTransformIssue();
+                .border(0px);
+                padding: 3px 0px;
+                list-style-type: none;
+                line-height: 24px;
+                display: block;
+
+                a {
+                    color: inherit;
+                    text-decoration: none;
+                }
+
+                &:hover {
+                    // background-color: @component-hover-bg;
+                    // color: @component-hover-color;
+                    background-color: @gray-lighter;
+                }
+
+                &.selected,
+                &:focus {
+                    background-color: @brand-primary;
+                    color: @body-bg;
+                }
+            }        
+        }
+
+        .ihs-icon-arrow {
+            .icon-set(12px, inherit, 0px 0px 0px 4px, 0px);
+        }
+        
+    }
+
+    .search-filter {
+        background-color: @body-bg;
+        color: @gray-base;
+        .resetGaps();
+        //min-width: 100px;
+
+        .border-radius(0px);
+        .shadow-set(0 0px 0px rgba(0, 0, 0, .175));
+
+        
+    }
+} // End .cpl-scope
+ 

@@ -1,0 +1,85 @@
+@import "../plugins/bootstrap-treeview.min.less";
+// Assure you are familiar with the small amount of styles in bootstrap-treeview.less and bootstrap-treeview.min.less because 
+//   they are added as embedded styles for the nodes as they are generated in JavaScript (via bootstrap-treeview.js).
+//   Our understanding is this is necessary for older browser support. We hope to remove this concession ASAP.
+//   Thus, this infers that styles changed here that impact the bootstrap-treeview.less also get changed in those 3 files.
+
+.cpl-scope {
+    .treeview {
+        // The .treeview class is intended explicitly for bootstrap-treeview Tree Components.
+
+        &.density-tree, .density-tree {
+            // .density-tree overrides the density (padding) styles of List Groups.
+            li {
+                padding: @spacing-stack-xs @spacing-push-xs;
+            }
+        }
+
+        [data-nodeid*="0."] { // level 1 only, override for other levels
+            font-weight: bold;
+        }
+        [data-nodeid*="0."] > .indent ~ .text { // override for levels 2+
+            font-weight: normal;
+        }
+
+        .icon, svg.icon, svg[class*="brand-icon"], svg[class*="ihs-icon"], svg[class*="icon_"] {
+            width: 12px;
+            height: 12px;
+            display: inline-block;
+            margin-right: 5px;
+
+            // Needed because of inherited 'box-sizing: border-box;' in CPL
+            padding: 1px;
+            position: relative;
+            top: 2px;
+
+            // &.rotate-90, &.rotate-270 {
+            //     padding: 2px 0;
+            // }
+        }
+
+        .glyphicon-plus, .glyphicon-minus, .glyphicon-triangle-bottom, .glyphicon-triangle-right {
+            color: @brand-primary;
+        }
+        
+        svg[class*="brand-icon-arrow"], svg[class*="ihs-icon-arrow"], svg[class*="ihs-icon-checkbox-checked"], svg[class*="ihs-icon-checkbox-halfchecked"] {
+            fill: @brand-primary;
+        }
+
+        svg[class*="ihs-icon-checkbox-unchecked"] {
+            fill: @gray-light;
+        }
+
+        // Assumption - Checkbox Icons are being used like real checkboxes when they have [tabindex]
+        svg[class*="brand-icon-checkbox-"][tabindex], svg[class*="ihs-icon-checkbox-"][tabindex] {
+            padding: 0 !important;
+        }
+
+        .node-selected {
+            [class*="glyphicon-"], .glyphicon-plus, .glyphicon-minus, .glyphicon-triangle-bottom, .glyphicon-triangle-right {
+                color: @body-bg;
+            }
+            
+            svg[class*="brand-icon-"], svg[class*="ihs-icon-"], svg[class*="brand-icon-arrow"], svg[class*="ihs-icon-arrow"] {
+                fill: @body-bg;
+                background-color: @brand-primary;
+            }
+            svg[class*="brand-icon-checkbox-unchecked"], svg[class*="ihs-icon-checkbox-unchecked"] {
+                background-color: @body-bg;
+            }
+        }
+
+        .empty-expand-indent, .indent {
+            margin: 0 @spacing-push-sm;
+            // outline: 1px solid #f90; // debugging
+        }
+        // .indent {outline-color: magenta;} // debugging
+    }
+}
+
+// Extends checkbox styles from forms.less file.
+// .cpl-scope {
+//     .tree {
+
+//     }
+// }

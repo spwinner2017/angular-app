@@ -1,0 +1,59 @@
+.cpl-scope {
+    // ---------------------------------------------- CARDS ----------- //
+
+    .ew-card {
+        min-height: 128px;
+        .border-radius(@border-radius-small); 
+        //background-color: inherit;
+        border-top: 4px solid @brand-info;
+        margin: @padding-xs-vertical;
+        padding: @padding-large-vertical * 2;
+
+        &.version-home {
+            width: 240px;
+        }
+
+        &.version-workspace {
+            width: 336px;
+        }
+
+        h1 {
+            .resetGaps();
+            color: @brand-primary;
+            display: inline-block;
+        }
+
+        hr {
+            border-color: @gray-darker;
+            border-width: 1px;
+        }
+
+        .panel-heading, .panel-body, .panel-footer {
+            background-color: inherit;
+            color: inherit;
+            width: auto;
+            .resetGaps();
+        }
+
+        .panel-body {
+            padding: 8px 0px 32px 0px;
+        }
+
+        .panel-heading {
+            padding: 0px 0px 8px 0px;
+            border-bottom: 1px solid @gray-darker;
+            height: 32px;
+        }
+
+        .panel-footer {
+            border: 0px;
+        }
+
+        .panel {
+            border: 0px solid green;
+            .resetGaps();
+            background-color: inherit;
+            color: inherit;
+        }
+    }
+} // End .cpl-scope

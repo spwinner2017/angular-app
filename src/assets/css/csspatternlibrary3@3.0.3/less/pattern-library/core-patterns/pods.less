@@ -1,0 +1,78 @@
+.cpl-scope {
+    .pod {
+        display: inline-block;
+        background-color: @body-bg;
+        border: 1px solid @gray;
+        border-radius: (@spacing-push - 2);
+        padding: (@spacing-stack-xs - 2) @spacing-push;
+        position: relative;
+
+        &:hover, &:focus {
+            background-color: #D1D2D3;
+        }
+
+        .pod-text {
+            display: inline-block;
+            height: 100%;
+            text-decoration: none;
+        }
+
+        .pod-text:first-child {
+            margin-left: -6px;
+        }
+
+        .pod-text:last-child {
+            margin-right: -6px;
+        }
+
+        > svg[class*="brand-icon"], > svg[class*="ihs-icon"], > svg[class*="ico_"] {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            margin-top: -2px;
+        }
+
+        > svg[class*="brand-icon"]:first-child, > svg[class*="ihs-icon"]:first-child, > svg[class*="ico_"]:first-child {
+            margin-left: -10px;
+        }
+
+        > svg[class*="brand-icon"]:last-child, > svg[class*="ihs-icon"]:last-child, > svg[class*="ico_"]:last-child {
+            margin-right: -10px;
+        }
+
+        > svg.ico_clear {
+           fill: @gray-light;
+
+           &:hover, &.hover, &:focus, &.focus {
+               fill: currentColor;
+           }
+        }
+
+        .badge {
+            margin-top: -2px;
+            padding: 1px 5px;
+        }
+    }
+
+    .pod:hover, .pod:focus {
+        > svg.ico_clear {
+            fill: currentColor;
+        }
+     }
+
+    .pod-success {
+        border-color:  @brand-success;
+    }
+
+    .pod-info {
+        border-color:  @brand-info;
+    }
+
+    .pod-warning {
+        border-color:  @brand-warning;
+    }
+
+    .pod-danger {
+        border-color:  @brand-danger;
+    }
+}

@@ -1,0 +1,140 @@
+.cpl-scope {
+
+    .resetGaps() {
+        padding: 0;
+        margin: 0;
+    }
+
+
+    // --------------------------- MEGA MENU ----------------------- //
+
+    .mega-menu {
+        background-color: @gray-base;
+        color: @IHS-Color-G9;
+        padding: 32px 16px;
+        width: 100%;
+        position: absolute;
+        top: 82px;
+        //display: none;
+        //border: 1px solid orange;
+        z-index: 1000;
+
+        .container {
+            //border: 1px solid yellow;
+            padding-left: 16px;
+        }
+
+        &:hover {
+            display: block;  
+            z-index: 1000;
+        }
+
+        h2 {
+                color: @body-bg;
+                margin-top: -3px;
+        }
+
+        li > a {
+                color: @body-bg;
+                text-decoration: none;
+                display: block;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            .row {
+                .resetGaps();
+                margin-bottom: 16px;
+            }
+
+            .row > ul {
+                .resetGaps();
+            }
+
+            .row > ul > li {
+                .resetGaps();
+                display: inline-block;
+                //border: 1px solid white;
+                width: 295px;
+                margin-bottom: 16px;
+                vertical-align: top;
+                margin-right: 16px;
+                padding: 0px;
+
+                &:last-child {
+                    margin-right: 0px;
+                    //border: 1px solid white;
+                }
+            }
+
+            li {
+                list-style-type:  none;
+            }
+
+            img {
+                padding: 0px 16px 0px 0px;
+                margin: 0px;
+                float: left;
+                border: 0px solid white;
+                margin-bottom: 20px;
+                //display: table-cell;
+            }
+            .list-group {
+                display: table-cell;
+                border: 0px solid yellow;
+                padding: 0px;
+                padding-top: 4px;
+            }
+
+            .menu-icons {
+                background: url(../img/sprites.png) no-repeat;
+                display: inline-block;
+                height: 60px;
+                width: 40px;
+                margin-right: 16px;
+                float: left;
+                border: 0px solid white;
+                margin-bottom: 20px;
+            }
+            #auto-tech {
+                background-position: 0px 0px;
+            }
+            #displays {
+                background-position: -450px 0px;
+            }
+            #enterprise-it {
+                background-position: -367px 0px;
+            }
+            #healthcare-tech {
+                background-position: -326px 0px;
+            }
+            #manufacturing-tech {
+                background-position: -285px 0px;
+            }
+            #teardowns-cost {
+                background-position: -42px 0px;
+            }
+            #mobile-telecom {
+                background-position: -163px 0px;
+            }
+            #mobile-consumer {
+                background-position: -203px 0px;
+            }
+            #power-energy {
+                background-position: -122px 0px;
+            }
+            #security-tech {
+                background-position: -408px 0px;
+            }
+            #semiconductors {
+                background-position: -82px 0px;
+            }
+            #media-advertising {
+                background-position: -243px 0px;
+            }
+
+    }
+
+} // End .cpl-scope

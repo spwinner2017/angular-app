@@ -1,0 +1,243 @@
+.cpl-scope {
+    ////////// Generic Icon Button styles //////////
+    button.btn-icon:not(.btn-default):not(.btn-primary):not(.btn-secondary):not(.btn-success):not(.btn-info):not(.btn-warning):not(.btn-danger):not(.btn-go) { // Reset default html button element styles to match standard button.
+        padding: 0;
+        background-color: transparent;
+        color: @brand-primary;
+        border: none;
+
+        &:hover, &.hover, &:focus, &.focus {
+            color: darken(@brand-primary, 15%);
+        }
+
+        > svg {
+            fill: currentColor;
+        }
+    }
+
+    .btn.btn-icon > svg { // Account for .btn border
+        width: 62px; /* 64px */
+        height: 62px; /* 64px */
+        padding: 15px;
+    }
+
+    .btn-icon {
+        display: inline-block;
+        text-align: center;
+        width: 64px; /* 64px */
+        height: 64px; /* 64px */
+
+        > svg {
+            width: 64px; /* 64px */
+            height: 64px; /* 64px */
+            padding: 16px;
+        }
+        &.has-text > svg {
+            padding: 12px 20px 28px; /* 64px -40px(padding) means icons are 24x24 */
+        }
+        .btn-icon-text {
+            position: relative;
+            float: left;
+            top: -28px;
+            font-size: 10px;
+            width: 100%;
+            text-decoration: inherit;
+        }
+    }
+
+
+
+    .btn.btn-icon {
+        padding: 0;
+    }
+
+
+
+
+
+    ////////// Icon Button Variations //////////
+
+    ///// 48x48 /////
+    .btn-icon.btn-icon-48, .btn-icon.btn-go.btn-lg {
+        display: inline-block;
+        width: 48px; /* 48px */
+        height: 48px; /* 48px */
+    }
+    .btn-icon.btn-go.btn-lg {
+        padding: 0;
+    }
+    .btn-icon.btn-icon-48 > svg, .btn-icon.btn-go.btn-lg > svg {
+        width: 48px; /* 48px */
+        height: 48px; /* 48px */
+        padding: 12px;
+    }
+    .btn.btn-icon.btn-icon-48 > svg, .btn.btn-icon.btn-go.btn-lg > svg { /* Account for .btn border */
+        width: 46px; /* 46px */
+        height: 46px; /* 46px */
+        padding: 11px;
+    }
+
+    ///// 32x32 /////
+    .btn-icon.btn-icon-32 {
+        display: inline-block;
+        width: 32px; /* 32px */
+        height: 32px; /* 32px */
+    }
+    .btn-icon.btn-icon-32 > svg {
+        width: 32px; /* 32px */
+        height: 32px; /* 32px */
+        padding: 8px;
+    }
+    .btn.btn-icon.btn-icon-32 > svg { /* Account for .btn border */
+        width: 30px; /* 64px */
+        height: 30px; /* 64px */
+        padding: 7px;
+    }
+
+    ///// 24x24 /////
+    .btn-icon.btn-icon-24, .btn-icon.btn-go {
+        display: inline-block;
+        width: 24px; /* 24px */
+        height: 24px; /* 24px */
+    }
+    .btn-icon.btn-icon-24 > svg, .btn-icon.btn-go > svg {
+        width: 24px; /* 24px */
+        height: 24px; /* 24px */
+        padding: 4px;
+    }
+    .btn.btn-icon.btn-icon-24 > svg, .btn.btn-icon.btn-go > svg { /* Account for .btn border */
+        width: 22px; /* 64px */
+        height: 22px; /* 64px */
+        padding: 3px;
+    }
+
+    ///// 16x16 /////
+    .btn-icon.btn-icon-16 {
+        display: inline-block;
+        width: 16px; /* 16px */
+        height: 16px; /* 16px */
+    }
+    .btn-icon.btn-icon-16 > svg {
+        width: 16px; /* 16px */
+        height: 16px; /* 16px */
+        padding: 2px;
+    }
+    .btn.btn-icon.btn-icon-16 > svg { /* Account for .btn border */
+        position: relative;
+        top: -2px; /* Not yet sure why this is needed. */
+        width: 14px; /* 64px */
+        height: 14px; /* 64px */
+        padding: 1px;
+    }
+
+    ///// 12x12 /////
+    .btn-icon.btn-icon-12 {
+        display: inline-block;
+        width: 12px; /* 12px */
+        height: 12px; /* 12px */
+    }
+    .btn-icon.btn-icon-12 > svg {
+        width: 12px; /* 12px */
+        height: 12px; /* 12px */
+        padding: 0px;
+    }
+    .btn.btn-icon.btn-icon-12 > svg { /* Account for .btn border */
+        position: relative;
+        top: -4px; /* Not yet sure why this is needed. */
+        width: 10px; /* 64px */
+        height: 10px; /* 64px */
+        padding: 1px;
+    }
+
+    // .btn-icon.btn {}
+    // .btn-icon.btn.btn-default {}
+
+    .btn-primary .btn-icon > svg,
+    .btn-secondary .btn-icon > svg,
+    .btn-success .btn-icon > svg,
+    .btn-info .btn-icon > svg,
+    .btn-warning .btn-icon > svg,
+    .btn-danger .btn-icon > svg,
+    .btn-primary .btn-icon > svg[class*="brand-icon"], .btn-primary .btn-icon > svg[class*="ihs-icon"], .btn-primary .btn-icon > svg[class*="ico_"],
+    .btn-secondary .btn-icon > svg[class*="brand-icon"], .btn-secondary .btn-icon > svg[class*="ihs-icon"], .btn-secondary .btn-icon > svg[class*="ico_"],
+    .btn-success .btn-icon > svg[class*="brand-icon"], .btn-success .btn-icon > svg[class*="ihs-icon"], .btn-success .btn-icon > svg[class*="ico_"],
+    .btn-info .btn-icon > svg[class*="brand-icon"], .btn-info .btn-icon > svg[class*="ihs-icon"], .btn-info .btn-icon > svg[class*="ico_"],
+    .btn-warning .btn-icon > svg[class*="brand-icon"], .btn-warning .btn-icon > svg[class*="ihs-icon"], .btn-warning .btn-icon > svg[class*="ico_"],
+    .btn-danger .btn-icon > svg[class*="brand-icon"], .btn-danger .btn-icon > svg[class*="ihs-icon"], .btn-danger .btn-icon > svg[class*="ico_"],
+    .btn-icon.btn.btn-primary > svg,
+    .btn-icon.btn.btn-secondary > svg,
+    .btn-icon.btn.btn-success > svg,
+    .btn-icon.btn.btn-info > svg,
+    .btn-icon.btn.btn-warning > svg,
+    .btn-icon.btn.btn-danger > svg {
+        fill: #FFF;
+    }
+
+
+
+
+
+
+
+
+    // ------------------------------- BUTTONS ------------------------ //
+    .btn {
+        .button-size(@padding-base-vertical; @padding-base-horizontal; @font-size-base; @line-height-base; @btn-border-radius-base);
+
+        &.btn-xs {
+            .button-size(@padding-xs-vertical; @padding-xs-horizontal; @font-size-small; @line-height-small; @btn-border-radius-small);
+        }
+
+        &.btn-sm {
+            .button-size(@padding-small-vertical; @padding-small-horizontal; @font-size-base; @line-height-base; @btn-border-radius-base);
+        }
+
+        &.btn-lg {
+            .button-size(@padding-large-vertical; @padding-large-horizontal; @font-size-large; @line-height-base; @btn-border-radius-large);
+        }
+
+
+        // &.btn-icon {
+        //     .size-object(24px,24px);
+        //     text-align: center;
+        //     padding: 0px;
+        //     background-color: @gray-darker;
+
+        //     svg[class*="brand-icon"], svg[class*="ihs-icon"] {
+        //         .icon-set(14px, @btn-default-bg, 0px , 0px);
+        //         vertical-align: middle;
+        //     }
+
+        //     &.btn-lg {
+        //     .size-object(48px,48px);
+
+        //     svg[class*="brand-icon"], svg[class*="ihs-icon"] {
+        //         .icon-set(24px, @btn-default-bg, 0px , 0px); 
+        //     }
+        //     }
+        // }
+
+        &.btn-go {
+            background-color: @brand-success; // Custom color?
+                border-color: @brand-success;
+                color: @btn-default-bg;
+
+            &:hover {
+                background-color: @darken-brand-success;
+                border-color: @darken-brand-success;
+                color: @btn-default-bg;
+            }
+
+            &[disabled] {
+                background-color: @brand-success;
+                border-color: @brand-success;
+            }
+
+            &:hover[disabled] {
+                background-color: @brand-success;
+                border-color: @brand-success;
+            }
+        }
+    } // End .btn
+
+} // End .cpl-scope

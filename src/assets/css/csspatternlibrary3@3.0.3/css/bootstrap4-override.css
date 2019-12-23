@@ -1,0 +1,117 @@
+/*!
+ **********
+ * bootstrap4-override
+ * IHS Markit CSS Pattern Library Design System
+ * Copyright 2015-2018 IHS Markit
+ * --------
+ * Overrides necessary to make the CPL compatible with Bootstrap 4
+ */
+:root, html, body {
+  font-size: 0.75rem; }
+
+.cpl-scope .ihs-header.navbar {
+  padding: 0; }
+
+.cpl-scope .ihs-header .brand.pull-left {
+  margin-right: auto;
+  margin-left: 0; }
+
+.cpl-scope .ihs-header .ihs-menu.navbar-nav {
+  flex-direction: row;
+  flex-wrap: wrap; }
+  .cpl-scope .ihs-header .ihs-menu.navbar-nav li.pull-right {
+    margin-left: auto !important; }
+    .cpl-scope .ihs-header .ihs-menu.navbar-nav li.pull-right ~ .pull-right {
+      margin-left: 1px !important; }
+
+.cpl-scope .ihs-header .icon-set.navbar-nav {
+  display: block; }
+  .cpl-scope .ihs-header .icon-set.navbar-nav > .icon-area {
+    box-sizing: content-box; }
+    .cpl-scope .ihs-header .icon-set.navbar-nav > .icon-area > .dropdown-menu {
+      position: absolute; }
+
+.cpl-scope .ihs-header .icon-set > .icon-area:last-child, .cpl-scope .ihs-header .icon-set > .icon-area:last-child:hover {
+  padding-right: 23px; }
+
+.cpl-scope .navbar-fixed-top, .cpl-scope .navbar-fixed-bottom {
+  z-index: 1050; }
+
+.cpl-scope .display-1, .cpl-scope .display-2, .cpl-scope .display-3, .cpl-scope .display-4 {
+  line-height: 1; }
+
+.cpl-scope .alert-dismissible .close {
+  padding: 0 0.33333rem 0 0.66667rem; }
+  .cpl-scope .alert-dismissible .close:not(:disabled):not(.disabled):hover, .cpl-scope .alert-dismissible .close:focus {
+    color: currentColor;
+    fill: currentColor; }
+
+.cpl-scope .dropdown-toggle::after {
+  display: none !important; }
+
+.cpl-scope .dropdown.show, .cpl-scope .dropup.show {
+  display: inline-block !important; }
+
+.cpl-scope .dropdown .dropdown-menu, .cpl-scope .dropdown > .dropdown-menu {
+  position: relative; }
+
+.cpl-scope .dropdown .dropdown-menu {
+  top: 0; }
+
+.cpl-scope .dropdown .dropdown-menu.has-pintail {
+  top: 8px; }
+
+.cpl-scope .dropup .dropdown-menu, .cpl-scope .dropup .dropdown-menu.has-pintail {
+  bottom: auto; }
+
+.cpl-scope .search-group {
+  display: table !important; }
+  .cpl-scope .search-group > * {
+    display: table-cell !important; }
+
+.cpl-scope .search-group .dropdown-menu, .cpl-scope .search-group .dropdown-menu.show, .cpl-scope .search-group.show .dropdown-menu, .cpl-scope .search-group.show .dropdown-menu.show {
+  position: absolute !important; }
+
+.cpl-scope .search-group .dropdown-menu {
+  display: none !important; }
+
+.cpl-scope .search-group.open .dropdown-menu, .cpl-scope .search-group.show .dropdown-menu {
+  display: block !important; }
+
+.cpl-scope .form-inline .checkbox input[type="checkbox"],
+.cpl-scope .form-inline .radio input[type="radio"] {
+  margin-right: 0.66667rem; }
+
+.cpl-scope .fade {
+  transition: opacity .15s linear; }
+  .cpl-scope .fade:not(show) {
+    opacity: 1; }
+
+.cpl-scope .modal .modal-header::before, .cpl-scope .modal .modal-header::after {
+  display: none; }
+
+.cpl-scope .modal .modal-title {
+  order: -1; }
+
+.cpl-scope .modal .modal-1 .modal-content {
+  width: 240px; }
+
+.cpl-scope .modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: #32363B; }
+  .cpl-scope .modal-backdrop.fade {
+    opacity: 0; }
+  .cpl-scope .modal-backdrop.show {
+    opacity: 0.5; }
+
+.cpl-scope .nav-pills.nav-stacked {
+  flex-direction: column; }
+
+.cpl-scope .popover .popover-header {
+  margin-top: 0;
+  font-size: 1.166666666666667rem; }

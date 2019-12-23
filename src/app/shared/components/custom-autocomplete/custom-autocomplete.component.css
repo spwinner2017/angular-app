@@ -1,0 +1,78 @@
+.autocomplete-text {
+    box-sizing: border-box;
+    line-height: 1.42857143;
+    list-style: none;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+  text-overflow: ellipsis;
+    white-space: nowrap;
+   
+}
+
+.base-auto-select-cointainer {
+    min-height: 33px !important;
+    border: 1px solid #ccc;
+    padding: 1px 4px 3px 1px;
+    width: 100%;
+    border-radius: 3px;
+}
+
+.d-inline-flex {
+    display: inline-flex !important;
+}
+
+.selected-item {
+    color: #2d2929;
+    background: #c8c8c8;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: default;
+    margin: 4px 0 0 7px;
+    padding: 1px 7px;
+}
+
+.remove-item {
+    color: #0d0c0c;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.item-input {
+    width: auto;
+    border: none;
+    padding: 6px 0 0 7px;
+}
+.next-item{
+    border: 0.5px solid #e2dfdf;
+    padding: 1px 0px 4px 3px;
+    margin: 3px;
+    border-radius: 5px;
+    width: 73px;
+}
+.w-100{
+    width:100% !important
+}
+.w-auto{
+    width: auto !important
+}
+.width-15{
+ width:90px;
+}
+
+ul {
+    list-style-type:none;
+  margin:0; 
+  padding:0;
+  width:250px; 
+  text-overflow:ellipsis; 
+  white-space:nowrap;
+  overflow:hidden}
+  li {display:inline; margin-right:10px}
+  
+  .item-value{
+    width:40px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }

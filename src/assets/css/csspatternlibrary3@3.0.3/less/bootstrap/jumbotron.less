@@ -1,0 +1,70 @@
+.cpl-scope {
+  //
+  // Jumbotron
+  // --------------------------------------------------
+
+
+  .jumbotron {
+    padding-top:    @jumbotron-padding;
+    padding-bottom: @jumbotron-padding;
+    margin-bottom: @jumbotron-padding;
+    color: @jumbotron-color;
+    background-color: @jumbotron-bg;
+
+    h1,
+    .h1 {
+      color: @jumbotron-heading-color;
+      text-shadow: 0 0 1px #FFF, 0 0 1px #FFF, 0 0 1px #FFF;
+    }
+
+    p {
+      margin-bottom: (@jumbotron-padding / 2);
+      font-size: @jumbotron-font-size;
+      font-weight: 200;
+    }
+
+    .lead {
+      font-size: floor((@font-size-base * 1.4));
+      font-weight: 300;
+  
+      @media (min-width: @screen-sm-min) {
+        font-size: (@font-size-base * 1.5);
+      }
+    }
+  
+    > hr {
+      border-top-color: darken(@jumbotron-bg, 10%);
+    }
+
+    .container {
+      max-width: 100%;
+    }
+
+    @media screen and (min-width: @screen-sm-min) {
+      padding-top:    (@jumbotron-padding * 1.6);
+      padding-bottom: (@jumbotron-padding * 1.6);
+
+      h1,
+      .h1 {
+        font-size: @jumbotron-heading-font-size;
+      }
+    }
+  } // End .jumbotron
+
+  .container .jumbotron,
+  .container-fluid .jumbotron {
+    border-radius: @border-radius-large; // Only round corners at higher resolutions if contained in a container
+    padding-left:  (@grid-gutter-width / 2);
+    padding-right: (@grid-gutter-width / 2);
+  }
+} // End .cpl-scope
+
+@media screen and (min-width: @screen-sm-min) {
+  .cpl-scope {
+    .container .jumbotron,
+    .container-fluid .jumbotron {
+      padding-left:  (@jumbotron-padding * 2);
+      padding-right: (@jumbotron-padding * 2);
+    }
+  } // End .cpl-scope
+}

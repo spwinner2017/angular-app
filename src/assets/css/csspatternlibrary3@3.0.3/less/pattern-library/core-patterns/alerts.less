@@ -1,0 +1,29 @@
+.cpl-scope {
+    // ------------------------------- ALERTS ------------------------ //
+
+    .alert {
+        .border(0px);
+        padding: 8px 8px;
+
+        svg[class*="brand-icon"], svg[class*="ihs-icon"] {
+            .icon-set(@font-size-base + 3, @gray, 0px 4px 0px 0px, 0px);
+            vertical-align: text-bottom;
+        }
+
+    }
+    .alert-dismissable, .alert-dismissible { // 'dismissible' is the correct spelling. 'dismissable' is only added as a common misspelling
+        .close {
+            top: -3px;
+            right: @spacing-push-sm;
+            padding: 0 @spacing-push-xs 0 @spacing-push-sm;
+
+            color: @gray-light; // button element with 'x' text
+            fill: @gray-light; // svg icon
+
+            &:not(:disabled):not(.disabled):hover, &:focus {
+                color: currentColor;
+                fill: currentColor;
+            }
+        }
+    }
+} // End .cpl-scope

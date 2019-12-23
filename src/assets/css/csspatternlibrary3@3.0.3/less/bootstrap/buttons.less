@@ -1,0 +1,379 @@
+.cpl-scope {
+  //
+  // Buttons
+  // --------------------------------------------------
+
+
+  // Base styles
+  // --------------------------------------------------
+
+  .btn {
+    display: inline-block;
+    margin-bottom: 0; // For input.btn
+    font-weight: @btn-font-weight;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+    background-color: transparent;
+    color: @brand-primary;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    .button-size(@padding-base-vertical; @padding-base-horizontal; @font-size-base; @line-height-base; @btn-border-radius-base);
+    .user-select(none);
+
+    &,
+    &:active,
+    &.active {
+      &:focus, &.focus {
+        .focus-normal-style();
+      }
+    }
+
+    &:hover, &.hover,
+    &:focus, &.focus {
+      color: @btn-default-color;
+      text-decoration: none;
+    }
+
+    &:hover, &.hover,
+    &:focus, &.focus {
+      color: darken(@btn-default-color, 10%);
+    }
+
+    &:active,
+    &.active {
+      outline: 0;
+      background-image: none;
+      .box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
+    }
+
+    // &[disabled] attribute overrides &.disabled class
+    //   and disabled state should override all other states
+    &.disabled:not(.btn-link), &[disabled]:not(.btn-link),
+    &.disabled:not(.btn-link):hover, .disabled:not(.btn-link).hover,
+    &.disabled:not(.btn-link):focus, .disabled:not(.btn-link).focus,
+    &.disabled:not(.btn-link):active, .disabled:not(.btn-link).active,
+    &[disabled]:not(.btn-link):hover, &[disabled]:not(.btn-link).hover,
+    &[disabled]:not(.btn-link):focus, &[disabled]:not(.btn-link).focus,
+    &[disabled]:not(.btn-link):active, &[disabled]:not(.btn-link).active {
+      cursor: @cursor-disabled;
+      background-color: @gray-light;
+      color: @body-bg;
+      border-color: @gray-light;
+      // .opacity(.65);
+      .box-shadow(none);
+    }
+
+    // disabled .btn-link
+    //   and standard button 
+    //   (i.e.  .btn without any other valid modifier class like .btn-default, .btn-primary, .btn-success, etc.)
+    &.disabled.btn-link, &[disabled].btn-link,
+    &.disabled.btn-link:hover, .disabled.btn-link.hover,
+    &.disabled.btn-link:focus, .disabled.btn-link.focus,
+    &.disabled.btn-link:active, .disabled.btn-link.active,
+    &[disabled].btn-link:hover, &[disabled].btn-link.hover,
+    &[disabled].btn-link:focus, &[disabled].btn-link.focus,
+    &[disabled].btn-link:active, &[disabled].btn-link.active,
+    &.disabled:not(.btn-default):not(.btn-primary):not(.btn-success):not(.btn-info):not(.btn-warning):not(.btn-danger), &[disabled]:not(.btn-default):not(.btn-primary):not(.btn-success):not(.btn-info):not(.btn-warning):not(.btn-danger),
+    &.disabled:not(.btn-default):not(.btn-primary):not(.btn-success):not(.btn-info):not(.btn-warning):not(.btn-danger):hover, .disabled:not(.btn-default):not(.btn-primary):not(.btn-success):not(.btn-info):not(.btn-warning):not(.btn-danger).hover,
+    &.disabled:not(.btn-default):not(.btn-primary):not(.btn-success):not(.btn-info):not(.btn-warning):not(.btn-danger):focus, .disabled:not(.btn-default):not(.btn-primary):not(.btn-success):not(.btn-info):not(.btn-warning):not(.btn-danger).focus,
+    &.disabled:not(.btn-default):not(.btn-primary):not(.btn-success):not(.btn-info):not(.btn-warning):not(.btn-danger):active, .disabled:not(.btn-default):not(.btn-primary):not(.btn-success):not(.btn-info):not(.btn-warning):not(.btn-danger).active,
+    &[disabled]:not(.btn-default):not(.btn-primary):not(.btn-success):not(.btn-info):not(.btn-warning):not(.btn-danger):hover, &[disabled]:not(.btn-default):not(.btn-primary):not(.btn-success):not(.btn-info):not(.btn-warning):not(.btn-danger).hover,
+    &[disabled]:not(.btn-default):not(.btn-primary):not(.btn-success):not(.btn-info):not(.btn-warning):not(.btn-danger):focus, &[disabled]:not(.btn-default):not(.btn-primary):not(.btn-success):not(.btn-info):not(.btn-warning):not(.btn-danger).focus,
+    &[disabled]:not(.btn-default):not(.btn-primary):not(.btn-success):not(.btn-info):not(.btn-warning):not(.btn-danger):active, &[disabled]:not(.btn-default):not(.btn-primary):not(.btn-success):not(.btn-info):not(.btn-warning):not(.btn-danger).active {
+      cursor: @cursor-disabled;
+      background-color: transparent;
+      color: @gray-light;
+      border-color: transparent;
+      // .opacity(.65);
+      .box-shadow(none);
+    }
+  }
+  fieldset[disabled] .btn {
+    cursor: @cursor-disabled;
+    background-color: @gray-light;
+    color: @body-bg;
+    border-color: @gray-light;
+    // .opacity(.65);
+    .box-shadow(none);
+  }
+  fieldset.disabled .btn.btn-link, fieldset[disabled] .btn.btn-link,
+  fieldset.disabled .btn:not(.btn-default):not(.btn-primary):not(.btn-success):not(.btn-info):not(.btn-warning):not(.btn-danger), fieldset[disabled] .btn:not(.btn-default):not(.btn-primary):not(.btn-success):not(.btn-info):not(.btn-warning):not(.btn-danger) {
+    cursor: @cursor-disabled;
+    background-color: transparent;
+    color: @gray-light;
+    border-color: transparent;
+    // .opacity(.65);
+    .box-shadow(none);
+  }
+
+  a.btn {
+    &.disabled {
+      pointer-events: none; // Future-proof disabling of clicks on `<a>` elements. Todo: Find a better alternative because we should not be controlling the ability to use JavaScript and other behavior via CSS.
+    }
+  }
+  fieldset[disabled] a.btn {
+    pointer-events: none; // Future-proof disabling of clicks on `<a>` elements. Todo: Find a better alternative because we should not be controlling the ability to use JavaScript and other behavior via CSS.
+  }
+
+
+  // Standard buttons
+  // --------------------------------------------------
+  .btn-group > .btn:not(.btn-default) {
+    border-color: rgba(red(@gray), green(@gray), blue(@gray), .1);
+  }
+
+
+  // Alternate buttons
+  // --------------------------------------------------
+
+  .btn-default {
+    .button-variant(@btn-default-color; @btn-default-bg; @btn-default-border);
+  }
+  .open > .dropdown-toggle.btn-default {
+    color: @btn-default-color;
+    background-color: darken(@btn-default-bg, 10%);
+        border-color: darken(@btn-default-border, 12%);
+    background-image: none;
+
+    &:hover,
+    &:focus,
+    &.focus {
+      color: @btn-default-color;
+      background-color: darken(@btn-default-bg, 17%);
+          border-color: darken(@btn-default-border, 25%);
+    }
+  }
+  fieldset[disabled] .btn-default {
+    &:hover,
+    &:focus,
+    &.focus {
+      background-color: @btn-default-bg;
+          border-color: @btn-default-border;
+    }
+  }
+
+  .btn-primary {
+    .button-variant(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
+  }
+  .open > .dropdown-toggle.btn-primary {
+    color: @btn-primary-color;
+    background-color: darken(@btn-primary-bg, 10%);
+        border-color: darken(@btn-primary-border, 12%);
+    background-image: none;
+
+    &:hover,
+    &:focus,
+    &.focus {
+      color: @btn-primary-color;
+      background-color: darken(@btn-primary-bg, 17%);
+          border-color: darken(@btn-primary-border, 25%);
+    }
+  }
+  fieldset[disabled] .btn-primary {
+    &:hover,
+    &:focus,
+    &.focus {
+      background-color: @btn-primary-bg;
+          border-color: @btn-primary-border;
+    }
+  }
+
+  // Success appears as green
+  .btn-success {
+    .button-variant(@btn-success-color; @btn-success-bg; @btn-success-border);
+  }
+  .open > .dropdown-toggle.btn-default {
+    color: @btn-success-color;
+    background-color: darken(@btn-success-bg, 10%);
+        border-color: darken(@btn-success-border, 12%);
+    background-image: none;
+
+    &:hover,
+    &:focus,
+    &.focus {
+      color: @btn-success-color;
+      background-color: darken(@btn-success-bg, 17%);
+          border-color: darken(@btn-success-border, 25%);
+    }
+  }
+  fieldset[disabled] .btn-success {
+    &:hover,
+    &:focus,
+    &.focus {
+      background-color: @btn-success-bg;
+          border-color: @btn-success-border;
+    }
+  }
+
+  // Info appears as blue-green
+  .btn-info {
+    .button-variant(@btn-info-color; @btn-info-bg; @btn-info-border);
+  }
+  .open > .dropdown-toggle.btn-info {
+    color: @btn-info-color;
+    background-color: darken(@btn-info-bg, 10%);
+        border-color: darken(@btn-info-border, 12%);
+    background-image: none;
+
+    &:hover,
+    &:focus,
+    &.focus {
+      color: @btn-info-color;
+      background-color: darken(@btn-info-bg, 17%);
+          border-color: darken(@btn-info-border, 25%);
+    }
+  }
+  fieldset[disabled] .btn-info {
+    &:hover,
+    &:focus,
+    &.focus {
+      background-color: @btn-info-bg;
+          border-color: @btn-info-border;
+    }
+  }
+
+  // Warning appears as orange
+  .btn-warning {
+    .button-variant(@btn-warning-color; @btn-warning-bg; @btn-warning-border);
+  }
+  .open > .dropdown-toggle.btn-warning {
+    color: @btn-warning-color;
+    background-color: darken(@btn-warning-bg, 10%);
+        border-color: darken(@btn-warning-border, 12%);
+    background-image: none;
+
+    &:hover,
+    &:focus,
+    &.focus {
+      color: @btn-warning-color;
+      background-color: darken(@btn-warning-bg, 17%);
+          border-color: darken(@btn-warning-border, 25%);
+    }
+  }
+  fieldset[disabled] .btn-warning {
+    &:hover,
+    &:focus,
+    &.focus {
+      background-color: @btn-warning-bg;
+          border-color: @btn-warning-border;
+    }
+  }
+
+  // Danger and error appear as red
+  .btn-danger {
+    .button-variant(@btn-danger-color; @btn-danger-bg; @btn-danger-border);
+  }
+  .open > .dropdown-toggle.btn-danger {
+    color: @btn-danger-color;
+    background-color: darken(@btn-danger-bg, 10%);
+        border-color: darken(@btn-danger-border, 12%);
+    background-image: none;
+
+    &:hover,
+    &:focus,
+    &.focus {
+      color: @btn-danger-color;
+      background-color: darken(@btn-danger-bg, 17%);
+          border-color: darken(@btn-danger-border, 25%);
+    }
+  }
+  fieldset[disabled] .btn-danger {
+    &:hover,
+    &:focus,
+    &.focus {
+      background-color: @btn-danger-bg;
+          border-color: @btn-danger-border;
+    }
+  }
+
+
+
+  // Link buttons
+  // -------------------------
+
+  // Make a button look and behave like a link
+  .btn-link {
+    color: @link-color;
+    font-weight: normal;
+    border-radius: 0;
+
+    &,
+    &:active,
+    &.active,
+    &[disabled] {
+      background-color: transparent;
+      .box-shadow(none);
+    }
+    &,
+    &:hover,
+    &:focus,
+    &:active {
+      border-color: transparent;
+    }
+    &:hover,
+    &:focus {
+      color: @link-hover-color;
+      text-decoration: @link-hover-decoration;
+      background-color: transparent;
+    }
+    &[disabled] {
+      &:hover,
+      &:focus {
+        color: @btn-link-disabled-color;
+        text-decoration: none;
+      }
+    }
+  }
+  fieldset[disabled] .btn-link {
+    background-color: transparent;
+    .box-shadow(none);
+
+    &:hover,
+    &:focus {
+      color: @btn-link-disabled-color;
+      text-decoration: none;
+    }
+  }
+
+
+  // Button Sizes
+  // --------------------------------------------------
+
+  .btn-lg {
+    // line-height: ensure even-numbered height of button next to large input
+    .button-size(@padding-large-vertical; @padding-large-horizontal; @font-size-large; @line-height-large; @btn-border-radius-large);
+  }
+  .btn-sm {
+    // line-height: ensure proper height of button next to small input
+    .button-size(@padding-small-vertical; @padding-small-horizontal; @font-size-small; @line-height-small; @btn-border-radius-small);
+  }
+  .btn-xs {
+    .button-size(@padding-xs-vertical; @padding-xs-horizontal; @font-size-small; @line-height-small; @btn-border-radius-small);
+  }
+
+
+  // Block button
+  // --------------------------------------------------
+
+  .btn-block {
+    display: block;
+    width: 100%;
+  }
+
+  // Vertically space out multiple block buttons
+  .btn-block + .btn-block {
+    margin-top: 5px;
+  }
+
+  // Specificity overrides
+  input[type="submit"],
+  input[type="reset"],
+  input[type="button"] {
+    &.btn-block {
+      width: 100%;
+    }
+  }
+} // End .cpl-scope

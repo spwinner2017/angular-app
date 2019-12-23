@@ -1,0 +1,28 @@
+.cpl-scope {
+    // ---------------------------------------- SCROLLBARS ----------------------------- //
+
+    // Used for holding content ...
+    .sample-content {    
+        .size-object(800px,200px);
+        .border(0px);
+        margin: 20px;
+
+        .filler {
+            width: 990px;
+            // will need to add or adjust for specs here
+        }
+    }
+
+
+    ///  Our overrides /////
+
+    CSB_scrollTools a + .mCSB_draggerContainer{ margin: 0px 0; } 
+
+    mCSB_scrollTools.mCSB_scrollTools_horizontal a + .mCSB_draggerContainer{ margin: 0 0px; }
+
+    .mCS-dark-3.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar{ background-color: #dbdcde; }
+    /*Dragger dark hover*/
+
+    .mCS-light-3.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar{ background-color: #6d6e70; }
+    /*Dragger gray hover*/
+} // End .cpl-scope

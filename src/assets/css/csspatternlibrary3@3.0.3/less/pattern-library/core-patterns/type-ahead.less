@@ -1,0 +1,59 @@
+.cpl-scope {
+    // ----------------------------- TYPE AHEAD  ------------------------- //
+
+    .twitter-typeahead .tt-query, .twitter-typeahead .tt-hint {
+        margin-bottom: 0;
+        //height: 22px;
+        margin: 0px;
+    }
+
+    span.twitter-typeahead {
+        display: block !important;
+    }
+
+    .tt-input {
+        margin: 0px;
+        //border: 1px solid red;
+    }
+
+
+    // this is the position and width of the dropdown when open
+    div.tt-menu.tt-open {
+        left: -22px !important;
+        min-width: 275px;
+        margin-top: 23px;
+        padding: 0px;
+        background-color: @body-bg;
+        .border(1px, @gray-light);
+        .border-radius(4px);
+        background-clip: padding-box;
+        //max-width: 90%;
+    }
+
+    // this is the stylings for the menu options
+    .tt-suggestion {
+        display: block;
+        padding: 2px 12px;
+        background-color: #fff;
+        line-height: 24px;
+        color: @gray-base;
+
+        &:hover {
+            background-color: @brand-primary;
+            color: #fff;
+        }
+    }
+
+    .tt-suggestion.tt-is-under-cursor {
+        color: #fff;
+        background-color: #428bca;
+    }
+
+    .tt-suggestion.tt-is-under-cursor a {
+        color: #fff;
+    }
+
+    .tt-suggestion p {
+        margin: 0;
+    }
+} // End .cpl-scope

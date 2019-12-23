@@ -1,0 +1,225 @@
+.cpl-scope {
+    ///// Popover Menu styles are intended to match Dropdown Menu styles for consistency. /////
+
+    .popover-header {
+        background-color: @body-bg;
+        border-bottom-color: @gray-light;
+    }
+
+    // The Popover Menu (ul)
+    .popover-menu {
+        // z-index: @zindex-dropdown;
+        min-width: 160px;
+        padding: 5px 0;
+        // margin: 2px 0 0; // override default ul
+        margin: 0 -10px; // override default ul and counter .popover-body built-in padding.
+        list-style: none;
+        font-size: @font-size-base;
+        text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
+        background-color: @dropdown-bg;
+        background-clip: padding-box;
+
+        // Dividers (basically an hr) within the popover-menu
+        .divider {
+            .nav-divider(@dropdown-divider-bg);
+        }
+
+        // Links within the popover menu
+        > li > a {
+            display: block;
+            padding: 3px 20px;
+            clear: both;
+            font-weight: normal;
+            line-height: @line-height-base;
+            color: @dropdown-link-color;
+            white-space: nowrap; // prevent links from randomly breaking onto new lines
+        }
+    }
+
+    // Hover/Focus state
+    .popover-menu > li > a {
+        &:hover {
+            text-decoration: none;
+            // color: @dropdown-link-hover-color;
+            // background-color: @dropdown-link-hover-bg;
+            background-color: @gray-lighter;
+        }
+
+        &.selected,
+        &:focus {
+            text-decoration: none;
+            background-color: @brand-primary;
+            color: @body-bg;
+        }
+    }
+
+    // Active state
+    .popover-menu > .active > a {
+        &,
+        &:hover,
+        &:focus {
+            color: @dropdown-link-active-color;
+            text-decoration: none;
+            outline: 0;
+            background-color: @dropdown-link-active-bg;
+        }
+    }
+
+    // Disabled state
+    //
+    // Gray out text and ensure the hover/focus state remains gray
+
+    .popover-menu > .disabled > a {
+        &,
+        &:hover,
+        &:focus {
+            color: @dropdown-link-disabled-color;
+        }
+
+        // Nuke hover/focus effects
+        &:hover,
+        &:focus {
+            text-decoration: none;
+            background-color: transparent;
+            background-image: none; // Remove CSS gradient
+            .reset-filter();
+            cursor: @cursor-disabled;
+        }
+    }
+
+    ////////// Inverted Popovers //////////
+    .popover-inverted {
+        background-color: @gray-darker;
+        background-color: difference(@body-bg, #FFFFFF);
+        color: @body-bg;
+        // color: difference(@gray-darker, #FFFFFF);
+        border-color: @body-bg;
+        border-color: difference(@gray-darker, #FFFFFF);
+
+        .popover-header {
+            background-color: difference(@body-bg, #FFFFFF);
+            background-color: @gray-darker;
+            color: @body-bg;
+            // color: difference(@gray-darker, #FFFFFF);
+        }
+
+        .popover-body {
+            background-color: difference(@body-bg, #FFFFFF);
+            background-color: @gray-darker;
+            color: @body-bg;
+            // color: difference(@gray-darker, #FFFFFF);
+        }
+
+        ///// Pintail styles /////
+        &.bs-popover-top, &.bs-popover-auto[x-placement^="top"] {
+            .arrow {
+                &::before {
+                    border-top-color: @body-bg;
+                }
+
+                &::after {
+                    border-top-color: @gray-darker;
+                }
+            }
+        }
+        &.bs-popover-right, &.bs-popover-auto[x-placement^="right"] {
+            .arrow {
+                &::before {
+                    border-right-color: @body-bg;
+                }
+
+                &::after {
+                    border-right-color: @gray-darker;
+                }
+            }
+        }
+        &.bs-popover-bottom, &.bs-popover-auto[x-placement^="bottom"] {
+            .arrow {
+                &::before {
+                    border-bottom-color: @body-bg;
+                }
+
+                &::after {
+                    border-bottom-color: @gray-darker;
+                }
+            }
+        }
+        &.bs-popover-left, &.bs-popover-auto[x-placement^="left"] {
+            .arrow {
+                &::before {
+                    border-left-color: @body-bg;
+                }
+
+                &::after {
+                    border-left-color: @gray-darker;
+                }
+            }
+        }
+
+        .popover-menu {
+            background-color: difference(@dropdown-bg, #FFFFFF);
+            background-color: @gray-darker;
+
+            // Dividers (basically an hr) within the popover-menu
+            .divider {
+                .nav-divider(lighten(spin(difference(@dropdown-divider-bg, #FFFFFF), 180), 8%));
+            }
+
+            // Links within the popover menu
+            > li > a {
+                color: difference(@dropdown-link-color, #FFFFFF);
+                color: @body-bg;
+            }
+        }
+
+        // Hover/Focus state
+        .popover-menu > li > a {
+            &:hover {
+                // color: @dropdown-link-hover-color;
+                // background-color: @dropdown-link-hover-bg;
+                background-color: spin(difference(@gray-lighter, #FFFFFF), 180);
+            }
+
+            &.selected,
+            &:focus {
+                // background-color: difference(@brand-primary, #FFFFFF);
+                // background-color: spin(difference(@brand-primary, #FFFFFF), 180);
+                // background-color: desaturate(spin(difference(@brand-primary, #FFFFFF), 180), 50%);
+                background-color: @brand-primary;
+                // color: difference(@body-bg, #FFFFFF);
+                color: @body-bg;
+            }
+        }
+
+        // Active state
+        .popover-menu > .active > a {
+            &,
+            &:hover,
+            &:focus {
+                color: difference(@dropdown-link-active-color, #FFFFFF);
+                background-color: difference(@dropdown-link-active-bg, #FFFFFF);
+            }
+        }
+
+        // Disabled state
+        //
+        // Gray out text and ensure the hover/focus state remains gray
+
+        .popover-menu > .disabled > a {
+            &,
+            &:hover,
+            &:focus {
+                color: difference(@dropdown-link-disabled-color, #FFFFFF);
+            }
+
+            // Nuke hover/focus effects
+            &:hover,
+            &:focus {
+                background-color: transparent;
+                background-image: none; // Remove CSS gradient
+            }
+        }
+
+
+    }
+}

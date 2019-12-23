@@ -1,0 +1,265 @@
+///// RADIUS - 2px default //
+
+/*
+.border-radius-custom ( @top-left: @border-radius-small
+                       ,@top-right: @border-radius-small
+                       ,@bottom-left: @border-radius-small
+                       ,@bottom-right: @border-radius-small
+                      ) {
+    -webkit-border-radius: @top-left @top-right @bottom-right @bottom-left;
+    -moz-border-radius: @top-left @top-right @bottom-right @bottom-left;
+    border-radius: @top-left @top-right @bottom-right @bottom-left;
+}
+*/
+
+.border-radius-custom(@radius: @border-radius-small)  {
+    border-top-left-radius: @radius;
+    border-top-right-radius: @radius;
+    border-bottom-right-radius: @radius;
+    border-bottom-left-radius: @radius;
+}
+
+.border-radius(@radius: @border-radius-small) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    border-radius: @radius;
+}
+
+// Border-radius - top
+.border-radius-top(@radius: 0px;) {
+    border-top-left-radius: @radius;
+    border-top-right-radius: @radius;
+}
+
+// Border-radius- left
+.border-radius-left(@radius) {
+    border-bottom-left-radius: @radius;
+    border-top-left-radius: @radius;
+}
+
+// Border-radius - right
+.border-radius-right(@radius) {
+    border-top-right-radius: @radius;
+    border-bottom-right-radius: @radius;
+}
+
+// Border-radius - bottom
+.border-radius-bottom(@radius: 0px) {
+    border-bottom-right-radius: @radius;
+    border-bottom-left-radius: @radius;
+}
+
+// Border with default size and color
+.border(@size: @standard-border-size, @color: @input-color) {
+    border: @size solid @color;
+}
+
+
+///// SHADOWS
+
+.shadow-set(@shadow-object){
+  -moz-box-shadow:   @shadow-object;
+  -webkit-box-shadow: @shadow-object;
+  box-shadow:         @shadow-object;
+}
+
+/* Mixin */
+.box-shadow(@x: 0px, @y: 3px, @blur: 5px, @alpha: 0.5) {
+  -webkit-box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
+  -moz-box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
+  box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
+}
+
+
+///// TRANSITIONS
+
+.webkit-transition(@property,@duration){
+  -moz-transition-property: @property;
+  -moz-transition-duration: @duration;
+  -webkit-transition-property: @property;
+  -webkit-transition-duration: @duration;
+  transition-property: @property;
+  transition-duration: @duration;
+}
+
+.transition(@prop: all, @time: 1s, @ease: linear) {
+  -webkit-transition: @prop @time @ease;
+  -moz-transition: @prop @time @ease;
+  -o-transition: @prop @time @ease;
+  -ms-transition: @prop @time @ease;
+  transition: @prop @time @ease;
+}
+
+
+///// TRANSFORM
+
+.transform-rotate(@value){
+  -webkit-transform: rotate(@value);
+  -moz-transform: rotate(@value);
+  -o-transform: rotate(@value);
+  transform: rotate(@value);
+  -ms-transform: rotate(@value);
+}
+
+.transform(@rotate: 90deg, @scale: 1, @skew: 1deg, @translate: 10px) {
+  -webkit-transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translate);
+  -moz-transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translate);
+  -o-transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translate);
+  -ms-transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translate);
+  transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translate);
+}
+
+.scale(@factor) {
+  -webkit-transform: scale(@factor);
+  -moz-transform:    scale(@factor);
+  -ms-transform:     scale(@factor);
+  -o-transform:      scale(@factor);
+}
+
+.skew(@deg, @deg2) {
+  -webkit-transform:       skew(@deg, @deg2);
+  -moz-transform:    skew(@deg, @deg2);
+  -ms-transform:     skew(@deg, @deg2);
+  -o-transform:      skew(@deg, @deg2);
+}
+
+.perspective(@value: 1000) {
+  -webkit-perspective:  @value;
+  -moz-perspective:   @value;
+  -ms-perspective:  @value;
+  perspective:    @value;
+}
+
+
+
+///// GRADIENTS
+
+.gradient(@origin: left, @start: #ffffff, @stop: #000000) {
+  background-color: @start;
+  background-image: -webkit-linear-gradient(@origin, @start, @stop);
+  background-image: -moz-linear-gradient(@origin, @start, @stop);
+  background-image: -o-linear-gradient(@origin, @start, @stop);
+  background-image: -ms-linear-gradient(@origin, @start, @stop);
+  background-image: linear-gradient(@origin, @start, @stop);
+}
+
+.quick-gradient(@origin: left, @alpha: 0.2) {
+  background-image: -webkit-linear-gradient(@origin, rgba(0,0,0,0.0), rgba(0,0,0,@alpha));
+  background-image: -moz-linear-gradient(@origin, rgba(0,0,0,0.0), rgba(0,0,0,@alpha));
+  background-image: -o-linear-gradient(@origin, rgba(0,0,0,0.0), rgba(0,0,0,@alpha));
+  background-image: -ms-linear-gradient(@origin, rgba(0,0,0,0.0), rgba(0,0,0,@alpha));
+  background-image: linear-gradient(@origin, rgba(0,0,0,0.0), rgba(0,0,0,@alpha));
+}
+
+
+
+///// REFLECIONS
+
+.reflect(@length: 50%, @opacity: 0.2){
+  -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(@length, transparent), to(rgba(255,255,255,@opacity)));
+}
+
+
+
+///// COLOR MIXINS
+
+/*
+@base: #663333;
+@complement1: spin(@base, 180);
+@complement2: darken(spin(@base, 180), 5%);
+@lighten1: lighten(@base, 15%);
+@lighten2: lighten(@base, 30%);
+
+@lighter1: lighten(spin(@base, 5), 10%);
+@lighter2: lighten(spin(@base, 10), 20%);
+@darker1: darken(spin(@base, -5), 10%);
+@darker2: darken(spin(@base, -10), 20%);
+*/
+
+///// ANIMATIONS
+
+.animation(@name, @duration: 300ms, @delay: 0, @ease: ease) {
+  -webkit-animation: @name @duration @delay @ease;
+  -moz-animation:    @name @duration @delay @ease;
+  -ms-animation:     @name @duration @delay @ease;
+}
+
+.opacity(@opacity: 0.5) {
+  -webkit-opacity:  @opacity;
+  -moz-opacity:     @opacity;
+  opacity:    @opacity;
+}
+
+///// OBJECTS
+
+// Make an object square, rectangle, etc
+.size-object(@width, @height) {
+   width: @width;
+   height: @height;
+}
+
+// Set Font Object
+.font-set(@font-family: @font-family-base,@font-size,@font-color){
+  font-family: @font-family;
+  font-size: @font-size;
+  color: @font-color;
+}
+
+// Create/Set Icon Object
+.icon-set(@icon-size:@font-size-base + 2, @icon-color:@gray, @margin, @padding: 0px){
+  display: inline-block;
+  width: @icon-size;
+  height: @icon-size;
+  //font-size: @icon-size;
+  margin: @margin;
+  padding: @padding;
+  fill: @icon-color;
+  color: @icon-color;
+  stroke: @icon-color;
+  outline: @icon-color;
+  stroke-width: 0px;
+}
+
+.cpl-scope {
+  .icon-font {
+      font-family: 'IHS-Icons';  // No Longer Used, switched to SVG's 4/21/2017
+      speak: none;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+  }
+} // End .cpl-scope
+
+.object-create(  @width
+                ,@height
+                ,@margin: 0px
+                ,@padding: @padding-base-vertical @padding-base-horizontal
+                ,@border-size: @standard-border-size
+                ,@border-color
+                ,@border-radius: @border-radius-base
+                ,@font-family: @font-family-base
+                ,@font-size: @font-size-body
+                ,@font-color: @text-color
+                ,@background-color: @body-bg
+                ) {
+
+// Building an Object
+// width: @width;
+// height: @height;
+// border: @border;
+// font-size: @font-size;
+// color: @font-color;
+
+  .size-object(@width,@height);
+  .border(@border-size,@border-color);
+  .border-radius(@border-radius);
+  .font-set(@font-family,@font-size,@font-color);
+  margin: @margin;
+  padding: @padding;
+  background-color: @background-color;
+
+// has icon (span) @icon;
+// :hover {background-color: @hover-bg-color};
+}

@@ -1,0 +1,24 @@
+.cpl-scope {
+    svg[class*="brand-icon"], svg[class*="ihs-icon"], svg[class*="ico_"] {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        stroke-width: 0;
+        stroke: currentColor;
+        fill: currentColor;
+        // pointer-events: none; Don't ever do this except on disabled elements!!!
+
+        // * {
+        //     pointer-events: none;
+        // }
+
+        &:hover {
+        color: inherit;
+        }
+
+        &.icon-inline {
+            width: 10px;
+            height: 10px;
+        }
+    }
+} // End .cpl-scope

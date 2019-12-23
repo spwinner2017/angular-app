@@ -1,0 +1,78 @@
+@link-color: #0271BB;
+@link-hover-color: #0271BB;
+
+@gray-base: #32363B ; // Darkest color. Closest to black we offer. Use instead of black. Remember that @text-color = @gray-darker
+
+/* Deprecated 
+@gray-darker: lighten(@gray-base, 13.5%);
+@gray-dark: lighten(@gray-base, 20%);
+@gray: lighten(@gray-base, 33.5%);
+@gray-light: lighten(@gray-base, 50%);
+@gray-lighter: lighten(@gray-base, 70%);
+*/
+@gray-darker: #32363B;
+@gray-dark: #53575C;
+@gray: #84888D;
+@gray-light: #C1C5CA;
+@gray-lighter: #EAEEF3;
+
+@brand-primary: #009596;
+@brand-primary-dark: #007778;
+@brand-primary-light: #1FB5B6;
+
+/* Gradients have 2+ colors so numbering them 01, 02, etc.
+    linear-gradient(-45deg, #00B140, #009596)
+*/
+@brand-gradient-01: #00B140;
+@brand-gradient-02: #009596;
+
+@brand-gradient-dark-01: #009221;
+@brand-gradient-dark-02: #007778;
+
+@brand-gradient-light-01: #1FD05F;
+@brand-gradient-light-02: #1FB5B6;
+
+
+/* As success, info, warning, and danger are not really specific to our brand - shouldn't we change these to something like @color-success etc. */
+@brand-success-dark: #6EA720;
+@brand-success: #8DC63F;
+@brand-success-light: #ACE55E;
+
+@brand-info-dark: #0096D2;
+@brand-info: #00B5F1;
+@brand-info-light: #1FD4FF;
+
+@brand-warning-dark: #D87500;
+@brand-warning: #F7941D;
+@brand-warning-light: #FFB33C;
+
+@brand-danger-dark: #B00015;
+@brand-danger: #CF1034;
+@brand-danger-light: #EE2F53;
+
+@label-info-bg: @brand-info-dark;
+
+@state-success-bg: lighten(@brand-success-light, 20%);
+@state-info-bg: lighten(@brand-info-light, 30%);
+@state-warning-bg: lighten(@brand-warning-light, 20%);
+@state-danger-bg: lighten(@brand-danger-light, 33.5%);
+
+
+@component-hover-bg: @gray-lighter;
+
+@input-border-focus-visible: @brand-secondary;
+
+
+////////// Unique to IHSM theme //////////
+@brand-secondary: #00993E;
+@brand-secondary-dark: darken(@brand-secondary, 12%);
+@brand-secondary-light: lighten(@brand-secondary, 12%);
+
+@gray-bg: #F0F1F2; // Special use - just as a background-color
+@gray-action: #4C4B4C; // Special use - just on elements that indicate user actions
+
+@state-success-text: @brand-success-dark;
+@state-warning-text: @brand-warning;
+@state-danger-text: @brand-danger;
+
+@jumbotron-heading-color: @brand-secondary;

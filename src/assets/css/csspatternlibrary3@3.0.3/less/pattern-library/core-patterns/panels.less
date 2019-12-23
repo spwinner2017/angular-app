@@ -1,0 +1,182 @@
+.cpl-scope {
+    // ------------------------------------------ PANELS and WELLS ---------------------- //
+
+    .ew-messaging-inline {
+        color: @gray-base;
+    }
+
+    .panel.tabs-offset {
+        margin-top: 33px;
+
+        &.panel-default {
+            .nav-tabs {
+                border-bottom-color: @gray-light;
+
+                li.active {
+                    border-color: @gray-light;
+                    border-bottom-color: transparent;
+                }
+            }
+        }
+
+        &.panel-primary {
+            .nav-tabs {
+                border-bottom-color: @brand-primary;
+
+                li.active {
+                    border-color: @brand-primary;
+                    border-bottom-color: transparent;
+                }
+            }
+        }
+
+        &.panel-info {
+            .nav-tabs {
+                border-bottom-color: @brand-info;
+
+                li.active {
+                    border-color: @brand-info;
+                    border-bottom-color: transparent;
+                }
+            }
+        }
+
+        &.panel-success {
+            .nav-tabs {
+                border-bottom-color: @brand-success;
+
+                li.active {
+                    border-color: @brand-success;
+                    border-bottom-color: transparent;
+                }
+            }
+        }
+
+        &.panel-warning {
+            .nav-tabs {
+                border-bottom-color: @brand-warning;
+
+                li.active {
+                    border-color: @brand-warning;
+                    border-bottom-color: transparent;
+                }
+            }
+        }
+
+        &.panel-danger {
+            .nav-tabs {
+                border-bottom-color: @brand-danger;
+
+                li.active {
+                    border-color: @brand-danger;
+                    border-bottom-color: transparent;
+                }
+            }
+        }
+    }
+
+
+    // ------------------------------------------- PANELS II COLORED AND INFO  -------------- //
+
+    .info-panel {
+        background-color: @body-bg;
+        padding: 16px;
+        position: relative;
+
+        .border(1px, @gray-light);
+        .border-radius(2px);
+
+        display: inline-block;
+        width: 100%;
+
+        h1,h2 {
+        color: @brand-primary;
+        }
+
+        span {
+            float: left;
+            .icon-set(48px, @gray, 0px, 0px 16px 0px 0px);
+        }
+
+        svg[class*="brand-icon"], svg[class*="ihs-icon"] {
+            float: left;
+            .icon-set(48px, @gray, 0px, 0px 16px 0px 0px);
+        }
+
+        ul {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+
+            li {
+                display: inline-block;
+            }
+        }
+
+        p {
+            margin-bottom: 0px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+
+    }
+
+    .panel-green {
+        border-color: #5cb85c;
+
+        .panel-heading {
+            border-color: #5cb85c;
+            color: #fff;
+            background-color: #5cb85c;
+        }
+
+        a {
+            color: #5cb85c;
+        }
+
+        a:hover {
+            color: #3d8b3d;
+        }
+    }
+
+    .panel-red {
+        border-color: #d9534f;
+
+        .panel-heading {
+            border-color: #d9534f;
+            color: #fff;
+            background-color: #d9534f;
+        }
+
+        a {
+            color: #d9534f;
+        }
+
+        a:hover {
+            color: #b52b27;
+        }
+    }
+
+    .panel-yellow {
+        border-color: #f0ad4e;
+
+
+        .panel-heading {
+            border-color: #f0ad4e;
+            color: #fff;
+            background-color: #f0ad4e;
+        }
+
+        a {
+            color: #f0ad4e;
+        }
+
+        a:hover {
+            color: #df8a13;
+        }
+    }
+} // End .cpl-scope

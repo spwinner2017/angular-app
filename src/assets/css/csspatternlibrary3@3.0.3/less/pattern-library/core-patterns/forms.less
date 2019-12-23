@@ -1,0 +1,751 @@
+// Many focus and focus-visible styles also come from .../src/less/bootstrap/mixins/tab-focus.less
+
+.js-focus-visible .cpl-scope {
+    // Per Mike Heinrich - Focus styles should not be applied generically across the board except to remove outlines.
+    // // This will hide the focus indicator if the element receives focus via the mouse,
+    // // but it will still show up on keyboard focus.
+    :focus:not(.focus-visible) {
+        outline: none;
+        //.focus-normal-style();
+    }
+
+    // // Optionally: Define a strong focus indicator for keyboard focus.
+    // // If you choose to skip this step then the browser's default focus
+    // // indicator will be displayed instead.
+    // .focus-visible {
+    //     .focus-visible-style();
+    // }
+}
+
+
+.cpl-scope {
+    // Per Mike Heinrich - Focus styles should not be applied generically across the board except to remove outlines.
+    // // This will hide the focus indicator if the element receives focus via the mouse,
+    // // but it will still show up on keyboard focus.
+    .js-focus-visible :focus:not(.focus-visible), &.js-focus-visible :focus:not(.focus-visible) {
+        outline: none;
+        //.focus-normal-style();
+    }
+
+    // // Optionally: Define a strong focus indicator for keyboard focus.
+    // // If you choose to skip this step then the browser's default focus
+    // // indicator will be displayed instead.
+    // .js-focus-visible .focus-visible, &.js-focus-visible .focus-visible {
+    //     .focus-visible-style();
+    // }
+
+
+    .form-control {
+        padding: @padding-base-vertical @padding-small-horizontal;
+    }
+
+
+    label { 
+        font-weight: normal;
+        //padding: 4px 4px 4px 0px;
+        margin: 0px;
+    }
+
+    select {
+        border-color: @gray-light;
+        border-radius: 2px;
+
+        &.form-control, &.highlight {
+            padding: 0;
+
+            &:focus {
+                .focus-normal-style();
+            }
+            // &:-moz-focusring {
+            //     .focus-visible-style();
+            // }
+            // &:focus-visible {
+            //     .focus-visible-style();
+            // }
+            &.focus-visible {
+                .focus-visible-style();
+            }
+
+            option {
+                padding: 3px 8px;
+            }
+
+            // Hacky - Because many browsers do not apply styles correctly to selects, options, and many other HTML inputs we must apply inset box-shadows to get the desired background-color effect.
+            option:hover { // :hover must be defined before :checked, :focus, and :active or some odd things happen.
+                background-color: @gray-lighter;
+                box-shadow: 0 0 1px 100px @gray-lighter inset;
+                color: @gray-darker;
+            }
+        
+            option:checked { // :checked psuedo state is similar to :active in some ways
+                background-color: @brand-primary;
+                box-shadow: 0 0 1px 100px @brand-primary inset;
+                color: @body-bg;
+            }
+    
+            option:focus {
+                background-color: @brand-primary;
+                box-shadow: 0 0 1px 100px @brand-primary inset;
+                color: @body-bg;
+            }
+    
+            option:active {
+                background-color: @brand-primary;
+                box-shadow: 0 0 1px 100px @brand-primary inset;
+                color: @body-bg;
+            }
+        } 
+
+        // Single select
+        &:not([multiple]) {
+            background: #FFF url('../img/ico_expandAll_48x48.png') no-repeat;
+            background-position: right 4px top 6px; 
+            background-size: 9px 9px;
+
+            // The following removes the "font-color caret" that displays over the top of our intended "ico_expandAll_48x48.png" image (in webkit and moz browsers). Sadly this necessitates putting back in some of the styles it removes.
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            -ms-appearance: none;
+            appearance: none;
+            padding-left: 8px;
+            -moz-padding-start: 3px;
+            
+            // Target only the single select html elements that have a size attribute defined.
+            &[size] {
+                height: auto;
+                padding-left: 0;
+
+                > option {
+                    border-bottom: 1px solid transparent;
+                    padding-left: 8px;
+
+                    // Great idea but causes problems with hover and keyboard navigation. Keep because it is the first thing I've found that actually overrides the browser's default blue background with white text.
+                    // &:nth-of-type(3n+2) {
+                    //     background: linear-gradient(-90deg, #F8F9FA, #FFF);
+                    // }
+                }
+            }
+
+        }
+
+        &.input-lg:not([multiple]) {
+            background-position: right 4px top 15px;
+        }
+
+        &.input-sm:not([multiple]) {
+            background-position: right 4px top 1px;
+        }
+
+        option:focus {
+            background-color: @brand-primary;
+        }
+
+
+        &[multiple] {
+            > option {
+                border-bottom: 1px solid transparent;
+
+                // Great idea but causes problems with hover and keyboard navigation. Keep because it is the first thing I've found that actually overrides the browser's default blue background with white text.
+                // &:nth-of-type(3n+2) {
+                //     background: linear-gradient(-90deg, #F8F9FA, #FFF);
+                // }
+            }
+
+        }
+    }
+
+    // Long list selects need zebra styles.
+    select.long {
+
+        // Single select
+        &:not([multiple]) {
+            
+            // Target only the single select html elements that have a size attribute defined.
+            &[size] {
+
+                > option {
+                    border-bottom: 1px solid #F8F9FA;
+                    padding-left: 8px;
+
+                    // zebra effect
+                    // &:nth-of-type(3n+1), &:nth-of-type(3n+2) {
+                    //     border-bottom-color: #F8F9FA;
+                    // }
+                    // Great idea but causes problems with hover and keyboard navigation. Keep because it is the first thing I've found that actually overrides the browser's default blue background with white text.
+                    // &:nth-of-type(3n+2) {
+                    //     background: linear-gradient(-90deg, #F8F9FA, #FFF);
+                    // }
+                    // &:nth-of-type(3n+3) {
+                    //     border-bottom-color: #F1F2F3;
+                    // }
+                    
+                    &:nth-of-type(2n):hover {
+                        background: @gray-lighter;
+                        color: @gray-darker !important;
+                    }
+                    &:nth-of-type(2n):focus {
+                        background: linear-gradient(-90deg, @brand-primary, @brand-primary); ;
+                    }
+                }
+            }
+
+            // Also zebra effect
+            option:nth-of-type(2n):before {
+                content: 'VVVV';
+                font-size: 1px;
+                display: block;
+                margin: -3px -8px -18px;
+                color: transparent !important;
+                height: 21px;
+                background: linear-gradient(-90deg, rgba(242,243,244,.45), transparent);
+            }
+
+            &.input-lg option:nth-of-type(2n):before {
+                margin: -3px -8px -20px;
+                height: 23px;
+            }
+
+            &.input-sm option:nth-of-type(2n):before {
+                margin: -3px -8px -15px;
+                height: 18px;
+            }
+            
+            // option:nth-of-type(2n):after {
+            //     content: '****';
+            //     font-size: 1px;
+            //     display: block;
+            //     // margin-top: 16px !important;
+            //     margin: 0 -8px -3px;
+            //     color: #F00 !important;
+            //     // width: 100%;
+            //     height: 32px;
+            //     background-color: #F90;
+            //     background: linear-gradient(-90deg, rgba(248,249,250,.8), transparent);
+            // }
+        }
+
+        &.input-lg:not([multiple]) {
+            background-position: right 4px top 15px;
+        }
+
+        &.input-sm:not([multiple]) {
+            background-position: right 4px top 1px;
+        }
+
+
+        &[multiple] {
+            > option {
+                border-bottom: 1px solid #F8F9FA;
+
+                // zebra effect
+                // &:nth-of-type(3n+1), &:nth-of-type(3n+2) {
+                //     border-bottom-color: #F8F9FA;
+                // }
+                // Great idea but causes problems with hover and keyboard navigation. Keep because it is the first thing I've found that actually overrides the browser's default blue background with white text.
+                // &:nth-of-type(3n+2) {
+                //     background: linear-gradient(-90deg, #F8F9FA, #FFF);
+                // }
+                // &:nth-of-type(3n+3) {
+                //     border-bottom-color: #F1F2F3;
+                // }
+                
+                &:nth-of-type(2n):hover {
+                    background: @gray-lighter;
+                }
+                &:nth-of-type(2n):focus {
+                    background: linear-gradient(-90deg, @brand-primary, @brand-primary); ;
+                }
+            }
+
+            // Also zebra effect
+            option:nth-of-type(2n):before {
+                content: 'VVVV';
+                font-size: 1px;
+                display: block;
+                margin: -3px -8px -18px;
+                color: transparent !important;
+                height: 21px;
+                background: linear-gradient(-90deg, rgba(242,243,244,.45), transparent);
+            }
+
+            &.input-lg option:nth-of-type(2n):before {
+                margin: -3px -8px -20px;
+                height: 23px;
+            }
+
+            &.input-sm option:nth-of-type(2n):before {
+                margin: -3px -8px -15px;
+                height: 18px;
+            }
+        }
+
+    }
+
+    /* IE11 */
+    select::-ms-expand {
+        display: none;
+    }
+
+    select:focus {
+        .focus-normal-style();
+    }
+    // select:-moz-focusring {
+    //     .focus-visible-style();
+    // }
+    // select:focus-visible {
+    //     .focus-visible-style();
+    // }
+    select.focus-visible {
+        .focus-visible-style();
+    }
+
+    .form-group-lg {
+        select[multiple].input-lg {
+            padding: 0;
+
+            > option {
+                padding: 3px 15px;
+
+                &:before {
+                    margin: -3px -15px -22px;
+                    height: 25px;
+                }
+            }
+        }
+
+        select:not([multiple])[size] {
+            padding: 0;
+
+            > option {
+                padding: 3px 15px;
+            }
+
+            &.input-lg > option:nth-of-type(2n):before {
+                margin: -3px -15px -22px;
+                height: 25px;
+            }
+        }
+
+        select.long:not([multiple])[size] {
+
+            &.input-lg > option:nth-of-type(2n):before {
+                margin: -3px -15px -22px;
+                height: 25px;
+            }
+        }
+
+    }
+
+
+    .form-group-sm {
+        select[multiple].input-sm {
+            padding: 0;
+        }
+
+        select:not([multiple])[size] {
+            padding: 0;
+        }
+
+    }
+    
+
+    .input-group-addon {
+        //font-size: 14px;
+        color: @gray;
+        padding: 2px @spacing-push-sm;
+        // height: 24px;
+        .border-radius-right(@border-radius-base);
+
+        &.btn {
+            font-weight: normal;
+        }
+
+        &:hover {
+            background-color: inherit;
+            color: @gray-darker;
+            cursor: pointer;
+        }
+
+        svg[class*="brand-icon"], svg[class*="ihs-icon"] {
+            width: 14px;
+            height: 14px;
+            margin-top: 2px;
+        }
+    }
+
+
+    .radio input[type="radio"],
+    .radio-inline input[type="radio"],
+    .checkbox input[type="checkbox"],
+    .checkbox-inline input[type="checkbox"] {
+        margin-left: 0px;
+        vertical-align: text-bottom;
+        margin-top: 2px;
+        margin-top: 1px \9; // IE8-10
+    }
+
+    .radio label > input[type="radio"],
+    .radio-inline label > input[type="radio"],
+    .checkbox label > input[type="checkbox"],
+    .checkbox-inline label > input[type="checkbox"] {
+        position: absolute;
+        margin-left: -20px;
+        margin-top: 4px \9; // IE8-10
+    }
+
+    .checkbox.col label > input[type="checkbox"],
+    .checkbox[class^="col-"] label > input[type="checkbox"] {
+        margin-left: -20px;
+    }
+
+    .checkbox label > input[type="checkbox"],
+    .checkbox-inline label > input[type="checkbox"],
+    .checkbox label > input[type="checkbox"],
+    form .checkbox.col label > input[type="checkbox"],
+    form .checkbox[class^="col-"] label > input[type="checkbox"],
+    .checkbox-inline label > input[type="checkbox"]  {
+        margin-left: -19px;
+    }
+
+
+    input[type="radio"],
+    input[type="checkbox"] {
+        margin: 2px 0 0;
+        margin-top: 1px \9; // IE8-10
+        vertical-align: text-bottom;
+    }
+
+    input[type="checkbox"], input[type="checkbox"] + .checkmark,
+    [class*="brand-icon-checkbox-"][tabindex], [class*="ihs-icon-checkbox-"][tabindex] {
+        width: 12px;
+        height: 12px;
+        background-color: @body-bg;
+        box-shadow: 0 0 1px 100px @body-bg inset;
+        outline: 1.5px solid @gray-light;
+    }
+
+    label[disabled] {
+        color: @gray-light;
+    }
+    input[type="checkbox"][disabled], input[type="checkbox"][disabled] + .checkmark,
+    [class*="brand-icon-checkbox-"][tabindex][disabled], [class*="ihs-icon-checkbox-"][tabindex][disabled] {
+        background-color: @gray-lighter;
+        box-shadow: 0 0 1px 100px @gray-lighter inset;
+        outline: 1.5px solid @gray-light;
+    }
+
+    .form-inline {
+        
+        .radio input[type="radio"] {
+            margin-top: @spacing-stack-zero;
+        }
+
+        .radio + .radio,
+        .checkbox + .checkbox {
+            margin-left: @spacing-push;
+        }
+
+        input[type="checkbox"], input[type="checkbox"] + .checkmark,
+        [class*="brand-icon-checkbox-"][tabindex], [class*="ihs-icon-checkbox-"][tabindex] {
+            top: -1px;
+            left: 1px;
+        }
+    }
+
+    input[type="checkbox"]:focus, input[type="checkbox"]:focus + .checkmark,
+    input[type="checkbox"].focus, input[type="checkbox"].focus + .checkmark,
+    .js-focus-visible input[type="checkbox"]:focus, .js-focus-visible input[type="checkbox"]:focus + .checkmark,
+    &.js-focus-visible input[type="checkbox"]:focus, &.js-focus-visible input[type="checkbox"]:focus + .checkmark,
+    [class*="brand-icon-checkbox-"][tabindex]:focus, [class*="ihs-icon-checkbox-"][tabindex]:focus,
+    [class*="brand-icon-checkbox-"][tabindex].focus, [class*="ihs-icon-checkbox-"][tabindex].focus {
+        .focus-normal-style();
+        background-color: @body-bg;
+        box-shadow: inset 0 0 1px 100px @body-bg, inset 0 1px 1px rgba(0,0,0,.075), 0 0 4px rgba(red(@input-border-focus), green(@input-border-focus), blue(@input-border-focus), .6);
+        outline: 1.5px solid @gray-darker;
+    }
+    // Using the upcoming CSS 4 psuedo state of :focus-visible, see https://github.com/wicg/focus-visible
+    // Browsers choke if you try to combine these next 3 sets of selectors. We like our custom implementation of 'focus-visible' better anyway.
+    // input[type="checkbox"]:-moz-focusring, input[type="checkbox"]:-moz-focusring + .checkmark {
+    //     .focus-visible-style();
+    // }
+    // input[type="checkbox"]:focus-visible, input[type="checkbox"]:focus-visible + .checkmark {
+    //     .focus-visible-style();
+    // }
+    input[type="checkbox"].focus-visible, input[type="checkbox"].focus-visible + .checkmark,
+    .js-focus-visible input[type="checkbox"].focus-visible, .js-focus-visible input[type="checkbox"].focus-visible + .checkmark,
+    &.js-focus-visible input[type="checkbox"].focus-visible, &.js-focus-visible input[type="checkbox"].focus-visible + .checkmark,
+    [class*="brand-icon-checkbox-"][tabindex].focus-visible, [class*="ihs-icon-checkbox-"][tabindex].focus-visible {
+        .focus-visible-checkbox-style();
+    }
+
+    input[type="checkbox"] + .checkmark {
+        display: inline-block;
+        position: absolute;
+        top: 2px;
+        left: 0px;
+        pointer-events: none;
+    }
+    form input[type="checkbox"] + .checkmark {
+        left: 1px;
+    }
+    .form-horizontal input[type="checkbox"] + .checkmark {
+        top: 2px;
+    }
+
+    input[type="checkbox"]:checked, input[type="checkbox"]:checked + .checkmark,
+    input[type="checkbox"].indeterminate, input[type="checkbox"].indeterminate + .checkmark,
+    .js-focus-visible input[type="checkbox"]:checked, .js-focus-visible input[type="checkbox"]:checked + .checkmark,
+    &.js-focus-visible input[type="checkbox"]:checked, &.js-focus-visible input[type="checkbox"]:checked + .checkmark,
+    [class*="brand-icon-checkbox-checked"][tabindex], [class*="ihs-icon-checkbox-checked"][tabindex],
+    [class*="brand-icon-checkbox-halfchecked"][tabindex], [class*="ihs-icon-checkbox-halfchecked"][tabindex] {
+        background-color: @brand-primary;
+        box-shadow: inset 0 0 1px 100px @brand-primary;
+        outline: 1px solid @brand-primary;
+    }
+
+    input[type="checkbox"]:checked:focus, input[type="checkbox"]:checked:focus + .checkmark,
+    input[type="checkbox"]:checked.focus, input[type="checkbox"]:checked.focus + .checkmark,
+    input[type="checkbox"].indeterminate:focus, input[type="checkbox"].indeterminate:focus + .checkmark,
+    input[type="checkbox"].indeterminate.focus, input[type="checkbox"].indeterminate.focus + .checkmark,
+    .js-focus-visible input[type="checkbox"]:checked:focus, .js-focus-visible input[type="checkbox"]:checked:focus + .checkmark,
+    &.js-focus-visible input[type="checkbox"]:checked:focus, &.js-focus-visible input[type="checkbox"]:checked:focus + .checkmark,
+    [class*="brand-icon-checkbox-checked"][tabindex]:focus, [class*="ihs-icon-checkbox-checked"][tabindex]:focus,
+    [class*="brand-icon-checkbox-checked"][tabindex].focus, [class*="ihs-icon-checkbox-checked"][tabindex].focus,
+    [class*="brand-icon-checkbox-halfchecked"][tabindex]:focus, [class*="ihs-icon-checkbox-halfchecked"][tabindex]:focus,
+    [class*="brand-icon-checkbox-halfchecked"][tabindex].focus, [class*="ihs-icon-checkbox-halfchecked"][tabindex].focus {
+        background-color: @brand-primary;
+        box-shadow: inset 0 0 1px 100px @brand-primary, inset 0 1px 1px rgba(0,0,0,.075), 0 0 4px rgba(red(@input-border-focus), green(@input-border-focus), blue(@input-border-focus), .6);
+        outline: 1.5px solid @gray-darker;
+    }
+
+    input[type="checkbox"]:checked.focus-visible, input[type="checkbox"]:checked.focus-visible + .checkmark,
+    input[type="checkbox"].indeterminate.focus-visible, input[type="checkbox"].indeterminate.focus-visible + .checkmark,
+    .js-focus-visible input[type="checkbox"]:checked.focus-visible, .js-focus-visible input[type="checkbox"]:checked.focus-visible + .checkmark,
+    &.js-focus-visible input[type="checkbox"]:checked.focus-visible, &.js-focus-visible input[type="checkbox"]:checked.focus-visible + .checkmark,
+    [class*="brand-icon-checkbox-checked"][tabindex].focus-visible, [class*="ihs-icon-checkbox-checked"][tabindex].focus-visible,
+    [class*="brand-icon-checkbox-halfchecked"][tabindex].focus-visible, [class*="ihs-icon-checkbox-halfchecked"][tabindex].focus-visible {
+        .focus-visible-checkbox-checked-style();
+    }
+
+    // The white checkmark is simulated using a rotated border.
+    input[type="checkbox"]:checked::before, input[type="checkbox"]:checked + .checkmark::before,
+    [class*="brand-icon-checkbox-checked"][tabindex]::before, [class*="ihs-icon-checkbox-checked"][tabindex]::before {
+        content: " ";
+        width: 5px;
+        height: 8px;
+        display: block;
+        transform: rotate(45deg);
+        border: 2.25px solid @body-bg;
+        border-left: none;
+        border-top: none;
+        border-radius: 2px;
+        margin-top: 1px;
+        margin-left: 3.5px;
+    }
+    [class*="brand-icon-checkbox-checked"][tabindex]::before, [class*="ihs-icon-checkbox-checked"][tabindex]::before {
+        margin-top: 0px;
+        margin-left: 2.5px;
+    }
+
+    // The indeterminate checkmark state (halfchecked, partially checked) is simulated using a rotated border. See https://css-tricks.com/indeterminate-checkboxes/
+    input[type="checkbox"].indeterminate::before, input[type="checkbox"].indeterminate + .checkmark::before,
+    input[type="checkbox"]:checked.indeterminate::before, input[type="checkbox"]:checked.indeterminate + .checkmark::before,
+    [class*="brand-icon-checkbox-halfchecked"][tabindex]::before, [class*="ihs-icon-checkbox-halfchecked"][tabindex]::before {
+        content: " ";
+        width: 8px;
+        height: 2px;
+        display: block;
+        transform: rotate(0deg);
+        border: 1px solid @body-bg;
+        border-radius: 2px;
+        margin-top: 5px;
+        margin-left: 2px;
+    }
+    [class*="brand-icon-checkbox-halfchecked"][tabindex]::before, [class*="ihs-icon-checkbox-halfchecked"][tabindex]::before {
+        margin-top: 4px;
+        margin-left: 1px;
+    }
+
+
+    // Using SVG icons in place of real inputs like checkboxes
+    svg > use {
+        pointer-events: none;
+    }
+    svg[class*="brand-icon-checkbox-"][tabindex], svg[class*="ihs-icon-checkbox-"][tabindex] {
+        background-color: @body-bg;
+        box-shadow: none !important;
+        outline-offset: -1px;
+    }
+
+    svg[class*="brand-icon-checkbox-"][tabindex]:focus, svg[class*="ihs-icon-checkbox-"][tabindex]:focus,
+    svg[class*="brand-icon-checkbox-"][tabindex]:focus, svg[class*="ihs-icon-checkbox-"][tabindex].focus {
+        background-color: @body-bg;
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 4px rgba(red(@input-border-focus), green(@input-border-focus), blue(@input-border-focus), .6) !important;
+    }
+    
+    svg[class*="brand-icon-checkbox-"][tabindex].focus-visible, svg[class*="ihs-icon-checkbox-"][tabindex].focus-visible {
+        background-color: @body-bg;
+        // TODO: make the animation work box-shadow: none !important;
+    }
+    
+    svg[class*="brand-icon-checkbox-"][tabindex]:checked, svg[class*="ihs-icon-checkbox-"][tabindex]:checked {
+        background-color: @brand-primary;
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 4px rgba(red(@input-border-focus), green(@input-border-focus), blue(@input-border-focus), .6) !important;
+    }
+    
+    svg[class*="brand-icon-checkbox-"][tabindex]:focus:checked, svg[class*="ihs-icon-checkbox-"][tabindex]:focus:checked,
+    svg[class*="brand-icon-checkbox-"][tabindex].focus:checked, svg[class*="ihs-icon-checkbox-"][tabindex].focus:checked {
+        background-color: @brand-primary;
+        box-shadow: none !important;
+    }
+    
+    svg[class*="brand-icon-checkbox-"][tabindex].focus-visible:checked, svg[class*="ihs-icon-checkbox-"][tabindex].focus-visible:checked {
+        background-color: @brand-primary;
+        // TODO: make the animation work box-shadow: none !important;
+    }
+    
+    svg[class*="brand-icon-checkbox-"][tabindex].focus-visible:focus:checked, svg[class*="ihs-icon-checkbox-"][tabindex].focus-visible:focus:checked,
+    svg[class*="brand-icon-checkbox-"][tabindex].focus-visible.focus:checked, svg[class*="ihs-icon-checkbox-"][tabindex].focus-visible.focus:checked {
+        background-color: @brand-primary;
+        // TODO: make the animation work box-shadow: none !important;
+    }
+
+
+    input[type="radio"]::before {
+        content: " ";
+        width: 12px;
+        height: 12px;
+        display: block;
+        background: @body-bg;
+        border: 1px solid @gray-light;
+        border-radius: 6px;
+    }
+
+    input[type="radio"]:checked::before {
+        content: " ";
+        width: 12px;
+        height: 12px;
+        display: block;
+        background: @brand-primary;
+        background: radial-gradient(@brand-primary 3px, @body-bg 4px);
+        border-radius: 6px;
+    }
+
+
+    .form-group > .radio-inline, .form-group > .checkbox-inline {
+        padding-left: 0px;
+
+        label {
+            margin-left: 18px;
+        }
+    }
+
+    input[type="radio"]:focus, input[type="radio"].focus,
+    input[type="radio"]:focus:not(.focus-visible), input[type="radio"].focus-visible {
+        // All styles should be applied to the ::before psuedo element instead.
+        box-shadow: none;
+        animation: focus-visible-radio-input 800ms; // Sets box-shadow to none so we don't get corners around the radio button.
+        border-radius: 12px;
+    }
+    // saf3+, chrome1+
+    @media screen and (-webkit-min-device-pixel-ratio:0) {
+        input[type="radio"]:focus, input[type="radio"].focus,
+        input[type="radio"]:focus:not(.focus-visible), input[type="radio"].focus-visible {
+            // All styles should be applied to the ::before psuedo element instead.
+            box-shadow: none !important;
+            animation: none !important; // Sets box-shadow to none so we don't get corners around the radio button.
+        }
+    }
+    input[type="radio"]:focus::before, input[type="radio"].focus::before {
+        .focus-normal-style();
+    }
+    input[type="radio"].focus-visible::before, input[type="radio"].focus.focus-visible::before {
+        .focus-visible-radio-style();
+    }
+
+
+
+    .form-group {
+        position: relative;
+
+        .form-control-feedback {
+            // .icon-set(10px, @gray, 0px, 0px);
+            color: @gray;
+            fill: @gray;
+            top: @spacing-stack-sm;
+            right: @spacing-push-sm;
+            bottom: 0px;
+            cursor: pointer;
+            pointer-events: auto;
+            z-index: 4;
+
+            &:hover, &.hover, &:focus-within, &.focus-within, &:focus, &.focus {
+                color: @gray-dark;
+                fill: @gray-dark;
+            }
+
+            > svg[class*="brand-icon"], > svg[class*="ihs-icon"], > svg[class*="ico_"] {
+                // .icon-set(10px, @gray, 0px, 0px);
+                color: @gray;
+                fill: @gray;
+
+                &:hover, &.hover, &:focus-within, &.focus-within, &:focus, &.focus {
+                    color: @gray-dark;
+                    fill: @gray-dark;
+                }
+            }
+        }
+
+        .form-control:focus-within, .form-control.focus-within, .form-control:focus, .form-control.focus {
+            + .form-control-feedback {
+                color: @gray-dark;
+                fill: @gray-dark;
+            }
+        }
+
+    }
+
+    .form-group-lg {
+        position: relative;
+
+        .form-control-feedback {
+            top: @font-size-large - 1px;
+            right: @spacing-push;
+        }
+    }
+
+    .form-group-sm {
+        position: relative;
+
+        .form-control-feedback {
+            top: 2px;
+            right: @spacing-push-sm;
+        }
+    }
+
+    /* saf3+, chrome1+ */
+    @media screen and (-webkit-min-device-pixel-ratio:0) {
+        .form-group-lg select.form-control:not([multiple]) {
+            line-height: 1.3333333333;
+        }
+
+        // Bug still present in Chrome 65 doesn't allow us to specify text color on 
+        //   select options with a ':checked' state if the select is not currently 
+        //   active or in focus (i.e. the user has clicked-off or tabbed to the next input). 
+        //   Thus, we have to define a background-color for this that works with the 
+        //   rgb(50,50,50) text color we can't change.
+        //   -- Sooo annoying to be this close to a working / completed design.
+        select.form-control option:hover, select.highlight option:hover
+        , select.form-control option:checked, select.highlight option:checked
+        , select.form-control option:focus, select.highlight option:focus
+        , select.form-control option:active, select.highlight option:active
+        , select.long:not([multiple])[size] > option:nth-of-type(2n):hover
+        , select.long[multiple] > option:nth-of-type(2n):hover {
+            // gray-lighter = #F1F2F3, 
+            background-color: @brand-primary;
+            box-shadow: none;
+            color: @body-bg !important;
+        }
+    }
+
+} // End .cpl-scope

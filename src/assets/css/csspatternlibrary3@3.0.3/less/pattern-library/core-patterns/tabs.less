@@ -1,0 +1,250 @@
+.cpl-scope {
+    // ------------------------------------------------ TABS --------------------------- //
+
+    .nav {
+        // Shared styles between .nav-tabs and .nav-tabs-light ----------
+        // .nav-tabs-2 is deprecated.
+        &.nav-tabs, &.nav-tabs-2, &.nav-tabs-light {
+            background-color: transparent;
+            padding: 0px;
+            font-size: 14px;
+            font-weight: bold;
+            .border(0px, transparent);
+            border-bottom: 1px solid @gray;
+
+            > li {
+                background-color: @body-bg;
+                color: @brand-primary;
+                float: left; 
+                margin: 0px;
+                margin-right: 4px;
+                margin-bottom: -1px;
+                height: 32px;
+                vertical-align: middle;
+                //text-align: center;
+                padding: 0px;
+                cursor: pointer;
+
+                &:hover, &.hover, &:focus, &.focus {
+                    background-color: @gray-lighter;
+                    color: @brand-primary-dark;
+
+                    > a {
+                        color: @brand-primary-dark;
+                    }
+                }
+
+                & > a {
+                    &:hover, &.hover, &:focus, &.focus {
+                        color: @brand-primary-dark;
+                    }
+                }
+
+                // B3 puts the .active class on the li
+                &.active {
+                    background-color: @body-bg;
+                    cursor: default;
+
+                    &:hover, &.hover, &:focus, &.focus {
+                        color: @gray-darker;
+                    }
+
+                    > a {
+                        //font-weight: bold;
+                        color: @text-color;
+                        background: none;
+                        cursor: default;
+                    }
+                }
+
+                > a {
+                    color: @brand-primary;
+                    line-height: inherit;
+                    .resetGaps();
+                    padding: 8px 16px;
+                    //font-weight: bold;
+                    //font-size: @font-size-body;
+
+                    &:hover {
+                        background-color: transparent;
+                    }                                
+
+                    // B4 puts the .active class on the anchor (a).
+                    &.active {
+                        background-color: @body-bg;
+                        color: @text-color;
+                        cursor: default;
+                    }
+                }
+
+                &[disabled], &[disabled="disabled"], &[disabled="true"], &.disabled {
+                    color: @gray-light;
+                    cursor: not-allowed;
+                    font-weight: normal;
+
+                    &:hover, &.hover, &:focus, &.focus {
+                        background-color: transparent;
+                    }
+
+                    > a {
+                        color: @gray-light;
+                        cursor: not-allowed;
+                        pointer-events: none;
+
+                        &:hover, &.hover, &:focus, &.focus {
+                            background-color: transparent;
+                        }
+                    }
+                }
+                
+                a[disabled], a[disabled="disabled"], a[disabled="true"], a.disabled {
+                    color: @gray-light;
+                    cursor: not-allowed;
+
+                    &:hover, &.hover, &:focus, &.focus {
+                        background-color: transparent;
+                    }
+                }
+            }
+
+            .badge {
+                position: absolute;
+                top: -8px;
+                right: 4px;
+                font-weight: normal;
+                color: @body-bg;
+                font-size: @font-size-small; 
+            }
+        }
+
+
+        // Styles specific to .nav-tabs ----------
+        // .nav-tabs-2 is deprecated.
+        &.nav-tabs, &.nav-tabs-2 {
+            .border-radius(@border-radius-small 0);
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+
+            // Offset tabs so that border-bottom extends across white-space of side margins. This is undone whenever .nav-tabs-2 are placed inside a .panel so that the .panel border will line up.
+            margin-right: -16px;
+            margin-left: -16px;
+            padding-right: 16px;
+            padding-left: 16px;
+
+            
+            > li {
+                background-color: @body-bg;
+                color: @brand-primary;
+                //.border-radius(@border-radius-small @border-radius-small 0px 0px);
+                border-radius: 2px;
+                border-bottom-right-radius: 0;
+                border-bottom-left-radius: 0;
+                .border(1px, @gray-lighter);
+                border-bottom: none;
+
+                &:first-child {
+                    border-top-left-radius: @border-radius-small; 
+                }
+
+                &.active, > a.active {
+                    .border(1px, @gray);
+                    border-bottom: 0px solid transparent;
+                    border-radius: 2px;
+                    height: 33px;
+                }
+                // // B3 - li.active
+                // &.active {
+                // }
+                // B4 - li a.active
+                > a.active {
+                    margin: -1px -1px 0;
+
+                    &:hover, &.hover, &:focus, &.focus {
+                        color: @gray-darker;
+                        border-width: 1px;
+                        border-bottom-color: transparent;
+                    }
+                }
+
+                > a {
+                    .border(0px, transparent);           
+
+                    &:hover {
+                        .border(0px, @gray);
+                    }                                
+                }
+            }
+
+            // B4 tabs need this because there is no longer at least one li.active to affect initial height. Shouldn't affect B3 tabs in panels.
+            &:after {
+                content: '';
+                height: 32px;
+                width: 1px;
+                margin-left: 1px;
+            }
+        }
+    
+        
+        // Styles specific to .nav-tabs-light ----------
+        &.nav-tabs-light {
+            border-bottom: 2px solid @gray-lighter;
+
+            > li {
+                border-bottom: 2px solid @gray-lighter;
+                margin-right: 10px;
+                margin-bottom: -2px;
+
+                &.active, > a.active {
+                    height: 32px;
+                    border-bottom: 2px solid @brand-warning;
+                }
+
+                > a {
+                    padding-right: 6px;
+                    padding-left: 6px;
+                }
+            }
+        }
+    }
+
+    .panel > .nav.nav-tabs, .panel > * > .nav.nav-tabs, .panel > .nav.nav-tabs-2, .panel > * > .nav.nav-tabs-2 {
+        // Undo horizontal tabs offset and vertical .panel.tabs-offset whenever .nav-tabs-2 are placed inside a .panel so that the .panel border will line up.
+        margin: -33px 0 0 -1px;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .nav-tabs, .nav-tabs-2, .nav-tabs-light {
+        &.tab-content {
+            .border-radius(0px @border-radius-small @border-radius-small @border-radius-small);
+            border-bottom: none;
+
+            .tab-pane {
+                padding: 16px 16px 16px 0;
+                .border(0px);
+                
+                p:last-child {
+                    margin-bottom: 0px;
+                }
+            }
+        }
+    }
+
+    .panel { 
+    
+        .tab-content {
+            margin: 0px;
+            padding: 0px;
+            .border-radius(0px @border-radius-small @border-radius-small @border-radius-small);
+
+            .tab-pane {
+                padding: 13px 16px 16px 16px;
+                .border(0px);
+                
+                p:last-child {
+                    margin-bottom: 0px;
+                }
+            }
+        }
+    }
+} // End .cpl-scope

@@ -1,0 +1,198 @@
+.cpl-scope {
+    // ---------------------------------------------- MODALS  -------------------- //
+
+    /* Not sure if we are using this anymore //
+    .modal:before {
+    content: '';
+    display: inline-block;
+    height: 30%;
+    //vertical-align: middle;
+    margin-right: -4px;
+    .border(1px,red);
+    }
+    */
+
+    .modal-dialog {
+        margin-top: @padding-base-horizontal; // auto;
+        //margin-left: @padding-base-horizontal;
+
+        &.modal-1 {
+            width: 240px;
+            min-height: @modal-min-height;
+        }
+        &.modal-2 {
+            width: 464px;
+            min-height: @modal-min-height;
+        }
+        &.modal-3 {
+            width: 575px;
+            min-height: @modal-min-height;
+        }
+        &.modal-4 {
+            width: 688px;
+            min-height: @modal-min-height;
+        }
+        &.modal-5 {
+            width: 800px;
+            min-height: @modal-min-height;
+        }
+        &.modal-6 {
+            width: 912px;
+            min-height: @modal-min-height;
+        }
+        &.modal-7 {
+            width: 1024px;
+            min-height: @modal-min-height;
+        }
+
+        &.modal-primary, &.modal-success, &.modal-info, &.modal-warning, &.modal-danger {
+            .modal-header {
+                border-top: 4px solid;
+                box-shadow: none;
+
+                .modal-title > svg[class*="brand-icon"], .modal-title > svg[class*="ihs-icon"] {
+                    vertical-align: middle;
+                    margin-top: -4px;
+                    margin-right: 4px;
+                }
+            }
+        }
+        &.modal-primary {
+            .modal-header {
+                border-color: @brand-primary;
+
+                .modal-title > svg[class*="brand-icon"], .modal-title > svg[class*="ihs-icon"] {
+                    fill: @brand-primary;
+                }
+            }
+        }
+        &.modal-success {
+            .modal-header {
+                border-color: @brand-success;
+
+                .modal-title > svg[class*="brand-icon"], .modal-title > svg[class*="ihs-icon"] {
+                    fill: @brand-success;
+                }
+            }
+        }
+        &.modal-info {
+            .modal-header {
+                border-color: @brand-info;
+
+                .modal-title > svg[class*="brand-icon"], .modal-title > svg[class*="ihs-icon"] {
+                    fill: @brand-info;
+                }
+            }
+        }
+        &.modal-warning {
+            .modal-header {
+                border-color: @brand-warning;
+
+                .modal-title > svg[class*="brand-icon"], .modal-title > svg[class*="ihs-icon"] {
+                    fill: @brand-warning;
+                }
+            }
+        }
+        &.modal-danger {
+            .modal-header {
+                border-color: @brand-danger;
+
+                .modal-title > svg[class*="brand-icon"], .modal-title > svg[class*="ihs-icon"] {
+                    fill: @brand-danger;
+                }
+            }
+        }
+
+        .modal-header {
+            background-color: @body-bg;
+            color: @brand-primary;
+            padding: 0px @spacing-push;
+            min-height: 36px; // adding this for blank headers or missing titles in modals //
+
+            .border-radius(@border-radius-base @border-radius-base 0px 0px);
+            .border(0px, @brand-primary);
+            .shadow-set(0px 0px 4px 1px rgba(0,0,0,0.1));
+
+            h1, h2, h3, h4, .modal-title {
+                margin-top: @spacing-stack-top; // 16px
+                margin-bottom: @spacing-stack-xs; // 4px
+            }
+
+            > svg[class*="brand-icon"], > svg[class*="ihs-icon"] {
+                position: static;
+                .icon-set(10px, @body-bg, @spacing-stack-sm calc(@spacing-push-sm - @spacing-push) 0px 0px);
+                float: right;
+                fill: @gray-light;
+
+                &:hover {
+                    cursor: pointer;
+                    border: 0px solid red;
+                }
+            }
+
+            &.alert {
+                background-color: @darken-brand-danger;
+            }
+        }
+
+        .modal-title {
+            color: @brand-primary;
+            font-size: @font-size-h2;
+            font-weight: normal;
+
+            &:hover {
+                cursor: default;
+            }
+        }
+
+        .modal-body {
+            border: 0px;
+        }
+
+        .modal-footer {
+            .border(0px);
+            padding: @spacing-stack @spacing-push;
+            width: 100%;
+
+            .btn {
+                margin-bottom: 0px;
+            }
+
+            .dismiss {
+                display: block;
+                float: right;
+            }
+        }
+    }
+
+    .modal-content {
+            min-height: inherit;
+            .border-radius(2px 2px @border-radius-base @border-radius-base);
+            .border(0px,@brand-primary);
+            .shadow-set(1px 2px 3px 1px rgba(0,0,0,0.2));
+    }
+
+    /* 
+    @media (min-width:768px) {
+        .modal-dialog {
+            width: 600px;
+            margin: 30px auto
+        }
+
+        .modal-content {
+            -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .5)
+        }
+
+        .modal-sm {
+            width: 300px
+        }
+    }
+
+    @media (min-width:992px) {
+        .modal-lg {
+            width: 900px
+        }
+    }
+    */
+} // End .cpl-scope

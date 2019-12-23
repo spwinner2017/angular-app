@@ -1,0 +1,102 @@
+.cpl-scope {
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 24px;
+        height: 14px;
+
+        &[disabled] {
+            cursor: not-allowed;
+
+            .slider {
+                background-color: @gray-light;
+            }
+
+            label, input[type=checkbox][disabled], .slider {
+                cursor: not-allowed;
+            }
+            
+            input[type=checkbox][disabled]:checked + .slider {
+                background-color: @gray-light;
+            }
+        }
+
+        &.inline {
+            white-space: nowrap;
+            padding-left: 12px;
+
+            &.jagged {
+                padding-left: 0;
+
+                input[type=checkbox] + .slider {
+                    width: 24px;
+                    right: auto;
+                    left: auto;
+                    margin-left: -10px;
+                }
+            }
+        }
+        
+        input {
+            opacity: .01; // Needed so :focus styles become visible.
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: @gray;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 12px;
+            width: 12px;
+            left: 2px;
+            bottom: 1px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+        
+        input[type=checkbox]:checked + .slider {
+            background-color: #bdcf56;
+        }
+        
+        input[type=checkbox]:focus, input[type=checkbox].focus {
+            & + .slider {
+                .focus-switch-style();
+            }
+        }
+        input[type=checkbox].focus-visible {
+            
+            & + .slider {
+                .focus-switch-style();
+                // box-shadow: 0 0 1px #2196F3;
+                .focus-visible-switch-style();
+                // border-color: @gray-darker;
+            }
+        }
+        
+        input[type=checkbox]:checked + .slider:before {
+            -webkit-transform: translateX(9px);
+            -ms-transform: translateX(9px);
+            transform: translateX(9px);
+        }
+        
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 24px;
+        }
+        
+        .slider.round:before {
+            border-radius: 50%;
+        }
+    }
+}  

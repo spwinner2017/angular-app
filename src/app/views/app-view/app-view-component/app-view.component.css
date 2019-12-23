@@ -1,0 +1,14 @@
+.panel-default-css {
+    box-shadow: #CCCCCC -1px 4px 9px;
+    border-radius: 6px;
+}
+
+#containerPanel {
+    min-height: 89vh;
+}
+
+.b-cum {
+    width: 100%;
+    margin: 0px;
+    padding: 1px;
+}

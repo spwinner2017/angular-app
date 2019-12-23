@@ -1,0 +1,211 @@
+// All styles are given '!important' to force override of possible specificity issues. 
+//   Assuming developers want these styles to win out if they are applying these optional helper / spacing classes.
+
+.cpl-scope {
+    // Deprecating use of .shim-bottom* classes as of Feb. 2018 - Please use stacks and the .stack* class instead
+    .inset-lg {
+        margin: @spacing-inset-lg !important; // 24px;
+    }
+
+    .inset {
+        margin: @spacing-inset !important; // 16px;
+    }
+
+    .inset-sm {
+        margin: @spacing-inset-sm !important; // 8px;
+    }
+
+    // We don't see any use case for this yet. 
+    // .inset-xs { 
+    //     margin: @spacing-inset-xs !important; // 4px;
+    // }
+
+    .shim-zero, .inset-zero {
+        margin: @spacing-inset-zero !important; // 0px;
+    }
+
+
+    .inset-tall-lg {
+        margin: (@spacing-inset-lg / 2) @spacing-inset-lg !important; // 24px;
+    }
+
+    .inset-tall {
+        margin: (@spacing-inset / 2) @spacing-inset !important; // 16px;
+    }
+
+    .inset-tall-sm {
+        margin: (@spacing-inset-sm / 2) @spacing-inset-sm !important; // 8px;
+    }
+
+    // We don't see any use case for this yet. 
+    // .inset-tall-xs { 
+    //     margin: (@spacing-inset-xs / 2) @spacing-inset-xs !important; // 4px;
+    // }
+
+    // .inset-tall-zero {
+    //     margin: @spacing-inset-zero !important; // 0px;
+    // }
+    
+
+    // We don't see any use case for this yet. 
+    // .inset-wide-lg {
+    //     margin: @spacing-inset-lg (@spacing-inset-lg / 2) !important; // 24px;
+    // }
+
+    // .inset-wide {
+    //     margin: @spacing-inset (@spacing-inset / 2) !important; // 16px;
+    // }
+
+    // .inset-wide-sm {
+    //     margin: @spacing-inset-sm (@spacing-inset-sm / 2) !important; // 8px;
+    // }
+
+    // .inset-wide-xs { 
+    //     margin: @spacing-inset-xs (@spacing-inset-xs / 2) !important; // 4px;
+    // }
+
+    // .inset-wide-zero {
+    //     margin: @spacing-inset-zero !important; // 0px;
+    // }
+    
+
+    // Deprecating use of .shim-top* classes as of Feb. 2018 - Please try to remove completely and use the stacks system intead.
+    .stack-top-lg {
+        margin-top: @spacing-stack-top-lg !important; // 24px;
+    }
+
+    .shim-top, .stack-top {
+        margin-top: @spacing-stack-top !important; // 16px;
+    }
+
+    .shim-top-short, .stack-top-sm {
+        margin-top: @spacing-stack-top-sm !important; // 8px;
+    }
+
+    .shim-top-mini, .stack-top-xs {
+        margin-top: @spacing-stack-top-xs !important; // 4px;
+    }
+
+    .shim-top-zero, .stack-top-zero {
+        margin-top: @spacing-stack-top-zero !important; // 0px;
+    }
+
+
+    // Deprecating use of .shim-bottom* classes as of Feb. 2018 - Please use stacks and the .stack* class instead.
+    .stack-lg {
+        margin-bottom: @spacing-stack-lg !important; // 24px;
+    }
+
+    .shim-bottom, .stack {
+        margin-bottom: @spacing-stack !important; // 16px;
+    }
+
+    .shim-bottom-short, .stack-sm {
+        margin-bottom: @spacing-stack-sm !important; // 8px;
+    }
+
+    .shim-bottom-mini, .stack-xs {
+        margin-bottom: @spacing-stack-xs !important; // 4px;
+    }
+
+    .shim-bottom-zero, .stack-zero {
+        margin-bottom: @spacing-stack-zero !important; // 0px;
+    }
+
+
+    .stack-y-lg {
+        margin-top: @spacing-stack-top-lg !important; // 24px;
+        margin-bottom: @spacing-stack-lg !important; // 24px;
+    }
+
+    .stack-y {
+        margin-top: @spacing-stack-top !important; // 16px;
+        margin-bottom: @spacing-stack !important; // 16px;
+    }
+
+    .stack-y-sm {
+        margin-top: @spacing-stack-top-sm !important; // 8px;
+        margin-bottom: @spacing-stack-sm !important; // 8px;
+    }
+
+    .stack-y-xs {
+        margin-top: @spacing-stack-top-xs !important; // 4px;
+        margin-bottom: @spacing-stack-xs !important; // 4px;
+    }
+
+    .stack-y-zero {
+        margin-top: @spacing-stack-top-zero !important; // 0px;
+        margin-bottom: @spacing-stack-zero !important; // 0px;
+    }
+
+
+    // Deprecating use of .shim-left* classes as of Feb. 2018 - Please try to remove completely and use the push system intead.
+    .push-back-lg {
+        margin-left: @spacing-push-back-lg !important; // 24px;
+    }
+
+    .shim-left, .push-back {
+        margin-left: @spacing-push-back !important; // 16px;
+    }
+
+    .shim-left-short, .push-back-sm {
+        margin-left: @spacing-push-back-sm !important; // 8px;
+    }
+
+    .shim-left-mini, .push-back-xs {
+        margin-left: @spacing-push-back-xs !important; // 4px;
+    }
+
+    .shim-left-zero, .push-back-zero {
+        margin-left: @spacing-push-back-zero !important; // 0px;
+    }
+
+
+    // Deprecating use of .shim-bottom* classes as of Feb. 2018 - Please use stacks and the .stack* class instead
+    .push-lg {
+        margin-right: @spacing-push-lg !important; // 24px;
+    }
+
+    .shim-right, .push {
+        margin-right: @spacing-push !important; // 16px;
+    }
+
+    .shim-right-short, .push-sm {
+        margin-right: @spacing-push-sm !important; // 8px;
+    }
+
+    .shim-right-mini, .push-xs {
+        margin-right: @spacing-push-xs !important; // 4px;
+    }
+
+    .shim-right-zero, .push-zero {
+        margin-right: @spacing-push-zero !important; // 0px;
+    }
+
+
+    .push-x-lg {
+        margin-right: @spacing-push-lg !important; // 24px;
+        margin-left: @spacing-push-back-lg !important; // 24px;
+    }
+
+    .push-x {
+        margin-right: @spacing-push !important; // 16px;
+        margin-left: @spacing-push-back !important; // 16px;
+    }
+
+    .push-x-sm {
+        margin-right: @spacing-push-sm !important; // 8px;
+        margin-left: @spacing-push-back-sm !important; // 8px;
+    }
+
+    .push-x-xs {
+        margin-right: @spacing-push-xs !important; // 4px;
+        margin-left: @spacing-push-back-xs !important; // 4px;
+    }
+
+    .push-x-zero {
+        margin-right: @spacing-push-zero !important; // 0px;
+        margin-left: @spacing-push-back-zero !important; // 0px;
+    }
+
+}

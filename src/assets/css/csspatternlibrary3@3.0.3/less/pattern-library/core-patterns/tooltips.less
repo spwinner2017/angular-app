@@ -1,0 +1,214 @@
+.cpl-scope {
+  // ---------------------------------------- TOOLTIPS and POPOVERS ------------------------ //
+
+  ////////// Bootstrap 3 and Bootstrap 4 tooltip differences //////////
+  ///// Bootstrap 3 /////
+  // B3 DOES NOT USE .show and .bs-tooltip-top (and similar .bs-tooltip-x) classes.
+  // Only B3 uses .top and similar classes.
+  // B3 places styles, borders, box-shadows, etc. out to the edge of .tooltip element and then positions .tooltip-arrow outside of .tooltip element.
+  // Only B3 uses .in class in conjunction with .fade class. This is dynamically added by B3 tooltip JS.
+  // B3 uses .tooltip-arrow instead of .arrow used in B4
+  
+  ///// Bootstrap 4 /////
+  // Only B4 uses .show and .bs-tooltip-top (and similar .bs-tooltip-x) classes. These are dynamically added by B4 tooltip JS.
+  // B4 places styles, borders, box-shadows, etc. only to the edge of .tooltip-inner element and then positions .tooltip-arrow outside of .tooltip-inner element but still inside the padding/margin of the .tooltip element.
+  // B4 uses .arrow instead of .tooltip-arrow used in B3
+
+
+  // Only B3 uses .in class in conjunction with .fade class.
+  .tooltip.in { .opacity(@tooltip-opacity); }
+
+  // B3 places styles, borders, box-shadows, etc. out to the edge of .tooltip element and then positions .tooltip-arrow outside of .tooltip element.
+  .tooltip:not(.show) .tooltip-inner {
+      background: @tooltip-bg;
+      color: @tooltip-color;
+      margin: 0; // reset heading margin
+      padding: @padding-base-vertical @padding-base-horizontal;
+      font-size: @font-size-body;
+      text-align: left;
+      line-height: @line-height-base + .25px;
+
+      &:empty {
+          display: none;
+      }
+  }
+
+  // B4 places styles, borders, box-shadows, etc. only to the edge of .tooltip-inner element and then positions .tooltip-arrow outside of .tooltip-inner element but still inside the padding/margin of the .tooltip element.
+  .tooltip.show .tooltip-inner {
+      background: @tooltip-bg;
+      color: @tooltip-color;
+      margin: 0; // reset heading margin
+      padding: @padding-base-vertical @padding-base-horizontal;
+      font-size: @font-size-body;
+      text-align: left;
+      line-height: @line-height-base + .25px;
+
+      .border(@standard-border-size, @tooltip-arrow-outer-color);
+      .border-radius(@border-radius-base);
+      .box-shadow(0 8px 10px rgba(0,0,0,.2));
+  
+      &:empty {
+          display: none;
+      }
+  }
+
+  .tooltip {
+    // B3 places styles, borders, box-shadows, etc. out to the edge of .tooltip element and then positions .tooltip-arrow outside of .tooltip element.
+    &:not(.show) {
+    .border(@standard-border-size, @tooltip-arrow-outer-color);
+    .border-radius(@border-radius-base);
+    .box-shadow(0 8px 10px rgba(0,0,0,.2));
+    }
+
+    // Overrides for proper insertion
+    white-space: normal;
+
+    // B4 uses .arrow instead of .tooltip-arrow used in B3
+    .arrow {
+        border-width: @tooltip-arrow-outer-width;
+    }
+    &[class*="bs-tooltip-"] .arrow::after, &.bs-tooltip-auto[x-placement] .arrow::after {
+        position: absolute;
+        content: "";
+        border-color: transparent;
+        border-style: solid;
+        z-index: -1;
+    }
+    &.bs-tooltip-top .arrow, &.bs-tooltip-auto[x-placement^="top"] .arrow {
+        bottom: 1px;
+
+        &::after {
+            top: 1px;
+            border-width: 6px 4px 0; // Pixel-precision
+            border-top-color: @tooltip-arrow-outer-color;
+        }
+    }
+    &.bs-tooltip-right .arrow, &.bs-tooltip-auto[x-placement^="right"] .arrow {
+        left: 1px;
+
+        &::after {
+            right: 1px;
+            border-width: 4px 6px 4px 0; // Pixel-precision
+            border-right-color: @tooltip-arrow-outer-color;
+        }
+    }
+    &.bs-tooltip-bottom .arrow, &.bs-tooltip-auto[x-placement^="bottom"] .arrow {
+        top: 1px;
+
+        &::after {
+            bottom: 1px;
+            border-width: 0 4px 6px; // Pixel-precision
+            border-bottom-color: @tooltip-arrow-outer-color;
+        }
+    }
+    &.bs-tooltip-left .arrow, &.bs-tooltip-auto[x-placement^="left"] .arrow {
+        right: 1px;
+
+        &::after {
+            left: 1px;
+            border-width: 4px 0 4px 6px; // Pixel-precision
+            border-left-color: @tooltip-arrow-outer-color;
+        }
+    }
+
+    // B3 uses .tooltip-arrow instead of .arrow used in B4
+    .tooltip-arrow {
+        border-width: @tooltip-arrow-outer-width;
+
+          &:after {
+            position: absolute;
+            border-color: transparent;
+            border-style: solid;
+            border-width: @tooltip-arrow-width; // Fallback
+            border-width: calc(@tooltip-arrow-width + .125); // .125 assures no blead over due to rounding errors.
+            content: "";
+          }
+      }
+
+    // Reset padding on tooltip container
+    &.top, &.bottom, &.left, &.right {
+      padding: 0px;
+    }
+
+    // TOP POSITIONING AND ARROW
+    &.top     { 
+      margin-top: -@tooltip-arrow-distance; 
+
+      .tooltip-arrow {
+          left: 50%;
+          bottom: -@tooltip-arrow-outer-width;
+          margin-left: -@tooltip-arrow-outer-width;
+          //border-bottom-width: 0;
+          border-top-color: @tooltip-arrow-outer-color;
+
+          &:after {
+            bottom: 1px;
+            margin-left: -@tooltip-arrow-width;
+            border-bottom-width: 0;
+            border-top-color: @tooltip-arrow-color;
+          }
+      }
+    }
+
+    // RIGHT POSITIONING AND ARROW
+    &.right   { 
+      margin-left: @tooltip-arrow-distance; 
+
+      .tooltip-arrow {
+          top: 50%;
+          left: -@tooltip-arrow-outer-width;
+          margin-top: -@tooltip-arrow-outer-width + 1;
+          //border-left-width: 0;
+          border-right-color: @tooltip-arrow-outer-color;
+          
+          &:after {
+            left: 1px;
+            bottom: -@tooltip-arrow-width;
+            border-left-width: 0;
+            border-right-color: @tooltip-arrow-color;
+          }
+      }
+    }
+
+    // BOTTOM POSITIONING AND ARROW
+    &.bottom  { 
+      margin-top: @tooltip-arrow-distance;
+
+      .tooltip-arrow {
+          left: 50%;
+          top: -@tooltip-arrow-outer-width;
+          margin-left: -@tooltip-arrow-outer-width;
+          //border-top-width: 0;
+          border-bottom-color: @tooltip-arrow-outer-color;
+          
+          &:after {
+            top: 1px;
+            margin-left: -@tooltip-arrow-width;
+            border-top-width: 0;
+            border-bottom-color: @tooltip-arrow-color;
+          }
+      }
+    }
+
+    // LEFT POSITIONING AND ARROW
+    &.left    { 
+      margin-left: -@tooltip-arrow-distance;
+
+      .tooltip-arrow {
+          top: 50%;
+          right: -@tooltip-arrow-outer-width;
+          margin-top: -@tooltip-arrow-outer-width + 1;
+          //border-right-width: 0;
+          border-left-color: @tooltip-arrow-outer-color;
+          
+          &:after {
+            right: 1px;
+            bottom: -@tooltip-arrow-width;
+            border-right-width: 0;
+            border-left-color: @tooltip-arrow-color;          
+          }
+      }
+    }
+
+  } // End .tooltip
+} // End .cpl-scope

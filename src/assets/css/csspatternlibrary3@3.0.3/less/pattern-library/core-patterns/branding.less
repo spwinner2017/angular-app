@@ -1,0 +1,771 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400');
+
+.cpl-scope {
+    .swatches-list > li {
+        width: 10%;
+        height: auto;
+        display: inline-block;
+        float: none;
+        text-align: center;
+        padding: 8px;
+        margin: 0 auto;
+    }
+    .swatches-list li > code {
+        background-color: #FFF;
+    }
+
+    .swatch-color {
+        width: 100%;
+        height: 20px;
+        display: block;
+        margin: 0 auto 5px;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius: 0;
+        border: 0px solid #000;
+    }
+
+    .color-grid {
+        
+        * {
+            transition: opacity 400ms ease-out;
+        }
+
+        .row.colors {
+            margin-bottom: 4vh;
+        }
+
+        code {
+            display: block;
+        }
+
+        &.color-uses code {
+            display: inline-block;
+        }
+        
+        .deprecation {
+            display: block;
+            margin-top: 6px;
+            color: @brand-danger;
+
+            code {
+                margin-top: 0;
+            }
+        }
+
+        .color-bg-name {
+            font-weight: bold;
+            color: #00AB4E; // IHSM @brand-secondary
+        }
+    }
+    /*
+    .color-grid .swatch-color.main {
+        height: 5.9vw;
+    }
+    */
+
+    .color-grid .swatch-color {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 5.9vw;
+        margin-bottom: 5px;
+
+        // Light On Dark
+        > .lod {
+            color: #FFF;
+            margin: 2px;
+
+            .ihs-icon-checkmark, .ihs-icon-warning {
+                height: 1.3rem;
+            }
+        }
+
+        // Dark On Light
+        > .dol {
+            color: #000;
+            margin: 2px;
+
+            .ihs-icon-checkmark, .ihs-icon-warning {
+                height: 1.3rem;
+            }
+        }
+    }
+
+
+    ///////// Brand Colors /////////
+    // Note: Names with 'ihs' in them are being deprecated in favor of 'brand' to be future compatible.
+    .brand-color-primary-dark, .ihs-color-primary-dark {
+        background-color: @brand-primary-dark;
+    }
+    svg[class*="brand-icon"].brand-color-primary-dark, svg[class*="ihs-icon"].brand-color-primary-dark, svg[class*="ico_"].brand-color-primary-dark, 
+    svg[class*="brand-icon"].ihs-color-primary-dark, svg[class*="ihs-icon"].ihs-color-primary-dark, svg[class*="ico_"].ihs-color-primary-dark {
+        background-color: transparent;
+        fill: @brand-primary-dark;
+    }
+    .brand-color-primary-dark-text {
+        color: @brand-primary-dark;
+    }
+
+    .brand-color-primary, .ihs-color-primary {
+        background-color: @brand-primary;
+    }
+    svg[class*="brand-icon"].brand-color-primary, svg[class*="ihs-icon"].brand-color-primary, svg[class*="ico_"].brand-color-primary, 
+    svg[class*="brand-icon"].ihs-color-primary, svg[class*="ihs-icon"].ihs-color-primary, svg[class*="ico_"].ihs-color-primary {
+        background-color: transparent;
+        fill: @brand-primary;
+    }
+    .brand-color-primary-text {
+        color: @brand-primary;
+    }
+
+
+    ///////// Contextual Status Colors /////////
+    .color-success-dark {
+        background-color: @brand-success-dark;
+    }
+    svg[class*="brand-icon"].color-success-dark, svg[class*="ihs-icon"].color-success-dark, svg[class*="ico_"].color-success-dark {
+        background-color: transparent;
+        fill: @brand-success-dark;
+    }
+    .color-success-dark-text {
+        color: @brand-success-dark;
+    }
+    .color-success {
+        background-color: @brand-success;
+    }
+    svg[class*="brand-icon"].color-success, svg[class*="ihs-icon"].color-success, svg[class*="ico_"].color-success {
+        background-color: transparent;
+        fill: @brand-success;
+    }
+    .color-success-text {
+        color: @brand-success;
+    }
+    .color-success-light {
+        background-color: @brand-success-light;
+    }
+    svg[class*="brand-icon"].color-success-light, svg[class*="ihs-icon"].color-success-light, svg[class*="ico_"].color-success-light {
+        background-color: transparent;
+        fill: @brand-success-light;
+    }
+    .color-success-light-text {
+        color: @brand-success-light;
+    }
+
+    .color-info-dark {
+        background-color: @brand-info-dark;
+    }
+    svg[class*="brand-icon"].color-info-dark, svg[class*="ihs-icon"].color-info-dark, svg[class*="ico_"].color-info-dark {
+        background-color: transparent;
+        fill: @brand-info-dark;
+    }
+    .color-info-dark-text {
+        color: @brand-info-dark;
+    }
+    .color-info {
+        background-color: @brand-info;
+    }
+    svg[class*="brand-icon"].color-info, svg[class*="ihs-icon"].color-info, svg[class*="ico_"].color-info {
+        background-color: transparent;
+        fill: @brand-info;
+    }
+    .color-info-text {
+        color: @brand-info;
+    }
+    .color-info-light {
+        background-color: @brand-info-light;
+    }
+    svg[class*="brand-icon"].color-info-light, svg[class*="ihs-icon"].color-info-light, svg[class*="ico_"].color-info-light {
+        background-color: transparent;
+        fill: @brand-info-light;
+    }
+    .color-info-light-text {
+        color: @brand-info-light;
+    }
+
+    .color-warning-dark {
+        background-color: @brand-warning-dark;
+    }
+    svg[class*="brand-icon"].color-warning-dark, svg[class*="ihs-icon"].color-warning-dark, svg[class*="ico_"].color-warning-dark {
+        background-color: transparent;
+        fill: @brand-warning-dark;
+    }
+    .color-warning-dark-text {
+        color: @brand-warning-dark;
+    }
+    .color-warning {
+        background-color: @brand-warning;
+    }
+    svg[class*="brand-icon"].color-warning, svg[class*="ihs-icon"].color-warning, svg[class*="ico_"].color-warning {
+        background-color: transparent;
+        fill: @brand-warning;
+    }
+    .color-warning-text {
+        color: @brand-warning;
+    }
+    .color-warning-light {
+        background-color: @brand-warning-light;
+    }
+    svg[class*="brand-icon"].color-warning-light, svg[class*="ihs-icon"].color-warning-light, svg[class*="ico_"].color-warning-light {
+        background-color: transparent;
+        fill: @brand-warning-light;
+    }
+    .color-warning-light-text {
+        color: @brand-warning-light;
+    }
+
+    .color-danger-dark {
+        background-color: @brand-danger-dark;
+    }
+    svg[class*="brand-icon"].color-danger-dark, svg[class*="ihs-icon"].color-danger-dark, svg[class*="ico_"].color-danger-dark {
+        background-color: transparent;
+        fill: @brand-danger-dark;
+    }
+    .color-danger-dark-text {
+        color: @brand-danger-dark;
+    }
+    .color-danger {
+        background-color: @brand-danger;
+    }
+    svg[class*="brand-icon"].color-danger, svg[class*="ihs-icon"].color-danger, svg[class*="ico_"].color-danger {
+        background-color: transparent;
+        fill: @brand-danger;
+    }
+    .color-danger-text {
+        color: @brand-danger;
+    }
+    .color-danger-light {
+        background-color: @brand-danger-light;
+    }
+    svg[class*="brand-icon"].color-danger-light, svg[class*="ihs-icon"].color-danger-light, svg[class*="ico_"].color-danger-light {
+        background-color: transparent;
+        fill: @brand-danger-light;
+    }
+    .color-danger-light-text {
+        color: @brand-danger-light;
+    }
+
+
+    ///////// Gray spectrum /////////
+    /*
+    .color-black { // Deprecated - To be removed and not replaced
+        background-color: #000;
+    }
+    */
+
+    .color-gray-darker {
+        background-color: @gray-darker;
+    }
+    svg[class*="brand-icon"].color-gray-darker, svg[class*="ihs-icon"].color-gray-darker, svg[class*="ico_"].color-gray-darker {
+        background-color: transparent;
+        fill: @gray-darker;
+    }
+    .color-gray-darker-text {
+        color: @gray-darker;
+    }
+
+    .color-gray-dark {
+        background-color: @gray-dark;
+    }
+    svg[class*="brand-icon"].color-gray-dark, svg[class*="ihs-icon"].color-gray-dark, svg[class*="ico_"].color-gray-dark {
+        background-color: transparent;
+        fill: @gray-dark;
+    }
+    .color-gray-dark-text {
+        color: @gray-dark;
+    }
+
+    .color-gray {
+        background-color: @gray;
+    }
+    svg[class*="brand-icon"].color-gray, svg[class*="ihs-icon"].color-gray, svg[class*="ico_"].color-gray {
+        background-color: transparent;
+        fill: @gray;
+    }
+    .color-gray-text {
+        color: @gray;
+    }
+
+    .color-gray-light {
+        background-color: @gray-light;
+    }
+    svg[class*="brand-icon"].color-gray-light, svg[class*="ihs-icon"].color-gray-light, svg[class*="ico_"].color-gray-light {
+        background-color: transparent;
+        fill: @gray-light;
+    }
+    .color-gray-light-text {
+        color: @gray-light;
+    }
+    
+    .color-gray-lighter {
+        background-color: @gray-lighter;
+    }
+    svg[class*="brand-icon"].color-gray-lighter, svg[class*="ihs-icon"].color-gray-lighter, svg[class*="ico_"].color-gray-lighter {
+        background-color: transparent;
+        fill: @gray-lighter;
+    }
+    .color-gray-lighter-text {
+        color: @gray-lighter;
+    }
+
+
+    ////////// Light On Dark (lod) and Dark On Light (dol) //////////
+    .color-lod, .color-light-on-dark {
+        color: @body-bg;
+        background-color: @gray-dark;
+    }
+    .color-lod-bg, .color-light-on-dark-bg {
+        background-color: @gray-dark;
+    }
+
+    .color-dol, .color-dark-on-light {
+        color: @text-color;
+        background-color: @body-bg;
+    }
+    .color-dol-bg, .color-dark-on-light-bg {
+        background-color: @body-bg;
+    }
+    // Note: 
+    //     Use .color-lod-text instead of .color-white
+    //     Use .color-dol-text instead of .color-black
+        
+    //     .color-white and .color-black are being deprecated as of Mar. 2018 as they do not specify their intended use. 
+    // 
+    .color-white, .color-lod-text, .color-light-on-dark-text {
+        color: @body-bg;
+    }
+    .color-black, .color-dol-text, .color-dark-on-light-text {
+        color: @text-color;
+    }
+
+
+    .container-test {
+        max-width: 1024px;
+        margin: 0px auto;
+    }
+
+    .container-width-x {
+        width: 1024px;
+        margin: 0 auto;
+    }
+
+    .demo-site-links li {
+        margin: 10px 5px 10px 25px;
+        padding: 15px 10px 15px 15px;
+        border: 1px solid #ccc;
+        width: 300px;
+        background-color: #f4f4f4;
+        font-size: 14px;
+        //display: inline-block;
+    }
+
+
+    .screenshot {
+        margin: 0px auto;
+        border: 1px solid #efefef;
+        height: 500px;
+        background-color: #f2f2f2;
+    }
+
+
+    .ihs-menu.navbar-nav {
+        height: 24px;
+        border: 0px;
+    }
+    .ihs-menu.navbar-nav li {
+        border-radius: 0px;
+        margin-right: 1px;
+
+        &:last-of-type {
+            margin-right: 0;
+        }
+
+        // Need to counter margin and switch it to the other side for .pull-right
+        &.pull-right {
+            margin-right: 0;
+            margin-left: 1px;
+            
+            &:last-of-type {
+                margin-right: 0;
+                margin-left: 0;
+            }
+        }
+    }
+
+
+    .ihs-menu.navbar-blue {
+        background-color: #0066B3;
+        color: white;
+    }
+    .ihs-menu.navbar-blue li,
+    .ihs-menu.navbar-blue li a{
+        height: 24px;
+        color: white;
+    }
+    .ihs-menu.navbar-blue li:hover,
+    .ihs-menu.navbar-blue li a:hover {
+        background-color: #0B507F;
+    }
+    .ihs-menu.navbar-blue > li.active,
+    .ihs-menu.navbar-blue > li.active a{
+        background-color: #0B507F;
+        color: white;
+        border-top: solid 2px #ff8f1c;
+        top: -2px;
+        height: 26px;
+    }
+    .ihs-menu.navbar-blue > li.active a:hover,
+    .ihs-menu.navbar-blue > li.active a:focus{
+        background-color: #0B507F;
+        color: white;
+    }
+
+
+    .ihs-menu.navbar-turquoise {
+        background-color: #00719d;
+    }
+    .ihs-menu.navbar-turquoise li,
+    .ihs-menu.navbar-turquoise li a{
+        height: 24px;
+        color: white;
+    }
+    .ihs-menu.navbar-turquoise li:hover,
+    .ihs-menu.navbar-turquoise li a:hover {
+        background-color: #0097d1;
+    }
+    .ihs-menu.navbar-turquoise li.active,
+    .ihs-menu.navbar-turquoise li.active a{
+        background-color: #0097d1;
+        color: white;
+        border-top: solid 2px #ff8f1c;
+        top: -2px;
+        height: 26px;
+    }
+    .ihs-menu.navbar-turquoise li.active a:hover,
+    .ihs-menu.navbar-turquoise li.active a:focus{
+        background-color: #0097d1;
+        color: white;
+    }
+
+
+    /* 
+        'gray' is the standard spelling. 
+        'grey' is being deprecated but will still be supported for a few dot releases. 
+        See https://www.w3schools.com/colors/colors_shades.asp
+    */
+    .ihs-menu.navbar-gray, .ihs-menu.navbar-grey {
+        background-color: #999999;
+    }
+    .ihs-menu.navbar-gray li, .ihs-menu.navbar-grey li,
+    .ihs-menu.navbar-gray li a, .ihs-menu.navbar-grey li a{
+        height: 24px;
+        color: @body-bg;
+    }
+    .ihs-menu.navbar-gray li:hover, .ihs-menu.navbar-gray li.hover, .ihs-menu.navbar-grey li:hover,
+    .ihs-menu.navbar-gray li:focus, .ihs-menu.navbar-gray li.focus, .ihs-menu.navbar-grey li:focus,
+    .ihs-menu.navbar-gray li a:hover, .ihs-menu.navbar-gray li a.hover, .ihs-menu.navbar-grey li a:hover,
+    .ihs-menu.navbar-gray li a:focus, .ihs-menu.navbar-gray li a.focus, .ihs-menu.navbar-grey li a:focus {
+        background-color: #4c4b4c;
+        color: white;
+    }
+    .ihs-menu.navbar-gray > li.active, .ihs-menu.navbar-grey > li.active,
+    .ihs-menu.navbar-gray > li.active > a, .ihs-menu.navbar-grey > li.active > a {
+        background-color: #4c4b4c;
+        color: white;
+        border-top: solid 2px #ff8f1c;
+        top: -2px;
+        height: 26px;
+    }
+    .ihs-menu.navbar-gray > li.active > a:hover, .ihs-menu.navbar-gray > li.active > a.hover, .ihs-menu.navbar-grey > li.active > a:hover,
+    .ihs-menu.navbar-gray > li.active > a:focus, .ihs-menu.navbar-gray > li.active > a.focus, .ihs-menu.navbar-grey > li.active > a:focus {
+        background-color: #4c4b4c;
+        color: white;
+    }
+    .ihs-menu.navbar-gray {
+        > .open > a {
+            &,
+            &:hover,
+            &:focus {
+                background-color: @gray-light !important;
+                color: @gray-darker !important;
+            }
+        }
+    }  
+
+    .ihs-menu.navbar-black  {
+        background-color: @black;
+    }
+    .ihs-menu.navbar-black li,
+    .ihs-menu.navbar-black li a{
+        height: 24px;
+    }
+    .ihs-menu.navbar-black li a {
+        padding: 5px 12px;
+        color: white;
+    }
+    .ihs-menu.navbar-black li:hover,
+    .ihs-menu.navbar-black li a:hover {
+        background-color: #E5E5E5;
+        color: @black;
+    }
+    .ihs-menu.navbar-black > li.active,
+    .ihs-menu.navbar-black > li.active a{
+        background-color: #E5E5E5;
+        color: @black;
+        border-top: solid 2px #ff8f1c;
+        top: -2px;
+        height: 26px;
+    }
+    .ihs-menu.navbar-black > li.active a:hover,
+    .ihs-menu.navbar-black > li.active a:focus{
+        background-color: #E5E5E5;
+        color: @black;
+    }
+    .ihs-menu.navbar-black {
+        > .open > a {
+            &,
+            &:hover,
+            &:focus {
+                background-color: @gray !important;
+                color: @body-bg !important;
+            }
+        }
+    }  
+
+
+    .footer {
+        background-color: #4c4b4c;
+        height: 64px;
+        padding: 14px 16px;
+        color: white;
+    }
+
+    .footer.footer-small {
+        height: 24px;
+        padding: 4px 16px;
+    }
+
+    .footer.footer-expanded {
+        height: 96px;
+        padding: 8px 16px;
+    }
+
+    .footer h1 {
+        font-family: 'Source Sans Pro', sans-serif;
+        color: white;
+        font-size: 20px;
+        font-weight: 100;
+        float: right;
+        margin: 8px 0px 0px 5px;
+    }
+
+    /*.footer > div, .footer ul {
+        border: 1px solid red;
+    }*/
+
+    .footer .social-icons i {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        background-color: #999;
+        border-radius: 30px;
+        font-size: 14px;
+        color: #fff;
+        text-align: center;
+        line-height: 24px;
+        margin-right: 4px;
+    }
+
+    .footer .social-icons {
+        padding: 3px 0px;
+        border-right: 1px solid #fff;
+        display: inline-block;
+        padding-right: 28px;
+        margin-right: 32px;
+        vertical-align: middle;
+    }
+
+    .footer .copyright-links {
+    display: inline-block;
+    vertical-align: middle;
+    }
+
+    .footer .logo {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .footer .ihs-logo {
+        background: url("@{pathToimg}ihs-logo-white.png") no-repeat;
+        width: 37px;
+        height: 37px;
+        float: left;
+    }
+
+    .footer ul {
+        float: none;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .footer-expanded .copyright-links ul {
+        margin-top:  34px;
+    }
+
+    .footer-expanded small {
+        display: block;
+    }
+
+    .footer-expanded .logo,
+    .footer-small .logo{
+        margin-top: 34px;
+    }
+
+    /*
+    .footer-expanded svg[class*="brand-icon"],
+    .footer-small svg[class*="brand-icon"]{
+        font-size: 14px;
+        position: absolute;
+        right: 16px;
+        top: 6px;
+        //padding: 4px 4px 4px 4px;
+        cursor: pointer;
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        stroke-width: 0;
+        stroke: currentColor;
+        fill: currentColor;
+    }
+    */
+
+    .footer-small > .footer-control{
+
+        position: absolute;
+        right: 16px;
+        top: 4px;
+        //padding: 4px 4px 4px 4px;
+        cursor: pointer;
+        //border: 1px solid white;
+
+            svg[class="brand-icon-chevron"], svg[class="ihs-icon-chevron"] {
+                .icon-set(14px, @gray-light, 0px, 0px); 
+            }
+
+        &:hover {
+            fill: white;
+        }
+    }
+
+    .icons-holder {
+        padding: 16px 16px 16px 30px;
+    }
+
+    .icons-sized {
+        font-size: 16px;
+    }
+
+
+
+    @media (max-width: 768px) {
+        .icon-set, .navbar-nav {
+            margin: 0;
+            float: right;
+        }
+    }
+
+
+    /* Header //////////////////////
+    34px to baseline of text
+
+    /* Widths
+    margin 16px per side
+    Full format - 100% responsive?
+    Web format - 1024 max width
+    */
+
+    /* Logo 35px X 35px
+    header - green default logo
+    footer - white logo
+    vertically centered
+    */
+
+    /* Product Name
+    22px Source Sans Pro Regular Dark Gray (HEX #4c4b4c) Centered in vertical space
+    */
+
+    /* Version Number
+    12px Source Sans Pro Light Light Gray (HEX 999999)
+    1px after product name, same line
+    */
+
+    /* Historical Branding "By IHS Markit"
+    12px Source Sans Pro italic Light Gray (HEX 999999)
+    6px below main product name
+    */
+
+    /* Active Navigation
+    bar 2px tall, width of button Orange (HEX #ff8f1c)
+    On click the active indicator pops on
+    */
+
+    /* Navigation text/bar
+    12px ALL CAPS Arial Regular White (HEX #fff)
+    Centered in vertical space
+    Left and right margins of 16px
+    Words 32px apart
+    Bar 24px tall
+    */
+
+    /* Search button/bar
+    gradient background.
+    Linear-gradient(75deg,#08ac4b,#328f8a)
+    search bar stays the same
+
+    width: 325px;
+    vertical-align: middle;
+    padding-top: 23px;
+    padding-right: 24px;
+    */
+
+    /* Header Icons
+    18px X 18px Dark Gray (HEX 4c4b4c) Hover ihs-color-h1
+    48px apart
+    User Icon to name 16px apart
+    Last icon is 12px from Right Side
+    Icon Area has margin of 6px from left hand browser edge
+    */
+
+    /* Navbar Colors
+    Blue/Default - Navbar #0066B3, Hover #0B507F
+    Black -   Navbar #000000, Hover #E5E5E5
+    Turquoise Navbar #00719d, Hover #0097d1
+    Gray -    Navbar #999999, Hover #4c4b4c
+    */
+
+    /* States
+    Not logged in - user icon is outlined
+    */
+
+    /* Footer
+    16px horiz padding
+    background color - Dark Gray (HEX #4c4b4c)
+    ihs-type-body White (HEX #fff )
+
+    standard - 64px height
+
+    social - 64px height
+    icons - 24x24 gray (HEX #999999)
+    social divider line - 1x32 #fff
+
+    small - 24px height .. expandable
+    arrow ihs-icon-chevron White (HEX #FFF)
+    Centered in vertical space 16px X 10px
+
+    expanded - 96px height
+    14px bottom margin between (links below copyright)
+    ihs-icon-x White (HEX #fff)
+    Centered in vertical space 12px X 12px
+    */
+} // End .cpl-scope

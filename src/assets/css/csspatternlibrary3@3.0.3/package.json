@@ -1,0 +1,12 @@
+{
+  "name": "csspatternlibrary3",
+  "version": "3.0.3",
+  "description": "Styling changes and bug fixes",
+  "style": "./css/styles-nw.css",
+  "publishConfig": {
+    "registry": "http://npm-na.ihs.com/repository/public-npm/"
+  },
+  "peerDependencies": {
+    "bootstrap": ">= 3.3.6 < 4.0"
+  }
+}

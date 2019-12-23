@@ -1,0 +1,82 @@
+.cpl-scope {
+    // ---------------------------------------------- SHUTTLE SELECTORS ----------------- //
+
+    .dual-list {
+        .border(0px);
+        display: block;
+
+        .list-group {
+            margin-top: 0px;
+            .border(0px);
+
+            .list-group-item:hover {
+                background-color: @list-group-hover-bg;
+                //color: @component-active-color;
+            } 
+
+        }
+
+
+
+        .form-group {
+            margin: 0px;
+        }
+
+        .list-left li, .list-right li {
+            cursor: pointer;
+        }
+
+        p {
+            .border(0px);
+        }
+
+        button {
+            margin-bottom: 8px;
+            display: block;
+            padding: 0px;
+            width: 32px;
+
+            &.btn-deemphasized {
+                color: @gray;
+                background-color: @gray-lighter;
+                .border(1px, @gray);
+
+                &:hover {
+                    background-color: @gray-light;
+                    color: @component-hover-color;
+                }
+
+                &.active {
+                    background-color: @component-active-bg;
+                    color: @component-hover-color;
+                }
+            }
+
+            svg[class*="brand-icon"], svg[class*="ihs-icon"] {
+                //.icon-set(14px, inherit, 0px, 6px 10px);
+                .border(0px);
+
+            }
+            
+            & svg[class*="brand-icon-arrow"], & svg[class*="ihs-icon-arrow"] {
+                padding: 6px 6px;
+            }
+        }
+        
+        .button-container {
+            width: 64px;
+            .border(0px);
+            float: left;
+            padding-left: 16px;
+        }
+
+        .container {
+            width: 224px;
+            .border(1px, @gray-light);
+            float: left;
+            .resetGaps();
+            height: 150px;
+            overflow: auto;
+        }
+    }
+} // End .cpl-scope

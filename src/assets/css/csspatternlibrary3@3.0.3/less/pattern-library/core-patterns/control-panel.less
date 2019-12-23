@@ -1,0 +1,402 @@
+.cpl-scope {
+    // ------------------------------------------ CONTROL PANELS and WELLS ---------------------- //
+
+    .ew-messaging-inline {
+        color: @gray-base;
+    }
+
+    // Shared between .control-panel and .control-panel-2
+    .control-panel, .control-panel-2 {
+        > ul {
+            > li {
+                > a {
+                    &.hamburger-menu {
+                        padding-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+
+
+    .control-panel {
+        background-color: @gray-lighter;
+        padding: 8px;
+        //min-width: 1024px;
+
+        &.well-sm {
+        padding: 8px;
+        .border-radius(@border-radius-small);
+        .border(0px, @gray-light);
+        }
+
+        &.well-lg {
+        padding: 1.75em;
+        .border-radius(@border-radius-large);
+        .border(0px, @gray-light);
+        background: fade(@body-bg, 80%);
+        }
+
+        > ul {
+            list-style-type: none;
+
+            > li {
+                > a {
+                    vertical-align: middle;
+                    padding: 4px 8px;
+                }
+            }
+        }
+
+        .btn {
+            margin-right: 4px;
+            margin-left: 0px;
+
+            &.pull-right{
+                margin-right: 0px;
+            }
+        }
+
+        li.pull-right {
+            margin-right: 0px;
+            padding-right: 0px;
+
+            .btn{
+                margin-right: 0px;
+            }
+        }
+
+        svg[class*="brand-icon"], svg[class*="ihs-icon"] {
+            width: 16px;
+            height: 16px;
+        }
+
+    }
+
+
+    // Advanced Control Panel
+
+    .control-panel-2 {
+
+        .border(0px, @gray-light);
+        .border-radius(2px);
+        .resetGaps();
+        background-color: @gray-lighter;
+        .size-object(100%,40px);
+        min-width: 1024px;
+
+        .btn {
+            margin-right: 8px;
+            margin-left: 0px;
+
+            &.pull-right{
+                margin-right: 0px;
+            }
+        }
+
+        .seperator {
+            display: inline-block;
+            .size-object(1px,20px);
+            background-color: @gray-light;
+            padding: 0px;
+            margin: 0px 16px 0px 0px;
+        }
+
+        svg[class*="brand-icon"], svg[class*="ihs-icon"] {
+            .icon-set(16px, @brand-primary, 4px);
+            width: 16px;
+            height: 16px;
+
+
+            &.first-element {
+                margin-left: 0px;
+            }
+        }
+
+        svg[class*="brand-icon-chevron"], svg[class*="ihs-icon-chevron"] {
+            margin-top: 2px;
+            //margin-right: 2px;
+        }
+
+        .disabled:not(.btn) {
+            color: @gray;
+            pointer-events: none;
+            padding: 11px 16px;
+
+            svg[class*="brand-icon"], svg[class*="ihs-icon"] {
+                fill: @gray-light;
+            }
+        }
+
+        .dropdown-menu {       
+            .resetGaps();
+            min-width: 150px;
+            //padding-bottom: 8px;
+            .border-radius(2px);
+            margin-top: 4px;
+
+            li a {
+                color: @gray-base;
+                padding: 6px 16px;
+
+                &:hover {
+                    background-color: @component-hover-bg;
+                }
+
+                &:focus {
+                    background-color: @brand-primary;
+                    color: @body-bg;
+                }
+            }
+
+            .divider {
+                background-color: @gray-light;
+                height: 1px;
+                margin: 0px;
+            }
+
+            .inactive, .inactive > a {
+                color: @gray;
+            }
+
+        }
+
+        & > ul {
+            list-style-type: none;
+            .resetGaps();
+            min-width: 1020px;
+
+            > li {
+                float: left;
+                vertical-align: middle;
+                padding: 8px 0px 0px;
+                //display: block;
+
+                &.select-menu-container {
+                    width: 300px;
+                    background-color: transparent;
+                    //margin-right: 8px;
+                }
+
+                &.dropdown {
+                    position: relative;
+                    min-width: 85px;
+
+                    &:first-child {
+                        .border-radius-left(1px);
+                    }
+
+                    > a {
+                        margin-top: -9px;
+                        color: @brand-primary;
+                        text-decoration: none;
+                        font-weight: bold;
+                        padding: 12px 16px;
+                        display: block;
+                    }
+
+
+                    svg[class*="brand-icon-arrow"], svg[class*="ihs-icon-arrow"] {
+                        width: 11px;
+                        height: 11px;
+                        margin: 0px 0px 0px 6px;
+                        line-height: 6px;
+
+                    }
+
+                    .disabled {
+                        padding: 0px 0px;
+                    }
+                
+                    &:hover {
+                        background-color: @component-hover-bg;
+                        cursor: pointer;
+
+                        > a {
+                            color: @body-bg;
+                            
+                            svg[class*="brand-icon"], svg[class*="ihs-icon"] {
+                                fill: @body-bg;
+                            }
+                        }
+                    }                          
+                }
+            }
+        }
+    }
+
+    .control-panel {
+    
+        // Main List - displayed elements
+
+        > ul {
+            list-style-type: none;
+            .resetGaps();
+            display: inline-block;
+            position: relative;
+            width: 100%;
+            
+            > li {
+                float: left;
+                margin-bottom: -4px;
+                padding: 0px 2px;
+                height: 100%;
+
+                a {
+                    display: block;
+                    text-decoration: none;
+                }
+                
+                &.hide-it {
+                        display: none;
+                } 
+
+                &.form-control {
+                    width: 300px;
+                }
+
+                // For the hidden menu and elements
+
+                > ul.menu-hidden {
+                    position: absolute;
+                    top: 100%;
+                    right: 0;
+                    list-style-type: none;
+                    visibility: hidden;
+                    .webkit-transition(visibility,0.2s);
+                    .resetGaps();
+                    background-color: #efefef;
+                    margin-top: 16px;
+                    padding: 0px 8px;
+                    z-index: 100;
+
+                        li {
+                            //border: 1px solid blue;
+                            margin: 5px 0px;
+                            text-align: left;
+
+                            a {
+                            text-align: left;
+                            white-space: nowrap;
+                            }
+
+                            a:hover {
+                            background: @gray-light;
+                            }
+                        }
+                    
+                    }
+                &:hover {        
+                    > a {
+                        background: @gray-light;
+                        display: block;
+                    }
+                    
+                    ul.menu-hidden {
+                        visibility: visible;
+                    }
+                }
+            }
+        }
+    } 
+
+
+    // ------------------------------------------- PANELS II COLORED AND INFO  -------------- //
+
+    .info-panel {
+        background-color: @body-bg;
+        padding: 16px;
+        position: relative;
+
+        .border(1px, @gray-light);
+        .border-radius(2px);
+        
+        display: inline-block;
+        width: 100%;
+
+        h1,h2 {
+        color: @brand-primary;
+        }
+
+        span {
+            float: left;
+            .icon-set(48px, @gray, 0px, 0px 16px 0px 0px);
+        }
+
+        ul {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+
+            li {
+                display: inline-block;
+            }
+        }
+
+        p {
+            margin-bottom: 0px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+
+    }
+
+    .panel-green {
+        border-color: #5cb85c;
+
+        .panel-heading {
+            border-color: #5cb85c;
+            color: #fff;
+            background-color: #5cb85c;
+        }
+
+        a {
+            color: #5cb85c;
+        }
+
+        a:hover {
+            color: #3d8b3d;
+        }
+    }
+
+    .panel-red {
+        border-color: #d9534f;
+
+        .panel-heading {
+            border-color: #d9534f;
+            color: #fff;
+            background-color: #d9534f;
+        }
+
+        a {
+            color: #d9534f;
+        }
+
+        a:hover {
+            color: #b52b27;
+        }
+    }
+
+    .panel-yellow {
+        border-color: #f0ad4e;
+
+
+        .panel-heading {
+            border-color: #f0ad4e;
+            color: #fff;
+            background-color: #f0ad4e;
+        }
+
+        a {
+            color: #f0ad4e;
+        }
+
+        a:hover {
+            color: #df8a13;
+        }
+    }
+} // End .cpl-scope

@@ -1,0 +1,122 @@
+// WebKit-style focus
+
+// Normal focus styles usually initiated by user mouse and click events. Should be simple, subtle, or completely turned off.
+.focus-normal-style(@color: @input-border-focus, @color-rgba: rgba(red(@input-border-focus), green(@input-border-focus), blue(@input-border-focus), .6)) {
+  border-color: @color;
+  outline: 0;
+  .box-shadow(~"inset 0 1px 1px rgba(0,0,0,.075), 0 0 4px @{color-rgba}");
+}
+.focus-switch-style() {
+  outline: 0;
+  box-shadow: inset 0 0 0 1.5px @input-border-focus, 0 0 3px 1px rgba(red(@input-border-focus), green(@input-border-focus), blue(@input-border-focus), .6);
+}
+
+// Using the upcoming CSS 4 psuedo state of :focus-visible, see https://github.com/wicg/focus-visible
+// This type of focus comes from keyboard initiated events and other situations where it is important for the 
+// user to see where the focus is located. This helps when toggling checkboxes and radio buttons, activating 
+// buttons, typing into textboxes, or anticipating the result of tabbed navigation.
+.focus-visible-style(@color: @input-border-focus, @color-rgba: rgba(red(@input-border-focus), green(@input-border-focus), blue(@input-border-focus), .6)) {
+  // WebKit-specific. Other browsers will keep their default outline style.
+  // outline: 4px auto -webkit-focus-ring-color;
+
+  outline: 0;
+  animation: focus-visible 800ms;
+}
+.focus-visible-checkbox-style() {
+  outline: 1.5px solid @gray-darker;
+  animation: focus-visible-checkbox 800ms;
+}
+.focus-visible-checkbox-checked-style() {
+  background-color: @brand-primary;
+  outline: 1.5px solid @gray-darker;
+  animation: focus-visible-checkbox-checked 800ms;
+}
+.focus-visible-radio-style() {
+  outline: 0;
+  animation: focus-visible-radio 800ms;
+}
+// .focus-visible-radio-checked-style() {
+//   outline: 0;
+//   animation: focus-visible-radio-checked 800ms;
+// }
+.focus-visible-switch-style() {
+  animation: focus-visible-switch 800ms;
+}
+
+
+////////// Examples - should match 0% state of corresponding animations //////////
+.focus-visible-example {
+  box-shadow: 0 0 8px 0 #2196F3 !important; // Fallback for browsers which don't honor multiple box-shadow rules.
+  box-shadow: inset 0 0 0 0 @body-bg, 0 0 8px 0 #2196F3 !important;
+}
+input[type="checkbox"].focus-visible-example, input[type="checkbox"].focus-visible-example + .checkmark {
+  box-shadow: 0 0 8px 1px #2196F3 !important; // Fallback for browsers which don't honor multiple box-shadow rules.
+  box-shadow: inset 0 0 0 0 @body-bg, 0 0 8px 1px #2196F3 !important;
+}
+input[type="radio"].focus-visible-example, input[type="radio"].focus-visible-example::before {
+  box-shadow: 0 0 8px 1px #2196F3 !important; // Fallback for browsers which don't honor multiple box-shadow rules.
+  box-shadow: inset 0 0 0 0 @body-bg, 0 0 12px 1px #2196F3 !important;
+}
+.switch input[type=checkbox].focus-visible-example + .slider {
+  box-shadow: inset 0 0 0 1.5px @gray-darker, 0 0 3px 1px #2196F3 !important;
+}
+
+
+////////// Animations //////////
+@keyframes focus-visible {
+  0%, 50% {
+    box-shadow: 0 0 8px 0 #2196F3; // Fallback for browsers which don't honor multiple box-shadow rules.
+    box-shadow: inset 0 0 0 0 @body-bg, 0 0 8px 0 #2196F3;
+  }
+  100% {
+    box-shadow: 0 0 4px rgba(red(@input-border-focus), green(@input-border-focus), blue(@input-border-focus), .6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 4px rgba(red(@input-border-focus), green(@input-border-focus), blue(@input-border-focus), .6);
+  }
+}
+@keyframes focus-visible-checkbox {
+  0%, 50% {
+    box-shadow: 0 0 8px 1px #2196F3; // Fallback for browsers which don't honor multiple box-shadow rules.
+    // box-shadow: inset 0 0 0 1px @brand-success, inset 0 0 2px 100px @body-bg, 0 0 8px 1px #2196F7; // Animating between this and the normal focus styles creates an undesireable flash of @brand-success inside the checkbox so we removed the @brand-success color.
+    box-shadow: inset 0 0 0 100px @body-bg, 0 0 8px 1px #2196F3;
+  }
+  100% {
+    box-shadow: inset 0 0 1px 100px @body-bg, inset 0 1px 1px rgba(0,0,0,.075), 0 0 4px rgba(red(@input-border-focus), green(@input-border-focus), blue(@input-border-focus), .6);
+  }
+}
+@keyframes focus-visible-checkbox-checked {
+  0%, 50% {
+    box-shadow: 0 0 8px 1px #2196F3; // Fallback for browsers which don't honor multiple box-shadow rules.
+    box-shadow: inset 0 0 0 100px @brand-primary, 0 0 8px 1px #2196F3
+  }
+  100% {
+    box-shadow: inset 0 0 1px 100px @brand-primary, inset 0 1px 1px rgba(0,0,0,.075), 0 0 4px rgba(red(@input-border-focus), green(@input-border-focus), blue(@input-border-focus), .6);
+}
+}
+@keyframes focus-visible-radio {
+  0%, 50% {
+    box-shadow: 0 0 8px 1px #2196F3; // Fallback for browsers which don't honor multiple box-shadow rules.
+    box-shadow: inset 0 0 0 2px #FFF, 0 0 12px 1px #2196F3;
+  }
+  100% {
+    .box-shadow(~"inset 0 1px 1px rgba(0,0,0,.075), 0 0 4px rgba(red(@input-border-focus), green(@input-border-focus), blue(@input-border-focus), .6)");
+  }
+}
+@keyframes focus-visible-radio-input {
+  0%, 50% {
+    box-shadow: 0 0 8px 1px #2196F3; // Fallback for browsers which don't honor multiple box-shadow rules.
+    box-shadow: inset 0 0 0 2px #FFF, 0 0 12px 1px #2196F3;
+  }
+  100% {
+    .box-shadow(~"inset 0 1px 1px rgba(0,0,0,.075), 0 0 4px rgba(red(@input-border-focus), green(@input-border-focus), blue(@input-border-focus), .6)");
+  }
+}
+@keyframes focus-visible-switch {
+  0%, 50% {
+    box-shadow: 0 0 8px 1px #2196F3; // Fallback for browsers which don't honor multiple box-shadow rules.
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), inset 0 0 0 1.5px @gray-darker, 0 0 3px 1px #2196F3;
+    border-width: 2px;
+    }
+  100% {
+    box-shadow: inset 0 0 0 1.5px @input-border-focus, 0 0 3px 1px rgba(red(@input-border-focus), green(@input-border-focus), blue(@input-border-focus), .6);
+  }
+}

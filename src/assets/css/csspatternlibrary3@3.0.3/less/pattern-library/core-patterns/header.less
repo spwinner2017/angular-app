@@ -1,0 +1,1126 @@
+.cpl-scope {
+    // Header
+    .icon-area .dropdown-menu {
+        padding: 8px 16px;
+    }
+
+    .dropdown-menu {
+        background-color: @body-bg;
+        min-width: 210px;
+        color: @gray-base;
+
+        left: -1px;
+        .border-radius(0px);
+        .shadow-set(none);
+        .border(1px, @gray-light);
+        margin-top: 0px;
+
+        &:hover {
+            display: visible;
+        }
+
+        &.left {
+            left: -1px;
+            min-width: 200px;
+        }
+
+        &.right {
+            left: auto;
+            min-width: 205px;
+            right: -1px;
+        }
+        &.middle {
+            left: auto;
+            right: -55px;
+            min-width: 180px;
+        }
+
+        hr {
+            color: @gray-light;
+            height: 1px;
+            noshade: noshade;
+            .resetGaps;
+            margin: 8px -16px 8px -16px;
+        }
+
+        ul hr {
+            margin: 8px 0px 8px 0px;
+        }
+
+        strong {
+            display: block;
+            margin: 8px 0px 0px 0px;
+        }
+
+        small {
+            font-weight: bold;
+        }
+
+        .small, small {
+            display: block;
+        }
+
+        .email {
+            display: inline-block;
+        }
+
+        p {
+            white-space: nowrap;
+        }
+
+        .menu-links {
+            .resetGaps;
+            list-style-type: none;
+            .border(0px);
+            margin-left: -16px;
+            margin-right: -16px;
+
+            & > li {
+                .fixTransformIssue();
+                .border(0px, red);
+                padding: 4px 0px;
+
+                a {
+                    color: inherit;
+                    text-decoration: none;
+                    display: block;
+                    padding-left: 16px;
+                    padding-right: 16px;
+                }
+
+                &:hover {
+                    background-color: #999999;
+                    color: @component-hover-color;
+
+                    a {
+                        color: inherit;
+                    }
+                }
+            }
+        }
+
+        & > li > a {
+            padding: 3px 16px;
+        }
+
+    }
+
+    .ihs-header {
+        color: @headerTextColor;
+        background-color: @headerBGColor;
+        min-width: @headerMinWidth;
+        //position: relative;
+        border: 0px solid red;
+
+        &.navbar-static-top {
+            z-index: auto;
+            border-width: 0;
+        }
+
+        &.navbar-fixed-top  {
+            border-width: 0;
+        }
+
+        a.brand  {
+            color: @headerTextColor;
+        }
+        a:visited.brand {
+            color: @headerTextColor;
+        }
+        a:hover.brand  {
+            color: @headerTextColor;
+        }
+
+        h2 {
+        color: inherit;
+        margin: 0px;
+        margin-top: 13px;
+        font-weight: normal;
+        }
+
+        h1 {
+        color: inherit;
+        margin: 0px;
+        margin-top: 12px;
+        padding-bottom: 0px;
+        font-weight: bold;
+
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+
+        }
+
+        small {
+            .resetGaps();
+        }
+
+        span {
+            font-size: @font-size-large; // Where is <span> stylings in less for Bootstrap?
+        }
+
+        .ihs-logo {
+            .size-object((@headerHeight - (@logoPaddingTB * 2)) + 2, (@headerHeight - (@logoPaddingTB * 2)) + 2);
+            margin: @logoMargin;
+            background: url("@{pathToimg}ihs-logo.png") no-repeat left center;
+            fill: @headerTextColor;
+            float: left;
+            cursor: pointer;
+        }
+
+        .brand-menu {
+            //display: inline;
+            width: 220px;
+            position: relative;
+            margin-bottom: 0px;
+
+            &:hover {
+                background-color: @body-bg;
+                color: @black;
+
+            }
+        }
+
+        .brand {
+            font-family: 'Source Sans Pro', sans-serif;
+            height: 66px;
+            .border(0px);
+            border-bottom: 0px;
+            display: inline-block;
+            width: 250px;
+            position: relative;
+
+            h1, small {
+                cursor: pointer;
+            }
+
+
+            & > .ihs-logo {
+                width: 36px;
+                height: 36px;
+                display: block;
+                margin: 16px 9px 14px 16px;
+                //vertical-align: middle;
+                float: left;
+            }
+
+            & > h1 {
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+                margin: 0px;
+                color:  #4c4b4c;
+                font-weight: normal;
+                font-size: 22px;
+                white-space: nowrap;
+            }
+
+            span, small {
+                font-size: 12px;
+                color: #999;
+                font-weight: 300;
+            }
+
+            small {
+                margin-top: 4px;
+                display: block;
+                font-weight: 800;
+                color: #4c4b4c;
+            }
+
+        }
+
+        .ihs-menu > .disabled, .ihs-menu > .disabled:hover {
+            background-color: inherit;
+
+            a {
+                color: @gray-lighter;
+                opacity: 0.4;
+            }
+        }
+
+
+        .icon-set {
+            .border(0px);
+            float: right;
+
+            .icon-area {
+                padding: 0px 23px;
+                margin: 0px;
+                height: @navIconItemHeight;
+                .border(1px, transparent);
+                border-bottom: 0px solid transparent;
+
+                &.delayed-hover {
+                    .border(1px, #CCC);
+                    border-bottom: 0px solid transparent;
+                    background-color: @body-bg;
+                    height: 66px;
+                    z-index: 100; // as long as this is above 0
+
+                    & > .icon-menu {
+                        color: #4c4b4c;
+                    }
+
+                    & > .icon-menu:after,
+                        .icon-area.active > .icon-menu:after{
+                        position: absolute;
+                        bottom: -1px;
+                        width: 100%;
+                        height: 1px;
+                        content: '';
+                        left: 0;
+                        right: 0;
+                        background-color: #fff;
+                        z-index: 5000;
+                    }
+                }
+
+                /*
+                &:hover {
+                    .border(1px, #CCC);
+                    border-bottom: 0px solid transparent;
+                    background-color: @body-bg;
+                    height: 66px;
+                    z-index: 100; // as long as this is above 0
+
+                    & > .icon-menu {
+                        color: #4c4b4c;
+                    }
+                }
+               
+                &:before {
+                    content:"";
+                    .vertItemSeparator;
+                    .absVertAlign();
+                    .border(1px, @gray-light);
+                    margin-left: -25px;
+                }
+                */
+
+                // Icon and Label
+                .icon-menu {
+                    color: #4c4b4c;
+                    font-size: @font-size-base + 2;
+                    text-align: center;
+                    padding-top: 0px;
+                    // pointer-events: none; Don't do this except on disable elements!
+                    cursor: default;
+                    line-height: 66px;
+
+                    span {
+                        font-size: inherit;
+                    }
+
+                    > .greeting {
+                        padding-left: 8px;
+                        .border(0px);
+                        font-size: 12px;
+                        color: inherit;
+                        vertical-align: middle;
+                    }
+
+                    > [class^=ihs-icon-]{
+                        vertical-align: middle;
+                        display: inline-block;
+                        width: 18px;
+                        height: 18px;
+                        stroke-width: 0;
+                        stroke: currentColor;
+                        fill: currentColor;
+                    }
+                }
+            }
+
+            & > .icon-area.active {
+                border: 1px solid #ccc !important;
+            }
+
+            & > .icon-area:last-child, > .icon-area:last-child:hover{
+                margin-right: 6px;
+                padding-right: 12px;
+
+            }
+
+            /*
+            .icon-area:hover > .icon-menu:after,
+            .icon-area.active > .icon-menu:after{
+                position: absolute;
+                bottom: -1px;
+                width: 100%;
+                height: 1px;
+                content: '';
+                left: 0;
+                right: 0;
+                background-color: #fff;
+                z-index: 5000;
+            }
+            */
+
+            .search-area {
+                width: 300px;
+                top: 23px;
+                right: 24px;
+            }
+        }
+
+        //
+
+
+        .nav-tools {
+            .nav-tool {
+                .size-object(@navIconItemWidth,@navIconItemHeight);
+                position: relative;
+
+                .floatTo(right);
+
+                .nav-tool-item {
+                    margin: @padding-base-vertical;
+                    .size-object(@navIconItemWidth - (2 * @padding-base-vertical),@navIconItemHeight - (2 * @padding-base-vertical));
+                    cursor: pointer;
+
+
+                    &:hover {
+                        .border-radius(@border-radius-base);
+                        background-color: @brand-info;
+
+                        a {
+                            background-color: @brand-info;
+                        }
+
+
+                    }
+                }
+
+                .nav-greeting {
+                    padding: @font-size-small (@padding-large-horizontal);
+                }
+                .icon-gear {
+                    background: url("@{pathToimg}ihs-icon-settings.svg") no-repeat center center;
+                }
+                .icon-user {
+                    background: url("@{pathToimg}ihs-icon-admin.svg") no-repeat center center;
+                }
+                .icon-question {
+                    background: url("@{pathToimg}ihs-icon-help.svg") no-repeat center center;
+                }
+
+                &:before {
+                    content:"";
+                    .vertItemSeparator();
+                    .absVertAlign();
+                }
+            }
+        }
+
+        .ihs-menu {
+            .size-object(100%,@tabMenuHeight);
+            border-top: 1px solid fade(@body-bg, 20%);
+
+            a {
+                font-size: @font-size-base;
+                outline: none;
+                text-shadow: none;
+                text-transform: uppercase;
+                .resetGaps();
+                padding: 5px (@padding-large-horizontal + 1);
+                display: block;
+                // .border-top-radius(@border-radius-large);
+            }
+
+            & li {
+                height: @tabMenuHeight - 1;
+                //padding: 5px (@padding-large-horizontal + 1);
+                padding: 0px;
+                .border-top-radius(@border-radius-large);
+                .transition(@darken-primary, 300ms);
+
+                &.active, &.active:hover {
+                    background-color: @gray-lighter;
+
+                    > a {
+                        color: @gray-darker;
+                        background-color: @gray-lighter;
+                        padding-bottom: 0px;
+                    }
+                }
+                &:hover {
+                    cursor: pointer;
+                    background: @darken-primary;
+
+                    a {
+                        color: @gray-lighter;
+                    }
+                }
+            }
+        }
+
+        .search-group {
+
+            // .btn-icon {
+            //     background: linear-gradient(-75deg, #328F8A 10%, #08AC4B 90%);
+            //     color: @body-bg !important;
+
+            //     > svg {
+            //         fill: currentColor;
+            //     }
+            // }
+
+            .ihs-icon-arrow {
+                font-size: 9px;
+                margin: 0;
+            }
+
+            .form-control.short {
+                padding: 12px 8px 10px 8px;
+            }
+
+            ul li:hover,
+            .dropdown-menu>li:hover {
+                background-color: @gray-lighter;
+            }
+
+            ul li:focus,
+            .dropdown-menu>li.selected,
+            .dropdown-menu>li:focus {
+                background-color: @brand-primary;
+                color: @body-bg;
+            }
+        }
+
+    }
+
+    .ihs-header {
+        .dropdown-menu.header.right {
+            //left: -54px;
+        }
+
+        & > .clearfix {
+        height: 66px;
+        //width: 100% !important;
+        }
+    }
+
+    /*
+    .ihs-menu {
+        .navbar-nav {
+            height: 24px;
+            border: 0px;
+
+            li {
+                border-radius: 0px;
+            }
+        }
+
+        &.navbar-blue {
+            background-color: #0066B3;
+            color: white;
+
+            li, li a {
+                height: 24px;
+            }
+            &:hover {
+                background-color: #0B507F;
+            }
+            li.active, li.active a {
+                background-color: #0B507F;
+                color: white;
+                border-top: solid 2px #ff8f1c;
+                top: -2px;
+                height: 26px;
+            }
+            &:hover {
+                background-color: #0B507F;
+                color: white;
+            }
+        }
+        &.navbar-turquoise {
+            background-color: #00719d;
+            color: white;
+
+            li, li a {
+                height: 24px;
+            }
+            &:hover {
+                background-color: #0097d1;
+            }
+            li.active, li.active a {
+                background-color: #0097d1;
+                color: white;
+                border-top: solid 2px #ff8f1c;
+                top: -2px;
+                height: 26px;
+            }
+            &:hover {
+                background-color: #0097d1;
+                color: white;
+            }
+        }
+        &.navbar-gray, &.navbar-grey {
+            background-color: #999999;
+            color: white;
+
+            li, li a {
+                height: 24px;
+            }
+            &:hover {
+                background-color: #4c4b4c;
+            }
+            li.active, li.active a {
+                background-color: #4c4b4c;
+                color: white;
+                border-top: solid 2px #ff8f1c;
+                top: -2px;
+                height: 26px;
+            }
+            &:hover {
+                background-color: #4c4b4c;
+                color: white;
+            }
+        }
+        &.navbar-black {
+            background-color: #000000;
+            color: white;
+
+            li, li a {
+                height: 24px;
+                padding: 5px 12px;
+            }
+            &:hover {
+                background-color: #E5E5E5;
+                color: black;
+            }
+            li.active, li.active a {
+                background-color: #E5E5E5;
+                color: black;
+                border-top: solid 2px #ff8f1c;
+                top: -2px;
+                height: 26px;
+            }
+            &:hover {
+                background-color: #E5E5E5;
+                color: black;
+            }
+        }
+    }
+    */
+
+    /*
+    .ihs-header-2 {
+
+        @header-text-color:         @black;
+        @header-background-color:   @body-bg;
+        @product-name-width:        200px;
+        @icon-hover-color:          @brand-primary;
+        @icon-color:                @gray;
+        @icon-font-size:            18px;
+        @hover-border-color:        @gray-light;
+        @menu-background-color:     @gray-lighter;
+        @debug-border-color:        yellow;
+        @header-min-width:          400px;
+
+        .ihs-header-class;
+
+    }
+    */
+
+
+    .ihs-header-2 {
+
+        color: @black;
+        background-color: @body-bg;
+        //min-width: 1024px;
+        .border(0px, @gray-lighter);
+
+
+        .ihs-logo {
+            float: left;
+        }
+
+        h1 {
+            color: @gray-base;
+        }
+
+        .brand-menu {
+            //display: inline;
+            //width: 200px;
+            position: relative;
+
+
+        }
+
+        small {
+            .resetGaps();
+        }
+
+        .ihs-menu {
+            background-color: @brand-primary;
+            height: @tabMenuHeight + 1;
+            border-top: 1px solid fade(@brand-primary, 20%);
+        }
+
+        .icon-set {
+            border: 0px solid red;
+            float: right;
+
+            .icon-area {
+                margin: 0px;
+                height: @navIconItemHeight;
+                .border(1px,white);
+                border-bottom: 0px;
+                position: relative;
+
+                &:hover {
+                    .border(1px, @gray-light);
+                    border-bottom: 0px;
+                    color: @gray-base;
+                    background-color: @body-bg;
+                }
+
+
+
+                // Icon and Label
+                .icon-menu {
+                    color: @gray;
+                    font-size: 18px;
+                    text-align: center;
+                    padding-top: 14px;
+
+                    span {
+                        font-size: inherit;
+                    }
+
+                    > .greeting {
+                        padding-left: 16px;
+                        border: 0px solid red;
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+
+
+    .ihs-header-3, .ihs-header-4 {
+
+        color: @gray-base;
+        background-color: @body-bg;
+
+
+        //min-width: 1024px;
+        .border(0px, @gray-lighter);
+
+
+        .input-group-addon {
+            background-color: @gray-darker;
+            color: @body-bg;
+            padding: 5px 7px;
+
+            &.end {
+                .border-radius-right(5px);
+                border-left: none;
+            }
+
+            &.reversed {
+                background-color: @body-bg;
+                color: @gray-darker;
+            }
+
+            span {
+                font-size: 11px;
+                display: block;
+            }
+        }
+
+        .ihs-logo {
+            float: left;
+        }
+
+        .brand-menu {
+            position: relative;
+
+            &:hover {
+                background-color: @body-bg;
+            }
+        }
+
+        small {
+            .resetGaps();
+        }
+
+        .menu-links {
+
+            & > li {
+
+                a {
+                    color: inherit;
+                    text-decoration: none;
+                }
+
+                &:hover {
+                    background-color: @component-hover-bg;
+                    color: @component-hover-color;
+
+                    a {
+                        color: inherit;
+                    }
+                }
+            }
+        }
+
+        .ihs-menu {
+            background-color: @gray-darker;
+            .size-object(100%,@tabMenuHeight + 1);
+            border-top: 1px solid fade(@body-bg, 20%);
+
+            .navbar-nav {
+                width: 100%;
+            }
+
+            a {
+                font-size: @font-size-large;
+                outline: none;
+                text-shadow: none;
+                text-transform: uppercase;
+                .resetGaps();
+                padding: 5px (@padding-large-horizontal + 1);
+                .border-top-radius(@border-radius-large);
+            }
+
+            & li {
+                height: @tabMenuHeight;
+                //padding: 5px (@padding-large-horizontal + 1);
+                .border-top-radius(@border-radius-large);
+                .transition(@darken-primary, 300ms);
+                padding: 0px;
+
+                & a:focus, & a:hover {
+                    color: @gray-lighter;
+                }
+
+                &.active, &.active:hover {
+                    background-color: @body-bg;
+
+                    a {
+                        color: @gray-base;
+                        background-color: @body-bg;
+                        padding-bottom: 0px;
+                    }
+                }
+                &:hover, &:focus {
+                    cursor: pointer;
+                    background: @gray-base;
+
+                    a {
+                        color: @body-bg;
+                    }
+                }
+            }
+        }
+
+
+        .icon-set {
+            .border(0px);
+            float: right;
+            position: relative;
+
+
+            .search-area {
+                width: 300px;
+                top: 15px;
+                right: 20px;
+            }
+
+            .icon-area {
+                margin: 0px;
+                height: @navIconItemHeight;
+                .border(1px, transparent);
+                border-bottom: 0px solid transparent;
+                position: relative;
+
+                &:hover {
+                    .border(1px, @gray-light);
+                    border-bottom: 0px;
+                    color: @gray-base;
+                    background-color: @body-bg;
+                }
+
+                // Icon and Label
+                .icon-menu {
+                    color: @gray-darker;
+                    font-size: 18px;
+                    text-align: center;
+                    padding-top: 14px;
+
+                    span {
+                        font-size: inherit;
+                    }
+
+                    > .greeting {
+                        padding-left: 16px;
+                        .border(0px);
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+
+        .tt-suggestion {
+
+        &:hover {
+            background-color: @gray-base;
+            color: #fff;
+            }
+        }
+    }
+
+    .ihs-header-4 {
+        .ihs-menu {
+            background-color: @black;
+            border-top: 1px solid fade(@body-bg, 20%);
+            .size-object(100%, @tabMenuHeight + 1);
+
+            .navbar-nav {
+                width: 100%;
+            }
+
+            a {
+                font-size: @font-size-large;
+                outline: none;
+                text-shadow: none;
+                text-transform: uppercase;
+                .resetGaps();
+                padding: 5px (@padding-large-horizontal + 1);
+                .border-top-radius(@border-radius-large);
+            }
+
+            & li {
+                height: @tabMenuHeight;
+                .border-top-radius(@border-radius-large);
+                .transition(@darken-primary, 300ms);
+                padding: 0px;
+
+                & a:focus, & a:hover {
+                    color: @gray-lighter;
+                }
+
+                &.active, &.active:hover {
+                    background-color: @body-bg;
+
+                    a {
+                        color: @gray-darker;
+                        background-color: @body-bg;
+                        padding-bottom: 0px;
+                    }
+                }
+                &:hover, &:focus {
+                    cursor: pointer;
+                    background: @gray-base;
+
+                    a {
+                        color: @body-bg;
+                    }
+                }
+            }
+        }
+    }
+
+  
+
+
+    /*
+    .icon-area:hover > .dropdown-menu,
+    .brand-menu:hover > .dropdown-menu {
+        display: block;
+    }
+    */
+
+    /*
+    .icon-area:hover > .dropdown-menu:active,
+    .brand-menu:hover > .dropdown-menu:active {
+        display: none;
+    }*/
+
+    .icon-area.open > .dropdown-menu {
+        display: none;
+    }
+
+
+
+    .full-click-tabs {
+
+        & > li {
+            padding: 0 !important;
+            .border-top-radius(@border-radius-base);
+
+            & > a {
+                display: block;
+                .border-top-radius(@border-radius-base);
+
+                div {
+                    padding: 5px @padding-large-horizontal;
+                }
+            }
+        }
+    }
+
+    @media (min-width: 468px) {
+        .ihs-header-3 {
+            min-width: 320px;
+        }
+    }
+
+
+    @media (max-width: 768px){
+
+        .icon-set {
+            border: 1px solid red;
+
+            .search-area {
+                display: none;
+            }
+        }
+
+    }
+
+
+    /*
+    //Fix for Ipad//
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+        .ihs-header .nav-tool .nav-tool-item:not(.open):hover {
+            background-color: @brand-info;
+            .border-radius-bottom(@border-radius-small);
+        }
+    }
+
+
+    @media (min-width:768px) {
+        .navbar-nav {
+            float: left;
+            margin: 0
+            border: 1px solid yellow;
+        }
+
+        .navbar-nav > li {
+            float: left
+        }
+
+        .navbar-nav > li > a {
+            padding-top: 15px;
+            padding-bottom: 15px
+        }
+    }
+
+    @media (max-width:767px) {
+        .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+            color: #777
+        }
+
+        .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus, .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+            color: #333;
+            background-color: transparent
+        }
+
+        .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus,
+        .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover {
+            color: #555;
+            background-color: #e7e7e7
+        }
+
+        .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:focus,
+        .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:hover {
+            color: #ccc;
+            background-color: transparent
+        }
+    }
+
+    @media (min-width:768px) {
+        .navbar-right .dropdown-menu {
+            left: auto;
+            right: 0
+        }
+
+        .navbar-right .dropdown-menu-left {
+            left: 0;
+            right: auto
+        }
+    }
+
+    @media (min-width:768px) {
+        .navbar {
+            border-radius: 2px
+        }
+    }
+
+    @media (min-width:768px) {
+        .navbar-header {
+            float: left
+        }
+    }
+
+    @media (max-device-width:480px) and (orientation:landscape) {
+        .navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse {
+            max-height: 200px
+        }
+    }
+
+    @media (min-width:768px) {
+        .navbar-static-top {
+            border-radius: 0
+        }
+    }
+
+    @media (min-width:768px) {
+        .navbar-fixed-bottom, .navbar-fixed-top {
+            border-radius: 0
+        }
+    }
+
+    @media (max-width:767px) {
+        .navbar-nav .open .dropdown-menu {
+            position: static;
+            float: none;
+            width: auto;
+            margin-top: 0;
+            background-color: transparent;
+            border: 0;
+            box-shadow: none
+        }
+
+        .navbar-nav .open .dropdown-menu .dropdown-header, .navbar-nav .open .dropdown-menu > li > a {
+            padding: 5px 15px 5px 25px
+        }
+
+        .navbar-nav .open .dropdown-menu > li > a {
+            line-height: 16px
+        }
+
+        .navbar-nav .open .dropdown-menu > li > a:focus, .navbar-nav .open .dropdown-menu > li > a:hover {
+            background-image: none
+        }
+    }
+
+    */
+
+    @media (min-width:768px) {
+        .navbar-nav {
+            float: right;
+            margin: 0;
+        }
+    }
+
+    @media (max-width:768px) {
+        .ihs-menu > li, .icon-set > .icon-area {
+            float: left;
+        }
+
+        .navbar-nav, .icon-set {
+            margin: 0px;
+        }
+
+        .icon-set .search-area {
+            display: none;
+        }
+    }
+} // End .cpl-scope

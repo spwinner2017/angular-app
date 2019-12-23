@@ -1,0 +1,111 @@
+/* Default mixins */
+
+.floatTo(@direction) {
+    display: inline-block;
+    float: @direction !important;
+}
+
+.gradient(@origin: left, @start, @stop) {
+    background-color: @start;
+    background-image: -webkit-linear-gradient(@origin, @start, @stop);
+    background-image: -moz-linear-gradient(@origin, @start, @stop);
+    background-image: -o-linear-gradient(@origin, @start, @stop);
+    background-image: -ms-linear-gradient(@origin, @start, @stop);
+    background-image: linear-gradient(@origin, @start, @stop);
+}
+
+.resetGaps() {
+    padding: 0;
+    margin: 0;
+}
+
+.absVertAlign() {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.absHorAlign() {
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    -ms-transform: translate(-50%);
+}
+
+.fixTransformIssue() {
+    transform: translate3d(0,0,0);
+}
+
+.optimizeTextRendering() {
+    text-rendering: optimizeLegibility;
+}
+
+.vertItemSeparator() {
+    display: inline-block;
+    height: 20px;
+    width: 2px;
+    background-color: fade(@gray-base, 20%);
+}
+
+.transition(@prop: all, @time: 1s, @ease: linear) {
+    -webkit-transition: @prop @time @ease;
+    -moz-transition: @prop @time @ease;
+    -o-transition: @prop @time @ease;
+    -ms-transition: @prop @time @ease;
+    transition: @prop @time @ease;
+}
+
+.box-shadow(@x: 0, @y: 3, @z: 0, @blur: 5px, @alpha: 0.5) {
+    -webkit-box-shadow: @x @y @z @blur rgba(0, 0, 0, @alpha);
+    -moz-box-shadow: @x @y @z @blur rgba(0, 0, 0, @alpha);
+    box-shadow: @x @y @z @blur rgba(0, 0, 0, @alpha);
+}
+
+
+/*Utility classes*/
+.cpl-scope {
+    .clearFloat {
+        float: none !important;
+    }
+    .auto-width {
+        width: auto !important;
+    }
+
+    code {
+        // display: block; // Inline code elements should have "display: inline-block;". Don't break them.
+        background-color: @body-bg;
+    }
+
+    //.no-list-style deprecated as of 11/12/2018
+    .no-list-style, .list-style-none {
+        list-style: none;
+    }
+
+    .horizontal-list {
+        padding: 0;
+
+        > li {
+            display: inline-block;
+            padding: 4px 8px;
+        }
+
+        &.hitboxes {
+            > li {
+                padding: 0;
+
+                > *:not(.dropdown-menu), > a:not(.dropdown-menu) {
+                    display: inline-block;
+                    padding: 4px 8px;
+                }
+            }
+        }
+    }
+
+    .inverted {
+        color: @body-bg;
+        background-color: @gray-dark;
+    }
+
+}

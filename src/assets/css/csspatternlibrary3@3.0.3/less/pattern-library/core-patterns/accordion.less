@@ -1,0 +1,196 @@
+// ------------------------------------------ ACCORDION  -------------------- //
+.cpl-scope {
+    .accordion {
+        .panel-heading {
+            // border-bottom: 1px solid @brand-primary;
+
+            &.collapsed {
+                .ihs-icon-arrow {
+                    transform: rotate(180deg);
+                }
+            }
+
+            .ihs-icon-arrow {
+                float: right;
+                fill: @brand-primary;
+                width: 12px;
+                height: 12px;
+                transform: rotate(-90deg);
+            }
+
+            // .panel-title {
+            //     color: @brand-primary;
+
+            //     > * {
+            //         color: @brand-primary;
+            //     }
+            // }
+        }
+
+        .panel-primary, .panel-secondary, .panel-info, .panel-success, .panel-warning, .panel-danger {
+            .ihs-icon-arrow {
+                fill: @body-bg; 
+            }
+        }
+    }
+
+    // .ihs-accordion is deprecated as of 2018 Mar. 07.
+    .brand-accordion, .ihs-accordion {
+        border: 0px solid transparent;
+
+        .panel {
+            box-shadow: none;
+        }
+
+        .panel-default {
+            border: 0 solid transparent;
+            background-color: transparent;
+        }
+        /*
+        .panel + .panel {
+            margin-top: 0px;
+        }
+        .panel-heading {
+            .border(1px, @gray-light);
+            .border-radius();
+            background-color: @gray-lighter;
+            padding: 7px 7px;
+            height: 32px;
+
+            position: relative;
+            cursor: pointer;
+
+            &[aria-expanded="true"] {
+                .border-radius-bottom();
+            }
+
+        }
+        */
+        
+        .panel-heading {
+            position: relative;
+            background-color: transparent;
+            border-bottom: 1px solid @brand-primary;
+            padding: (@spacing-stack-sm + 4px) (@spacing-push + @spacing-push-sm) (@spacing-stack-sm - 4px) @spacing-push;
+            cursor: pointer;
+
+            .ihs-icon-arrow {
+                display: inline-block;
+                fill: @brand-primary;
+                height: 10px;
+                position: absolute;
+                top: ~"calc(50% - 1px)";
+                right: @spacing-push-sm;
+
+                // expanded
+                transform: rotate(-90deg);
+            }
+
+            &.collapsed .ihs-icon-arrow {
+                transform: rotate(180deg);
+            }
+        }
+
+        .panel-title {
+            font-size: @font-size-base;
+            font-weight: bold;
+            //color: @gray-base;
+            display: block;
+            .resetGaps();
+            border: 0 solid transparent;
+        }
+
+        .panel-collapse {
+            border: 1px solid @gray-light;
+        }
+        .panel-collapse.in, .panel-collapse[aria-expanded="true"] {
+            margin-top: -.5px;
+            border-width: 1.5px;
+            border-top-color: @brand-primary;
+            // box-shadow: 0 1px 3px 1px @gray-lighter; // Causes styling flashes during animations.
+        }
+
+
+        // put in arrow icon, pointed right //
+        
+        /*
+        .panel-title:after {
+                .icon-font();
+                .icon-set(@font-size-body, @gray-base, 4px 4px 0px 0px, 0px);
+                float: right;
+        }
+            // pointed down //
+            .chevron-open:after {
+                .rotate-270;
+            }
+        .panel-heading + .panel-collapse {
+
+        & >.panel-body {
+            background-color: @body-bg;
+            .border(1px, @gray-light);
+            border-top: 0px;
+            padding: 15px 7px;
+        }
+        }
+        */
+
+
+        // Styles specific to the Accordion Strong ----------
+        &.strong {
+            .panel-heading {
+                background-color: @gray-dark;
+                color: @body-bg;
+                border-bottom-color: @body-bg !important;
+                border-bottom-width: 0px;
+                padding-top: 12px;
+                padding-bottom: 6px;
+
+                &.collapsed {
+                    border-bottom-width: 1px;
+                }
+
+                .ihs-icon-arrow {
+                    fill: @body-bg;
+                }
+            }
+
+            .panel-collapse {
+                transition: height 400ms, margin 0ms;
+                border-top-color: @gray-dark;
+
+                &.in, &.collapsing {
+                    margin-top: -2px;
+                    margin-bottom: 2px;
+                }
+            }
+        }
+
+    } // end .ihs-accordion
+
+
+    .ew-accordion {
+        .border(0px);
+
+        .panel-default {
+            .border(0px);
+            background-color: inherit;
+        }
+
+        .panel-heading {
+            .border(0px);
+            background-color: inherit;
+            padding-left: 0px;
+        }
+
+        .panel-title {
+            font-size: @font-size-base;
+            color: inherit;
+        }
+
+        .panel-body {
+            .border(0px);
+            background-color: @body-bg;
+        }
+
+    }
+}

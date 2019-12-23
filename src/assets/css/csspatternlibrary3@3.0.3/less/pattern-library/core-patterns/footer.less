@@ -1,0 +1,137 @@
+.cpl-scope {
+    .footer {
+        position: relative;
+        background-color: @footerBGColor;
+        height: @footerHeight;
+        padding: @footerPaddingTB + 1 @footerPaddingLR;
+        color: @footerTextColor;
+        min-width: @footerMinWidth;
+
+        &.navbar-fixed-bottom {
+            position: fixed;
+        }
+        
+        small {
+            display: inline-block;
+        }
+
+        ul {
+            float: none;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        li {
+            display: inline-block;
+            margin: 0px .25em;
+            font-size: @font-size-small;
+        }
+
+            a {
+                color: @footerTextColor;
+            }
+
+            a:visited {
+                color: @gray-lighter;
+            }
+
+        &.footer-small {
+            height: 24px;
+            padding: 4px 16px;
+        }
+
+        &.footer-expanded {
+            height: 96px;
+            padding: 8px 16px;
+
+            .copyright-links ul {
+                margin-top:  34px;
+            }
+
+            small {
+                display: block;
+            }
+        }
+
+        &.footer-expanded .logo,
+        &.footer-small .logo{
+            margin-top: 34px;
+        }
+
+        &.footer-expanded svg[class*="brand-icon"], &.footer-expanded svg[class*="ihs-icon"],
+        &.footer-small svg[class*="brand-icon"], &.footer-small svg[class*="ihs-icon"] {
+            //font-size: 14px;
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            //padding: 4px 4px 4px 4px;
+            cursor: pointer;
+        }
+        &.footer-expanded svg[class*="brand-icon"], &.footer-expanded svg[class*="ihs-icon"] {
+            right: 1px;
+            top: -14px;
+        }
+
+        h1 {
+            font-family: 'Source Sans Pro', sans-serif;
+            color: white;
+            font-size: 20px;
+            font-weight: 100;
+            float: right;
+            margin: 8px 0px 0px 5px;
+        }
+
+        .social-icons {
+            padding: 3px 0px;
+            border-right: 1px solid #fff;
+            display: inline-block;
+            padding-right: 28px;
+            margin-right: 32px;
+            vertical-align: middle;
+
+            i {
+                display: inline-block;
+                width: 24px;
+                height: 24px;
+                background-color: #999;
+                border-radius: 30px;
+                font-size: 14px;
+                color: #fff;
+                text-align: center;
+                line-height: 24px;
+                margin-right: 4px;
+            }
+        }
+
+        .copyright-links {
+        display: inline-block;
+        vertical-align: middle;
+        }
+
+        .logo {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .ihs-logo {
+            background: url("@{pathToimg}ihs-logo-white.png") no-repeat;
+            width: 37px;
+            height: 37px;
+            float: left;
+        }
+    }
+
+
+    // CAN BE USED FOR A COLOR UTILITY //
+
+    .footerTextColor {
+        color: @footerTextColor;
+    }
+    .footerBGColor {
+        background-color: @footerBGColor;
+    }
+
+    .ihs-footer-3 {
+        background-color: @gray-darker;
+    }
+}

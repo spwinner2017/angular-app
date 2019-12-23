@@ -1,0 +1,1 @@
+for(var svgs=document.getElementsByTagName("svg"),pathSVG="svg/icons-latest.svg",i=0;i<svgs.length;i++){var className;className=svgs[i].getAttribute("class"),className&&(svgs[i].innerHTML="<use xlink:href="+pathSVG+"#"+className+"></use>")}

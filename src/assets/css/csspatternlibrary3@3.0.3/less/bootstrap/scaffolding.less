@@ -1,0 +1,218 @@
+.cpl-scope {
+  // Scaffolding
+  // --------------------------------------------------
+  // This file is intended for use on new projects that need basic, default styles set up quickly.
+  // Specifically it contains all of our styles applied to normal HTML elements
+  //   (e.g. styles that don't require the addition of a class or id).
+  // 
+  // When integrating these styles into an existing project - 
+  //   If your project already handles these basic styles or the styles we provide here are 
+  //   in conflict with yours then please omit or override them.
+
+
+  // Reset the box-sizing
+  //
+  // Heads up! This reset may cause conflicts with some third-party widgets.
+  // For recommendations on resolving such conflicts, see
+  // http://getbootstrap.com/getting-started/#third-box-sizing
+  * {
+    .box-sizing(border-box);
+  }
+  *:before,
+  *:after {
+    .box-sizing(border-box);
+  }
+
+
+  // Body reset
+
+  html {
+    font-size: 10px;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+  }
+
+  body {
+    font-family: @font-family-base;
+    font-size: @font-size-base;
+    line-height: @line-height-base;
+    color: @text-color;
+    background-color: @body-bg;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  // Reset fonts for relevant elements
+  input,
+  button,
+  select,
+  textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  // Reset default focus styles.
+  // Per Mike Heinrich - focus styles should be applied individually and not generically accross all elements.
+  // In general concept - focus and hover styles should be coded to match.
+  // See .../less/pattern-library/core-patterns/forms.less for additional applied focus and focus-visible styles.
+  :focus {
+    outline: none;
+  }
+
+  // Links
+  //   Assuming links and button links should look similar so 
+  //   remember to apply these same styles to the .btn-link class
+  a {
+    color: @link-color;
+    text-decoration: none;
+
+    &:not(.btn):not([role]):not(.list-group-item) {
+      letter-spacing: .485px;
+    }
+
+    // &:visited:not(.btn):not([role]):not(.list-group-item), &.visited:not(.btn):not([role]):not(.list-group-item) {
+    //   font-weight: 600;
+    //   letter-spacing: 0;
+    // }
+
+    &:hover, &.hover,
+    &:focus, &.focus {
+      color: @link-hover-color;
+      text-decoration: @link-hover-decoration;
+    }
+
+    // &:focus {
+    //   .focus-normal-style();
+    // }
+
+    // &:active:not(.btn):not([role]):not(.list-group-item), &.active:not(.btn):not([role]):not(.list-group-item) {
+    //   font-weight: 600;
+    //   letter-spacing: 0;
+    // }
+  }
+  // Undo the side-effects of basic link styles on specialized links like .ihs-menu .nav .navbar-nav
+  .ihs-menu, .nav, .navbar-nav {
+    a {
+      &:not(.btn):not([role]):not(.list-group-item) {
+        letter-spacing: 0;
+      }
+
+      // &:visited:not(.btn):not([role]):not(.list-group-item), &.visited:not(.btn):not([role]):not(.list-group-item) {
+      //   font-weight: normal;
+      //   letter-spacing: 0;
+      // }
+
+      // &:active:not(.btn):not([role]):not(.list-group-item), &.active:not(.btn):not([role]):not(.list-group-item) {
+      //   font-weight: normal;
+      //   letter-spacing: 0;
+      // }
+    }
+  }
+
+
+
+  // Figures
+  //
+  // We reset this here because previously Normalize had no `figure` margins. This
+  // ensures we don't break anyone's use of the element.
+
+  figure {
+    margin: 0;
+  }
+
+
+  // Images
+
+  img {
+    vertical-align: middle;
+  }
+
+  // Responsive images (ensure images don't scale beyond their parents)
+  .img-responsive {
+    .img-responsive();
+  }
+
+  // Rounded corners
+  .img-rounded {
+    border-radius: @border-radius-large;
+  }
+
+  // Image thumbnails
+  //
+  // Heads up! This is mixin-ed into thumbnails.less for `.thumbnail`.
+  .img-thumbnail {
+    padding: @thumbnail-padding;
+    line-height: @line-height-base;
+    background-color: @thumbnail-bg;
+    border: 1px solid @thumbnail-border;
+    border-radius: @thumbnail-border-radius;
+    .transition(all .2s ease-in-out);
+
+    // Keep them at most 100% wide
+    .img-responsive(inline-block);
+  }
+
+  // Perfect circle
+  .img-circle {
+    border-radius: 50%; // set radius in percents
+  }
+
+  // SVGs
+  svg {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+
+  // Horizontal rules
+
+  hr {
+    margin-top:    @line-height-computed;
+    margin-bottom: @line-height-computed;
+    border: 0;
+    border-top: 1px solid @hr-border;
+  }
+
+
+  // Only display content to screen readers
+  //
+  // See: http://a11yproject.com/posts/how-to-hide-content
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+  }
+
+  // Use in conjunction with .sr-only to only display content when it's focused.
+  // Useful for "Skip to main content" links; see http://www.w3.org/TR/2013/NOTE-WCAG20-TECHS-20130905/G1
+  // Credit: HTML5 Boilerplate
+
+  .sr-only-focusable {
+    &:active,
+    &:focus {
+      position: static;
+      width: auto;
+      height: auto;
+      margin: 0;
+      overflow: visible;
+      clip: auto;
+    }
+  }
+
+
+  // iOS "clickable elements" fix for role="button"
+  //
+  // Fixes "clickability" issue (and more generally, the firing of events such as focus as well)
+  // for traditionally non-focusable elements with role="button"
+  // see https://developer.mozilla.org/en-US/docs/Web/Events/click#Safari_Mobile
+
+  [role="button"] {
+    cursor: pointer;
+  }
+} // End .cpl-scope

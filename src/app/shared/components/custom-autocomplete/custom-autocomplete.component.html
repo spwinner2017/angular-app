@@ -1,0 +1,17 @@
+<div class="base-auto-select-cointainer">
+    <span style="display: inline-block;" *ngIf="itemList.length>0">
+        <ul class="autocomplete-text">
+            <li class="d-inline-flex selected-item" *ngFor="let item of itemList;let i=index" title="{{item}}">
+                <span class="item-value">{{item}}</span>
+                <span class="remove-item pointer" role="presentation" (click)="handelOnItemRemove(i)">×</span></li>
+        </ul>
+    </span>
+    <span *ngIf="itemList.length>3" style="vertical-align: super;color:#afaaaa">{{itemList.length-3}} more</span>
+    <span style="display: inline-block; vertical-align: top;" class="w-100">
+        <input id="input-text" class="item-input"  type="text"
+            (keyup)="handelOnItemKeyUp($event)" tabindex="0" autocomplete="off" autocorrect="off" autocapitalize="off"
+            [ngClass]="itemList.length > 0 ?'w-100':'w-100'"
+             spellcheck="true" role="textbox">
+    </span>
+    
+</div>

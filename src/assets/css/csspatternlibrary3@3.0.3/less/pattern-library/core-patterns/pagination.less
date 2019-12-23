@@ -1,0 +1,141 @@
+.cpl-scope {
+    // ----------------------------- PAGINATION -------------------- //
+    
+    .pagination {
+    
+        li a, li button {
+            line-height: inherit;
+            vertical-align: middle;
+            color: @brand-primary;
+
+            &:hover span { 
+                color: @brand-primary-dark;
+                .border(0px);
+            }
+
+            &:hover svg[class*="brand-icon"], &:hover svg[class*="ihs-icon"] { 
+                fill: currentColor;
+                .border(0px);
+            }
+        }
+
+        &.short {
+
+            li > a, li > button, li > span {
+                padding-top: @padding-small-vertical + 1px;
+                padding-bottom: @padding-small-vertical + 1px;
+            }
+
+            svg[class*="brand-icon"], svg[class*="ihs-icon"] {
+                width: 8px;
+                height: 8px;
+            }
+        }
+
+        &.small {
+
+            svg[class*="brand-icon"], svg[class*="ihs-icon"] {
+                width: 6px;
+                height: 6px;
+            }
+        }
+
+        &.narrow {
+
+            li > a, li > button, li > span {
+                padding-right: @padding-small-horizontal - 3px;
+                padding-left: @padding-small-horizontal - 3px;
+            }
+        }
+
+        svg[class*="brand-icon"], svg[class*="ihs-icon"] {      
+            width: 9px;
+            height: 9px;
+        }       
+    }
+
+    .pager {
+        svg[class*="brand-icon"], svg[class*="ihs-icon"] {
+            width: 9px;
+            height: 9px;
+        }
+    }
+
+    // Sizing
+    // --------------------------------------------------
+
+    // Large
+    .pagination-lg {
+    
+        li a, li button {
+
+            svg[class*="brand-icon"], svg[class*="ihs-icon"] {      
+                width: 11px;
+                height: 11px;
+            }       
+        }
+
+        &.short {
+
+            li > a, li > button, li > span {
+                padding-top: @padding-base-vertical + 1px;
+                padding-bottom: @padding-base-vertical + 1px;
+            }
+
+            svg[class*="brand-icon"], svg[class*="ihs-icon"] {
+                width: 8px;
+                height: 8px;
+            }
+        }
+
+        &.small {
+
+            li > a, li > button, li > span {
+                font-size: calc(15px * .83);
+            }
+        }
+
+        .pager {
+            svg[class*="brand-icon"], svg[class*="ihs-icon"] {
+                width: 11px;
+                height: 11px;
+            }
+        }
+    }
+
+    // Small
+    .pagination-sm {
+    
+        li a, li button {
+
+            svg[class*="brand-icon"], svg[class*="ihs-icon"] {      
+                width: 6px;
+                height: 6px;
+            }       
+        }
+
+        &.short {
+
+            li > a, li > button, li > span {
+                padding-top: @padding-small-vertical;
+                padding-bottom: @padding-small-vertical;
+            }
+        }
+
+        // Makes the font-size smaller than 10px which is minimum.
+        // &.small {
+
+        //     li > a, li > button, li > span {
+        //         font-size: calc(10px * .83);
+        //     }
+        // }
+
+        .pager {
+            svg[class*="brand-icon"], svg[class*="ihs-icon"] {
+                width: 6px;
+                height: 6px;
+            }
+        }
+    }
+
+} // End .cpl-scope

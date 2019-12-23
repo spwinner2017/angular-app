@@ -1,0 +1,59 @@
+.cpl-scope {
+    // ------------------------------------------------ TOGGLE -------------------------- //
+
+    .btn-toggle {
+    text-align: center;
+    padding: 0px;
+    background-color: @body-bg;
+    .border(1px, @gray-light);
+
+        svg[class*="brand-icon"], svg[class*="ihs-icon"] {
+            .icon-set(14px, @gray-light, 5px 8px, 0px); 
+        }
+
+        &:hover, &.selected, &.active {
+            background-color: @body-bg;
+            .shadow-set(none);
+
+            svg[class*="brand-icon"], svg[class*="ihs-icon"] {
+                stroke: @brand-primary;
+                fill: @brand-primary;
+            }
+            
+        }
+    }
+
+
+    .toggle-switch-bubble {
+
+        input[type="checkbox"] {
+
+            + label:before  {
+                //.ihs-icon-toggle-bubble-off;
+                .icon-set(24px, @brand-primary, 0px, 0px);
+            }
+
+            &:checked + label:before {
+                //.ihs-icon-toggle-bubble-on;
+                .icon-set(24px, @brand-primary, 0px, 0px);
+            }
+        }
+    }
+
+    .toggle-switch-list {
+
+        input[type="checkbox"] {
+
+            + label:before  {
+                .cpl-scope .icon-font();
+                //.ihs-icon-toggle-list-off;
+                .icon-set(24px, @brand-primary, 0px, 0px);
+            }
+
+            &:checked + label:before {
+                //.ihs-icon-toggle-list-on;
+                .icon-set(24px, @brand-primary, 0px, 0px);
+            }
+        }
+    }
+} // End .cpl-scope

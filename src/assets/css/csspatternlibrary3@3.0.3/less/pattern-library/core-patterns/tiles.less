@@ -1,0 +1,107 @@
+.cpl-scope {
+    // ---------------------------------------------------- TILE(S) ----------- //
+    .ew-tile {
+        width: 224px;
+        min-height: 176px;
+        .border-radius(@border-radius-small); 
+        padding-bottom: 24px;
+        //background-color: inherit;
+        .border(0px);
+        //margin: @padding-xs-vertical;
+        padding: @padding-base-vertical;
+
+        &.color-black {
+            .panel-heading {
+                border-bottom: 1px solid black;
+                //border-color: inherit;
+            }
+        }
+
+        h2 {
+            .resetGaps();
+            color: inherit;
+        }
+
+        .panel-heading, .panel-body, .panel-footer {
+            background-color: inherit;
+            color: inherit;
+            .resetGaps();
+        }
+
+        .panel-body {
+            padding: 8px 0px 0px 0px;
+
+            hr {
+                margin-top: 8px;
+                margin-bottom: 8px;
+            }
+        }
+
+        .panel-heading {
+            padding: 0px 0px 8px 0px;
+            border-bottom: 1px solid white;
+        }
+
+        .panel {
+            .border(0px);
+            .resetGaps();
+            background-color: inherit;
+            color: inherit;
+        }
+    }
+
+    .tile-center {
+        width: 224px;
+        min-height: 265px;
+        .border-radius(@border-radius-base); 
+        background-color: @body-bg;
+        .border(1px, @gray-light);
+        margin: @padding-xs-vertical;
+        text-align: center;
+        padding: 32px 16px;
+
+        .panel-heading {
+            .resetGaps();
+            margin-bottom: 16px;
+            .border(0px);
+        
+            .img-container {
+                .border-radius(50%);
+                //background-color: navy;
+                display: inline-block;
+                vertical-align: middle;
+                padding: 20px;
+                margin: 0px;
+
+                svg[class*="brand-icon"], svg[class*="ihs-icon"] {
+                    .icon-set(48px, white, 0px, 0px);
+                }
+            }
+        }
+        
+        .panel-body {
+            .resetGaps();
+
+            h1,h2 {
+                .resetGaps();
+                color: @gray-darker;
+            }
+
+            ul {
+                .resetGaps();
+                margin-top: 8px;
+
+                li {
+                    font-size: @font-size-body;
+                    list-style-type: none;
+                }
+            }
+
+            input[type="checkbox"]{
+                + label:before {
+                    padding: 6px 6px 0px 0px;
+                }
+            }
+        }
+    }
+} // End .cpl-scope

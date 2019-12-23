@@ -1,0 +1,46 @@
+#right-menu {
+    display: inline-flex;
+    list-style-type: none;
+}
+
+.sidebar-menu-item {
+    padding: 14px 19px !important;
+}
+
+#nav-menu {
+    height: auto;
+    min-height: 45px !important;
+    background: #3c8dbc !important;
+    color: white;
+}
+
+.sub-menu-list {
+    position: absolute !important;
+    will-change: transform !important;
+    top: 0px !important;
+    left: 0px !important;
+    transform: translate3d(0px, 15px, 0px) !important;
+}
+
+.head-bar {
+    padding: 14px;
+    border-bottom: 1px solid #dadada;
+}
+
+.right-menu-bar {
+    display: flex;
+    margin-top: -7px;
+}
+
+.brand-name-text {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.white-color {
+    color: white !important;
+}
+
+.header-menu-icons {
+    height: 15px !important;
+}

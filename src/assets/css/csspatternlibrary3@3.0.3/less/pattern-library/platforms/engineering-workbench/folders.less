@@ -1,0 +1,201 @@
+.cpl-scope {
+    // --------------------------------------- FOLDERS  --------------------- //
+
+    @folder-tab-color: #CBC7BF;
+    @folder-tab-color-hover: #919189;
+    @folder-body-color: #EEEAD2;
+    @folder-width: 208px;
+
+    .folder {
+        width: @folder-width;
+        word-wrap: break-word;
+    }
+
+
+    .folder-top {
+        background-color: @folder-tab-color;
+        padding: 8px 4px 0px 8px;
+        max-width: 178px;
+        height: auto; 
+        cursor: pointer;
+
+        .border-radius(4px);
+        .border-radius-bottom(0px);
+        
+        position: relative;
+        margin-right: 26px;
+        display: inline-block;
+        white-space: nowrap;
+        vertical-align: top;
+    
+        > label {
+            cursor: pointer;
+            margin: 0px;
+            color: @gray-light;
+        }
+
+        > input[type="checkbox"] {
+            
+            + label:before {
+                background-color: @body-bg;
+                margin-right: 5px;
+            }
+
+            &:checked + label:before {
+                color: @brand-primary;
+            }
+        }
+
+        p {
+            color: @body-bg;
+            font-weight: bold;
+            .resetGaps();
+            display: inline;
+        }
+
+        .badge {
+            position: absolute;
+            z-index: 100;
+            top: -7px;
+            right: -10px;
+            background: @brand-danger;
+            font-weight: normal;
+            color: @body-bg;
+            font-size: @font-size-small; 
+        }
+
+        &:after {
+            background-image: url('@{pathToimg}ihs-folder-corner.svg');
+            background-size: 26px 25px;
+            content:""; 
+
+            .size-object(26px,25px);
+            
+            position: absolute;
+            top: 2px;
+            right: -25px;
+        }
+    }
+
+
+    .folder-container{
+        
+        background-color: @folder-tab-color;
+        width: 100%;
+
+        .border-radius(4px);
+        .border-radius-left(0px);
+        .shadow-set(2px 2px 4px 1px #ccc);
+
+        border-bottom-right-radius: 0px;
+        padding: 8px 0px 0px 0px;
+        margin-bottom: 10px;
+
+    
+        .folder-body {
+            height: 105px;
+        }
+        .folder-body-open  {
+            height: 140px;
+        }
+
+        .folder-body, .folder-body-open {
+            background-color: @folder-body-color;
+            padding: 8px;
+            overflow: hidden;
+
+            .border-radius(4px);
+            .border-radius-bottom(0px);
+            
+            position: relative; 
+
+            .date {
+                color: @gray-darker;
+                width: 100%;
+                text-align: right;
+                margin-bottom: 4px;
+
+                &.small {
+                    display: block;
+                }
+
+            }
+            .title {
+                line-height: 14px;
+                font-weight: bold;
+                margin-top: 0px;
+                margin-bottom: 8px;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .summary {
+                color: @gray-darker;
+                line-height: 14px;
+                margin-bottom: 16px;
+            }
+        }
+        .folder-footer {
+            background-color: @folder-body-color;
+            padding: 7px 8px;
+        }
+        .folder-body-open {
+            background-color: @folder-tab-color;
+        }
+        .icon-bar {
+
+            svg[class*="brand-icon"], svg[class*="ihs-icon"] {
+                .icon-set(16px, @brand-primary, 0px 2px 0px 2px, 0px);
+
+                &:first-child {
+                    margin-left: 0px;
+                }
+
+                &:hover {
+                    .opacity(.6);
+                }
+            }
+        }
+    }
+
+    .folder-chunk {
+        width: 92px;
+        height: 24px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        background-image: url('@{pathToimg}ihs-folder-chunk.svg');
+        background-size: cover;
+    }
+    .folder-corner {  
+        display: inline-block;
+        .resetGaps();
+    }
+
+    .folder:hover, .selected {
+        cursor: pointer;
+
+        > .folder-top {
+            background-color: darken(@folder-tab-color-hover, 0);
+
+            &:after {
+                background-image: url('@{pathToimg}ihs-folder-corner-hover.svg');
+            }
+        }
+
+        > .folder-container {
+            background-color: darken(@folder-tab-color-hover, 0);
+                .folder-chunk {
+                    // content: url('../img/ihs-folder-chunk-hover.svg'); 
+                    background-image: url('@{pathToimg}ihs-folder-chunk-hover.svg');
+            }
+
+        }
+        .folder-body-open {
+            background-color: darken(@folder-tab-color-hover, 0);
+
+        }
+    }
+} // End .cpl-scope
