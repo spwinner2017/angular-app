@@ -14,7 +14,7 @@ export class RowGroupingComponent  {
   private columnDefs;
   private defaultColDef;
   private rowData:any;
-
+// implementation of ag grid 
   constructor(private http: HttpClient) {
     this.columnDefs = [
       {
